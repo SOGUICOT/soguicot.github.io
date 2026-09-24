@@ -59,7 +59,13 @@
         .layer-guinea { animation-delay: 6s; }
 
         .layer-world i { font-size: 4.5rem; }
-        .layer-africa i { font-size: 5.5rem; }
+        
+        /* Vecteurs Afrique et Guinée inversés en blanc */
+        .africa-vector {
+            width: 90px;
+            height: auto;
+            filter: invert(100%) drop-shadow(0 0 10px rgba(255, 255, 255, 0.4)); 
+        }
         
         .guinea-vector { 
             width: 110px; 
@@ -112,7 +118,17 @@
         .card-bureau { border: none; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: transform 0.3s; }
         .card-bureau:hover { transform: translateY(-5px); }
         .card-header-custom { background-color: var(--secondary-color); color: white; font-weight: bold; }
-        .president-img { width: 110px; height: 110px; object-fit: cover; border: 4px solid var(--bg-light); box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        
+        /* Photo du Professeur - Format identité */
+        .president-img { 
+            width: 130px; 
+            height: 130px; 
+            object-fit: cover; 
+            border: 4px solid var(--bg-light); 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
         
         /* Footer */
         footer { background-color: var(--primary-color); color: white; padding: 30px 0; text-align: center; }
@@ -138,20 +154,22 @@
         </div>
     </nav>
 
-    <!-- En-tête : Respect de la séquence demandée -->
+    <!-- En-tête : Séquence Cartographique -->
     <header class="hero">
         <div class="container">
             <h1 class="display-4 fw-bold">S.O.G.U.I.C.O.T</h1>
             <p class="hero-subtitle mt-2">Société Guinéenne de Chirurgie Orthopédique et Traumatologique</p>
             
-            <!-- Foyer visuel de l'animation -->
             <div class="map-focus-container">
+                <!-- 1. Carte du Monde -->
                 <div class="map-layer layer-world">
                     <i class="fas fa-globe"></i>
                 </div>
+                <!-- 2. Véritable forme de l'Afrique -->
                 <div class="map-layer layer-africa">
-                    <i class="fas fa-globe-africa"></i>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Africa_silhouette.svg/512px-Africa_silhouette.svg.png" alt="Carte de l'Afrique" class="africa-vector">
                 </div>
+                <!-- 3. Véritable forme de la Guinée -->
                 <div class="map-layer layer-guinea">
                     <img src="https://raw.githubusercontent.com/djaiss/mapsicon/master/all/gn/vector.svg" alt="Carte de la Guinée" class="guinea-vector">
                 </div>
@@ -159,7 +177,7 @@
         </div>
     </header>
 
-    <!-- Reproduction de l'Arrêté (Style Image Document Officiel) -->
+    <!-- Reproduction de l'Arrêté -->
     <div class="container">
         <div class="arrete-image-css">
             <div class="row text-center text-uppercase fw-bold" style="font-size: 0.85rem;">
@@ -208,18 +226,18 @@
             <div class="row mt-4">
                 <div class="col-md-6 mb-3">
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i><span class="text-dark fw-bold">Promouvoir et développer</span> la chirurgie orthopédique en Guinée.</li>
-                        <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i><span class="text-dark fw-bold">Améliorer la prise en charge</span> des lésions traumatologiques, orthopédiques, infectieuses et tumorales.</li>
-                        <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i><span class="text-dark fw-bold">Favoriser la formation continue</span> des chirurgiens et professionnels de santé.</li>
-                        <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i><span class="text-dark fw-bold">Sensibiliser à la prévention</span> (accidents de la voie publique et du travail).</li>
+                        <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i><strong>Promouvoir et développer</strong> la chirurgie orthopédique en Guinée.</li>
+                        <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i><strong>Améliorer la prise en charge</strong> des lésions traumatologiques, orthopédiques, infectieuses et tumorales.</li>
+                        <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i><strong>Favoriser la formation continue</strong> des chirurgiens et professionnels de santé.</li>
+                        <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i><strong>Sensibiliser à la prévention</strong> (accidents de la voie publique et du travail).</li>
                     </ul>
                 </div>
                 <div class="col-md-6 mb-3">
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i><span class="text-dark fw-bold">Encourager la recherche</span> scientifique et la diffusion des connaissances.</li>
-                        <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i><span class="text-dark fw-bold">Organiser des congrès</span> et ateliers scientifiques.</li>
-                        <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i><span class="text-dark fw-bold">Faciliter les échanges</span> avec les sociétés savantes internationales.</li>
-                        <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i><span class="text-dark fw-bold">Élaborer les bonnes pratiques</span> et recommandations nationales.</li>
+                        <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i><strong>Encourager la recherche</strong> scientifique et la diffusion des connaissances.</li>
+                        <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i><strong>Organiser des congrès</strong> et ateliers scientifiques.</li>
+                        <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i><strong>Faciliter les échanges</strong> avec les sociétés savantes internationales.</li>
+                        <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i><strong>Élaborer les bonnes pratiques</strong> et recommandations nationales.</li>
                     </ul>
                 </div>
             </div>
@@ -230,16 +248,19 @@
     <section id="bureau" class="container">
         <h2 class="section-title text-center d-block mx-auto">Le Bureau Exécutif</h2>
         <div class="row g-4 mt-2">
+            <!-- Présidence -->
             <div class="col-md-4">
                 <div class="card card-bureau h-100">
                     <div class="card-header card-header-custom text-center">Présidence</div>
                     <div class="card-body text-center">
-                        <img src="WhatsApp Image 2026-09-21 at 14.24.20.jpeg" alt="Professeur Léopold Lamah" class="president-img rounded-circle mb-3">
-                        <p class="mb-1"><span class="text-muted">Président :</span> Pr Léopold Lamah</p>
-                        <p class="mb-0"><span class="text-muted">Secrétaire général :</span> Dr Mohamed Lamine Bah (mca)</p>
+                        <!-- Intégration de la photo du Pr Lamah avec encodage sécurisé pour GitHub -->
+                        <img src="WhatsApp%20Image%202026-09-21%20at%2014.24.20.jpeg" alt="Professeur Léopold Lamah" class="president-img">
+                        <p class="mb-1"><strong>Président :</strong> Pr Léopold Lamah</p>
+                        <p class="mb-0"><strong>Secrétaire général :</strong> Dr Mohamed Lamine Bah (mca)</p>
                     </div>
                 </div>
             </div>
+            <!-- Trésorerie -->
             <div class="col-md-4">
                 <div class="card card-bureau h-100">
                     <div class="card-header card-header-custom text-center">Trésorerie</div>
@@ -251,6 +272,7 @@
                     </div>
                 </div>
             </div>
+            <!-- Secrétariat & Info -->
             <div class="col-md-4">
                 <div class="card card-bureau h-100 border-primary">
                     <div class="card-header bg-primary text-white text-center">Secrétariat et informatique</div>
@@ -263,16 +285,18 @@
                     </div>
                 </div>
             </div>
+            <!-- Formation -->
             <div class="col-md-6">
                 <div class="card card-bureau h-100">
                     <div class="card-header card-header-custom text-center">Formation et information</div>
                     <div class="card-body">
-                        <p class="mb-2"><span class="text-muted">Formation :</span><br>Dr Mamadou Moustapha Diallo<br>Dr Tafsir Camara<br>Dr Fodé Ibrahima Kourala Keita</p>
+                        <p class="mb-2"><strong>Formation :</strong><br>Dr Mamadou Moustapha Diallo<br>Dr Tafsir Camara<br>Dr Fodé Ibrahima Kourala Keita</p>
                         <hr class="text-muted">
-                        <p class="mb-0"><span class="text-muted">Information :</span><br>Dr Abdoulaye Camara<br>Dr Amadou Tanou Bah</p>
+                        <p class="mb-0"><strong>Information :</strong><br>Dr Abdoulaye Camara<br>Dr Amadou Tanou Bah</p>
                     </div>
                 </div>
             </div>
+            <!-- Relations Extérieures -->
             <div class="col-md-6">
                 <div class="card card-bureau h-100">
                     <div class="card-header card-header-custom text-center">Relations extérieures</div>
@@ -296,23 +320,23 @@
                 <div class="col-md-6">
                     <div class="alert alert-info">
                         <h5><i class="fas fa-info-circle me-2"></i>Frais d'Adhésion</h5>
-                        <p class="mb-1"><span class="text-dark fw-bold">Anciens membres :</span> 100 000 GNF + Demande adressée au président.</p>
-                        <p class="mb-0"><span class="text-dark fw-bold">Nouveaux membres (dès le 1er Août) :</span> 200 000 GNF + Demande d'adhésion.</p>
+                        <p class="mb-1"><strong>Anciens membres :</strong> 100 000 GNF + Demande adressée au président.</p>
+                        <p class="mb-0"><strong>Nouveaux membres (dès le 1er Août) :</strong> 200 000 GNF + Demande d'adhésion.</p>
                     </div>
                     <div class="alert alert-warning mt-3">
                         <h5><i class="fas fa-exclamation-triangle me-2"></i>Règlement & Amendes</h5>
                         <ul class="mb-0 small">
-                            <li>Présence obligatoire. 3 absences = Amende de 500 000 GNF (délai 72h).</li>
-                            <li>Cotisation incomplète au 31 décembre = Reste dû + Amende de 500 000 GNF (avant le 28 fév).</li>
-                            <li>Exclusion : 3 absences successives, refus de payer les amendes, ou non-paiement sur 12 mois.</li>
+                            <li><strong>Présence obligatoire.</strong> 3 absences = Amende de 500 000 GNF (délai 72h).</li>
+                            <li><strong>Cotisation incomplète</strong> au 31 décembre = Reste dû + Amende de 500 000 GNF (avant le 28 fév).</li>
+                            <li><strong>Critères d'exclusion :</strong> 3 absences successives, refus de payer les amendes, ou non-paiement sur 12 mois.</li>
                         </ul>
                     </div>
                     <div class="alert alert-success mt-3">
                         <h5><i class="fas fa-star me-2"></i>Avantages</h5>
                         <ul class="mb-0 small">
-                            <li>Priorité sur les formations théoriques et pratiques.</li>
-                            <li>Représentation de la société dans les réunions scientifiques.</li>
-                            <li>Gratuité de participation aux congrès organisés par la société.</li>
+                            <li><strong>Priorité</strong> sur les formations théoriques et pratiques.</li>
+                            <li><strong>Représentation</strong> de la société dans les réunions scientifiques.</li>
+                            <li><strong>Gratuité</strong> de participation aux congrès organisés par la société.</li>
                         </ul>
                     </div>
                 </div>
@@ -321,23 +345,23 @@
                     <p class="text-muted small mb-3">La société est composée de 4 catégories de membres principaux :</p>
                     <ul class="list-group">
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            Membres titulaires (seniors)
+                            <strong>Membres titulaires (seniors)</strong>
                             <span class="badge bg-primary rounded-pill">Actifs > 4 ans</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            Membres seniors
+                            <strong>Membres seniors</strong>
                             <span class="badge bg-secondary rounded-pill">Spécialistes</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            Membres juniors
+                            <strong>Membres juniors</strong>
                             <span class="badge bg-secondary rounded-pill">En formation</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            Membres associés
+                            <strong>Membres associés</strong>
                             <span class="badge bg-secondary rounded-pill">Autres spécialités/étrangers</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            Membres d'honneur
+                            <strong>Membres d'honneur</strong>
                             <span class="badge bg-warning text-dark rounded-pill">Honorifiques</span>
                         </li>
                     </ul>
