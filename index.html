@@ -15,7 +15,8 @@
             --accent-color: #E63946; 
             --bg-light: #f8f9fa;
         }
-        body { font-family: 'Segoe UI', system-ui, sans-serif; background-color: var(--bg-light); }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Segoe UI', system-ui, sans-serif; background-color: var(--bg-light); color: #222; }
         
         /* Navbar */
         .navbar { background-color: var(--primary-color); box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
@@ -57,7 +58,6 @@
         .layer-world { animation-delay: 0s; font-size: 4.5rem; }
         .layer-africa { animation-delay: 3s; font-size: 5rem; }
         
-        /* Silhouette vectorielle exacte de la Guinée sans marqueur */
         .layer-guinea { animation-delay: 6s; }
         .guinea-vector { 
             width: 110px; 
@@ -122,6 +122,12 @@
             margin-bottom: 15px;
         }
 
+        /* Fonctions en gras et noir strictes */
+        .bureau-role {
+            font-weight: bold;
+            color: #000000;
+        }
+
         /* Listes d'objectifs */
         .list-group-custom .list-group-item { background: transparent; border: none; padding-left: 0; padding-top: 0.75rem; padding-bottom: 0.75rem; }
         
@@ -149,7 +155,7 @@
         </div>
     </nav>
 
-    <!-- En-tête : Séquence Cartographique (Monde -> Afrique -> Guinée vectorielle pure) -->
+    <!-- En-tête : Séquence Cartographique -->
     <header class="hero">
         <div class="container">
             <h1 class="display-4 fw-bold">S.O.G.U.I.C.O.T</h1>
@@ -207,7 +213,7 @@
         </p>
     </section>
 
-    <!-- Nos Objectifs -->
+    <!-- Nos Objectifs (Texte Officiel Intégral) -->
     <section id="objectifs" class="bg-white">
         <div class="container">
             <h2 class="section-title text-center d-block mx-auto">Nos Objectifs</h2>
@@ -265,8 +271,8 @@
                     <div class="card-header card-header-custom text-center">Présidence</div>
                     <div class="card-body text-center">
                         <img src="WhatsApp%20Image%202026-09-21%20at%2014.24.20.jpeg" alt="Professeur Léopold Lamah" class="president-img">
-                        <p class="mb-1"><span class="text-muted">Président :</span> Pr Léopold Lamah</p>
-                        <p class="mb-0"><span class="text-muted">Secrétaire général :</span> Dr Mohamed Lamine Bah (mca)</p>
+                        <p class="mb-1"><span class="bureau-role">Président :</span> Pr Léopold Lamah</p>
+                        <p class="mb-0"><span class="bureau-role">Secrétaire général :</span> Dr Mohamed Lamine Bah (mca)</p>
                     </div>
                 </div>
             </div>
@@ -297,9 +303,9 @@
                 <div class="card card-bureau h-100">
                     <div class="card-header card-header-custom text-center">Formation et information</div>
                     <div class="card-body">
-                        <p class="mb-2"><span class="text-muted">Formation :</span><br>Dr Mamadou Moustapha Diallo<br>Dr Tafsir Camara<br>Dr Fodé Ibrahima Kourala Keita</p>
+                        <p class="mb-2"><span class="bureau-role">Formation :</span><br>Dr Mamadou Moustapha Diallo<br>Dr Tafsir Camara<br>Dr Fodé Ibrahima Kourala Keita</p>
                         <hr class="text-muted">
-                        <p class="mb-0"><span class="text-muted">Information :</span><br>Dr Abdoulaye Camara<br>Dr Amadou Tanou Bah</p>
+                        <p class="mb-0"><span class="bureau-role">Information :</span><br>Dr Abdoulaye Camara<br>Dr Amadou Tanou Bah</p>
                     </div>
                 </div>
             </div>
@@ -318,7 +324,7 @@
         </div>
     </section>
 
-    <!-- Adhésion & Statuts -->
+    <!-- Adhésion & Statuts (Texte Officiel Intégral) -->
     <section id="adhesion" class="bg-white">
         <div class="container">
             <h2 class="section-title text-center d-block mx-auto">Adhésion & Statuts</h2>
