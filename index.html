@@ -26,71 +26,77 @@
         .hero { 
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); 
             color: white; 
-            padding: 60px 0 80px; 
+            padding: 50px 0 90px; 
             text-align: center; 
         }
+
+        .hero h1 { font-weight: 700; letter-spacing: 2px; }
+        .hero-subtitle { font-size: 1.3rem; font-style: italic; opacity: 0.95; }
         
-        /* Animation Séquentielle Exacte (Vision Pr Lamah) */
-        .map-sequence-container {
+        /* L'Orfèvrerie Numérique : Séquence Cartographique Focalisée */
+        .map-focus-container {
             position: relative;
-            height: 120px;
+            height: 140px;
+            width: 140px;
+            margin: 30px auto 10px auto;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-bottom: 20px;
         }
-        .map-icon {
+
+        .map-layer {
             position: absolute;
             opacity: 0;
-            animation-duration: 9s;
-            animation-iteration-count: infinite;
+            /* Cycle total de 9 secondes pour les 3 cartes */
+            animation: sequenceReveal 9s infinite ease-in-out; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #ffffff;
         }
+
+        /* Distribution temporelle mathématique (3 secondes par carte) */
+        .layer-world { animation-delay: 0s; }
+        .layer-africa { animation-delay: 3s; }
+        .layer-guinea { animation-delay: 6s; }
+
+        .layer-world i { font-size: 4.5rem; }
+        .layer-africa i { font-size: 5.5rem; }
         
-        /* 1. Monde */
-        .map-world { font-size: 4rem; animation-name: showWorld; }
-        @keyframes showWorld {
-            0%, 5% { opacity: 0; transform: scale(0.8); }
-            10%, 25% { opacity: 1; transform: scale(1); }
-            30%, 100% { opacity: 0; }
+        /* Silhouette vectorielle de la Guinée inversée en blanc avec un halo d'urgence rouge */
+        .guinea-vector { 
+            width: 110px; 
+            height: auto; 
+            filter: invert(100%) drop-shadow(0 0 15px rgba(230, 57, 70, 0.8)); 
         }
 
-        /* 2. Afrique */
-        .map-africa { font-size: 5rem; animation-name: showAfrica; }
-        @keyframes showAfrica {
-            0%, 30% { opacity: 0; transform: scale(0.8); }
-            35%, 55% { opacity: 1; transform: scale(1); }
-            60%, 100% { opacity: 0; }
+        /* L'animation : Apparition fluide, travelling avant (zoom), disparition */
+        @keyframes sequenceReveal {
+            0% { opacity: 0; transform: scale(0.7) translateY(10px); }
+            8% { opacity: 1; transform: scale(1) translateY(0); }
+            25% { opacity: 1; transform: scale(1.15) translateY(0); } /* Travelling lent */
+            33% { opacity: 0; transform: scale(1.4) translateY(-10px); } /* Sortie */
+            100% { opacity: 0; } /* Reste invisible jusqu'à son prochain tour */
         }
-
-        /* 3. Guinée */
-        .map-guinea { font-size: 6rem; color: var(--accent-color); animation-name: showGuinea; }
-        @keyframes showGuinea {
-            0%, 60% { opacity: 0; transform: scale(0.8); }
-            65%, 90% { opacity: 1; transform: scale(1.1); }
-            95%, 100% { opacity: 0; }
-        }
-
-        .hero h1 { font-weight: 700; letter-spacing: 1px; margin-top: 10px; }
-        .hero-subtitle { font-size: 1.2rem; font-style: italic; opacity: 0.9; }
 
         /* Le "Trompe-l'oeil" de l'Arrêté (Apparence d'image scannée) */
         .arrete-image-css {
             background-color: #ffffff;
             border: 1px solid #cccccc;
-            box-shadow: 2px 5px 15px rgba(0,0,0,0.15); /* Effet papier surélevé */
-            margin: -50px auto 40px auto; /* Chevauchement sur le bleu */
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15); 
+            margin: -60px auto 50px auto; 
             position: relative;
             z-index: 10;
-            font-family: 'Times New Roman', Times, serif; /* Police officielle */
+            font-family: 'Times New Roman', Times, serif; 
             color: #111;
-            max-width: 800px;
-            padding: 40px;
-            border-radius: 2px;
-            background-image: repeating-linear-gradient(transparent, transparent 50px, rgba(0,0,0,0.01) 50px, rgba(0,0,0,0.01) 51px); /* Léger effet de texture papier */
+            max-width: 850px;
+            padding: 45px;
+            border-radius: 3px;
+            background-image: repeating-linear-gradient(transparent, transparent 50px, rgba(0,0,0,0.015) 50px, rgba(0,0,0,0.015) 51px);
         }
         .doc-header-line { border-top: 1px dashed #555; width: 60%; margin: 8px auto; }
         .doc-number {
-            color: #0033cc; /* Couleur stylo/tampon */
+            color: #0033cc; 
             font-size: 2.2rem;
             font-family: 'Georgia', serif;
             font-style: italic;
@@ -135,37 +141,43 @@
         </div>
     </nav>
 
-    <!-- En-tête / Accueil Animé -->
+    <!-- En-tête : Respect de la séquence demandée -->
     <header class="hero">
         <div class="container">
-            <!-- Animation Séquentielle -->
-            <div class="map-sequence-container">
-                <i class="fas fa-globe map-icon map-world"></i>
-                <i class="fas fa-globe-africa map-icon map-africa"></i>
-                <i class="fas fa-map-marker-alt map-icon map-guinea"></i>
-            </div>
-
             <h1 class="display-4 fw-bold">S.O.G.U.I.C.O.T</h1>
-            <p class="hero-subtitle mt-2 fs-4">Société Guinéenne de Chirurgie Orthopédique et Traumatologique</p>
+            <p class="hero-subtitle mt-2">Société Guinéenne de Chirurgie Orthopédique et Traumatologique</p>
+            
+            <!-- Foyer visuel de l'animation -->
+            <div class="map-focus-container">
+                <!-- Carte du monde -->
+                <div class="map-layer layer-world">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <!-- Carte d'Afrique -->
+                <div class="map-layer layer-africa">
+                    <i class="fas fa-globe-africa"></i>
+                </div>
+                <!-- Véritable Carte de la Guinée (Vectorielle Open Source) -->
+                <div class="map-layer layer-guinea">
+                    <img src="https://raw.githubusercontent.com/djaiss/mapsicon/master/all/gn/vector.svg" alt="Carte de la Guinée" class="guinea-vector">
+                </div>
+            </div>
         </div>
     </header>
 
-    <!-- Reproduction de l'Arrêté (Style Image) -->
+    <!-- Reproduction de l'Arrêté (Style Image Document Officiel) -->
     <div class="container">
         <div class="arrete-image-css">
             <!-- En-tête du document -->
             <div class="row text-center text-uppercase fw-bold" style="font-size: 0.85rem;">
-                <!-- Gauche : Ministère -->
                 <div class="col-md-5 mb-3 mb-md-0">
                     <p class="mb-1">MINISTERE DE L'ADMINISTRATION DU TERRITOIRE ET DE LA DECENTRALISATION</p>
                     <div class="doc-header-line"></div>
                     <p class="mb-0 mt-1">SERVICE NATIONAL DE REGLEMENTATION DE PROMOTION DES ORGANISATIONS NON GOUVERNEMENTALES ET MOUVEMENTS ASSOCIATIFS «SERPROMA».</p>
                 </div>
-                <!-- Centre : Balance -->
                 <div class="col-md-2 d-flex align-items-center justify-content-center opacity-25 d-none d-md-flex">
                     <i class="fas fa-balance-scale fa-4x text-dark"></i>
                 </div>
-                <!-- Droite : République -->
                 <div class="col-md-5">
                     <p class="mb-1">REPUBLIQUE DE GUINEE</p>
                     <div class="doc-header-line"></div>
@@ -231,7 +243,7 @@
                     <div class="card-header card-header-custom text-center">Présidence</div>
                     <div class="card-body">
                         <p><strong>Président :</strong> Pr. Léopold Lamah</p>
-                        <p><strong>Secrétaire Général :</strong> Mohamed Lamine Bah (MCA)</p>
+                        <p><strong>Secrétaire Général :</strong> Dr Mohamed Lamine Bah (MCA)</p>
                     </div>
                 </div>
             </div>
@@ -240,8 +252,8 @@
                     <div class="card-header card-header-custom text-center">Trésorerie</div>
                     <div class="card-body">
                         <ul class="list-unstyled">
-                            <li>Nouhou Mangué Camara</li>
-                            <li>Rouguiatou Diallo</li>
+                            <li>Dr Nouhou Mangué Camara</li>
+                            <li>Dr Rouguiatou Diallo</li>
                         </ul>
                     </div>
                 </div>
@@ -251,9 +263,9 @@
                     <div class="card-header bg-primary text-white text-center">Secrétariat & Informatique</div>
                     <div class="card-body">
                         <ul class="list-unstyled">
-                            <li>Abraham Gbanamou</li>
-                            <li>Patrick</li>
-                            <li><strong>Dr. Tabaouo Samaké</strong></li>
+                            <li>Dr Abraham Gbanamou</li>
+                            <li><strong>Dr Patrick Fredy NOUMAHAYON</strong></li>
+                            <li><strong>Dr Amara Tabaouo Samaké</strong></li>
                         </ul>
                     </div>
                 </div>
@@ -262,8 +274,8 @@
                 <div class="card card-bureau h-100">
                     <div class="card-header card-header-custom text-center">Formation & Information</div>
                     <div class="card-body">
-                        <p><strong>Formation :</strong> M. Moustapha Diallo, Tafsir Camara, Fodé I. Kourala Keita</p>
-                        <p><strong>Information :</strong> Abdoulaye Camara, Amadou Tanou Bah</p>
+                        <p><strong>Formation :</strong> Dr Mamadou Moustapha Diallo, Dr Tafsir Camara, Dr Fodé Ibrahima Kourala Keita</p>
+                        <p><strong>Information :</strong> Dr Abdoulaye Camara, Dr Amadou Tanou Bah</p>
                     </div>
                 </div>
             </div>
@@ -272,9 +284,9 @@
                     <div class="card-header card-header-custom text-center">Relations Extérieures</div>
                     <div class="card-body">
                         <ul class="list-unstyled">
-                            <li>Sory Sidimé</li>
-                            <li>Amira P Aboud</li>
-                            <li>Hawa Lamara Diallo</li>
+                            <li>Dr Sory Sidimé</li>
+                            <li>Dr Amira P Aboud</li>
+                            <li>Dr Hawa Lamara Diallo</li>
                         </ul>
                     </div>
                 </div>
@@ -339,7 +351,7 @@
             </div>
             
             <div class="text-center mt-5">
-                <!-- Remarque Nora: Placez le lien vers votre Google Forms ici -->
+                <!-- Remarque Nora : Le lien vers votre Google Forms sera à intégrer ici -->
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSdC8EZa8TJsakGVjckZkpYqZsQ2tf3pUW-OGuhj9Z8cva4_kw/viewform?usp=header" class="btn btn-primary btn-lg px-5 py-3 shadow" style="background-color: var(--primary-color);">Remplir le Formulaire d'Adhésion en Ligne</a>
             </div>
         </div>
