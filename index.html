@@ -266,16 +266,27 @@
     <section id="bureau" class="container">
         <h2 class="section-title text-center d-block mx-auto">Le Bureau Exécutif</h2>
         <div class="row g-4 mt-2">
-            <div class="col-md-4">
-                <div class="card card-bureau h-100">
-                    <div class="card-header card-header-custom text-center">Présidence</div>
-                    <div class="card-body text-center">
+            <!-- Présidence (Isolée avec la photo) -->
+            <div class="col-md-6">
+                <div class="card card-bureau h-100 text-center p-3">
+                    <div class="card-header card-header-custom mb-3">Présidence</div>
+                    <div class="card-body">
                         <img src="WhatsApp%20Image%202026-09-21%20at%2014.24.20.jpeg" alt="Professeur Léopold Lamah" class="president-img">
-                        <p class="mb-1"><span class="bureau-role">Président :</span> Pr Léopold Lamah</p>
-                        <p class="mb-0"><span class="bureau-role">Secrétaire général :</span> Dr Mohamed Lamine Bah (mca)</p>
+                        <p class="mb-0 fs-5"><span class="bureau-role">Président :</span> Pr Léopold Lamah</p>
                     </div>
                 </div>
             </div>
+            <!-- Secrétariat Général -->
+            <div class="col-md-6">
+                <div class="card card-bureau h-100 text-center p-3">
+                    <div class="card-header card-header-custom mb-3">Secrétariat Général</div>
+                    <div class="card-body d-flex flex-column justify-content-center">
+                        <i class="fas fa-file-signature fa-3x text-primary mb-3"></i>
+                        <p class="mb-0 fs-5"><span class="bureau-role">Secrétaire Général :</span> Pr Lamine Bah (MCA)</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Trésorerie -->
             <div class="col-md-4">
                 <div class="card card-bureau h-100">
                     <div class="card-header card-header-custom text-center">Trésorerie</div>
@@ -287,6 +298,7 @@
                     </div>
                 </div>
             </div>
+            <!-- Secrétariat & Info -->
             <div class="col-md-4">
                 <div class="card card-bureau h-100 border-primary">
                     <div class="card-header bg-primary text-white text-center">Secrétariat et informatique</div>
@@ -299,7 +311,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
+            <!-- Formation et information -->
+            <div class="col-md-4">
                 <div class="card card-bureau h-100">
                     <div class="card-header card-header-custom text-center">Formation et information</div>
                     <div class="card-body">
@@ -309,49 +322,49 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
+            <!-- Relations Extérieures -->
+            <div class="col-12">
                 <div class="card card-bureau h-100">
                     <div class="card-header card-header-custom text-center">Relations extérieures</div>
-                    <div class="card-body">
-                        <ul class="list-unstyled mb-0">
-                            <li class="mb-2">Dr Sory Sidimé</li>
-                            <li class="mb-2">Dr Amira P Aboud</li>
-                            <li>Dr Hawa Lamara Diallo</li>
-                        </ul>
+                    <div class="card-body text-center">
+                        <p class="mb-0">Dr Sory Sidimé &bull; Dr Amira P Aboud &bull; Dr Hawa Lamara Diallo</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Adhésion & Statuts (Texte Officiel Intégral) -->
+    <!-- Adhésion & Statuts (Texte Officiel Intégral avec Codes Couleurs Ajustés) -->
     <section id="adhesion" class="bg-white">
         <div class="container">
             <h2 class="section-title text-center d-block mx-auto">Adhésion & Statuts</h2>
             
             <div class="row g-4 mt-2">
+                <!-- Colonne Gauche -->
                 <div class="col-lg-6">
-                    <div class="card shadow-sm border-0 mb-4">
-                        <div class="card-header bg-primary text-white fw-bold">1- Volets adhésion</div>
+                    <!-- 1. Volets adhésion (VERT) -->
+                    <div class="card shadow-sm border-0 mb-4 border-start border-success border-4">
+                        <div class="card-header bg-success text-white fw-bold">1- Volets adhésion</div>
                         <div class="card-body">
                             <ul class="mb-3">
                                 <li>Tous les anciens membres doivent faire une demande d’adhésion avec un montant de 100 milles francs adressée au président de la société.</li>
                                 <li>Les nouveaux membres (à partir du 1er Aout) doivent en plus de la demande d’adhésion payer 200 milles.</li>
                             </ul>
-                            <h6 class="fw-bold">Critères d’adhésion :</h6>
+                            <h6 class="fw-bold"><span class="bureau-role">Critères d’adhésion :</span></h6>
                             <ul><li>Diplôme d’État en médecine</li></ul>
                         </div>
                     </div>
 
-                    <div class="card shadow-sm border-0 mb-4 border-start border-warning border-4">
+                    <!-- 3. Obligations & 4. Critères d'exclusion (ROUGE) -->
+                    <div class="card shadow-sm border-0 mb-4 border-start border-danger border-4">
                         <div class="card-body">
-                            <h5 class="fw-bold text-dark border-bottom pb-2">3- Obligations des membres</h5>
-                            <ul>
+                            <h5 class="fw-bold text-danger border-bottom pb-2">3- Obligations des membres</h5>
+                            <ul class="mb-3">
                                 <li>Participation obligatoire aux réunions (3 absences même justifiées est passibles d’une amende de 500 milles dans un délai de 72h).</li>
                                 <li>Paiement des cotisations (Le paiement incomplet des cotisations au 31 décembre de l’année entraine une obligation du paiement du reste de la somme due plus une amende de 500 milles au plus tard le 28 février de l’année suivante).</li>
                             </ul>
                             
-                            <h5 class="fw-bold text-dark border-bottom pb-2 mt-4">4- Critères d’exclusion :</h5>
+                            <h5 class="fw-bold text-danger border-bottom pb-2 mt-4">4- Critères d’exclusion :</h5>
                             <ul>
                                 <li>3 absences successives aux réunions même justifiées ;</li>
                                 <li>Le refus du paiement des amendes d’absence ;</li>
@@ -361,13 +374,15 @@
                     </div>
                 </div>
 
+                <!-- Colonne Droite -->
                 <div class="col-lg-6">
-                    <div class="card shadow-sm border-0 mb-4">
-                        <div class="card-header bg-secondary text-white fw-bold">2- Membres de la SOGUICOT</div>
+                    <!-- 2. Membres de la SOGUICOT (JAUNE / ORANGE) -->
+                    <div class="card shadow-sm border-0 mb-4 border-start border-warning border-4">
+                        <div class="card-header bg-warning text-dark fw-bold">2- Membres de la SOGUICOT</div>
                         <div class="card-body">
                             <p class="text-muted fst-italic">Quatre catégories de membres</p>
                             
-                            <h6 class="fw-bold text-primary">Membres titulaires : ce sont les membres seniors qui :</h6>
+                            <h6 class="fw-bold text-dark"><span class="bureau-role">Membres titulaires :</span> ce sont les membres seniors qui :</h6>
                             <ul>
                                 <li>Ont quatre années d’ancienneté ;</li>
                                 <li>Se sont acquittés de la totalité de la cotisation ;</li>
@@ -375,25 +390,25 @@
                                 <li>Peuvent être membre du bureau exécutif.</li>
                             </ul>
 
-                            <h6 class="fw-bold text-primary mt-3">Membres seniors : médecin</h6>
+                            <h6 class="fw-bold text-dark mt-3"><span class="bureau-role">Membres seniors :</span> médecin</h6>
                             <ul>
                                 <li>Détenteur du diplôme de spécialiste en chirurgie orthopédique et traumatologique ;</li>
                                 <li>Nationalité guinéenne ;</li>
                                 <li>Exerçant la profession.</li>
                             </ul>
 
-                            <h6 class="fw-bold text-primary mt-3">Membres juniors :</h6>
+                            <h6 class="fw-bold text-dark mt-3"><span class="bureau-role">Membres juniors :</span></h6>
                             <ul>
                                 <li>Médecins de nationalité guinéenne en cours de formation en chirurgie Orthopédique et traumatologique.</li>
                             </ul>
 
-                            <h6 class="fw-bold text-primary mt-3">Membres associés : Médecin</h6>
+                            <h6 class="fw-bold text-dark mt-3"><span class="bureau-role">Membres associés :</span> Médecin</h6>
                             <ul>
                                 <li>Médecin guinéen d’une autre spécialité (diplôme de spécialiste) ;</li>
                                 <li>Médecin Orthopédiste étranger.</li>
                             </ul>
 
-                            <h6 class="fw-bold text-primary mt-3">Membres d’Honneur :</h6>
+                            <h6 class="fw-bold text-dark mt-3"><span class="bureau-role">Membres d’Honneur :</span></h6>
                             <ul>
                                 <li>Ancien président de la SOGUICOT ;</li>
                                 <li>Toute personne guinéenne ou étrangère ayant rendu à la société ou à la chirurgie orthopédique et traumatologique des services éminents.</li>
@@ -403,9 +418,10 @@
                 </div>
             </div>
 
-            <div class="card shadow-sm border-0 mt-2 border-start border-success border-4">
+            <!-- 5. Les avantages liés à la Société (ROUGE) -->
+            <div class="card shadow-sm border-0 mt-2 border-start border-danger border-4">
                 <div class="card-body">
-                    <h5 class="fw-bold text-success border-bottom pb-2">5- Les avantages liés à la Société</h5>
+                    <h5 class="fw-bold text-danger border-bottom pb-2">5- Les avantages liés à la Société</h5>
                     <ul class="mb-0">
                         <li>La SOGUICOT doit être le garant de l’exercice de la pratique de la chirurgie orthopédique et traumatologique.</li>
                         <li>Elle est le répondant devant l’Etat et les autorités du métier de l’orthopédie traumatologie.</li>
