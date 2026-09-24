@@ -10,9 +10,9 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #003366; /* Bleu Médical Institutionnel */
+            --primary-color: #003366; 
             --secondary-color: #0055A4;
-            --accent-color: #E63946; /* Rouge Urgence/Trauma */
+            --accent-color: #E63946; 
             --bg-light: #f8f9fa;
         }
         body { font-family: 'Segoe UI', system-ui, sans-serif; background-color: var(--bg-light); }
@@ -22,60 +22,90 @@
         .navbar-brand, .nav-link { color: #ffffff !important; font-weight: 500; }
         .nav-link:hover { color: var(--accent-color) !important; }
         
-        /* Hero Section (Accueil Animé) */
+        /* Hero Section */
         .hero { 
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); 
             color: white; 
-            padding: 80px 0 60px; 
+            padding: 50px 0 60px; 
             text-align: center; 
-            overflow: hidden; 
+        }
+        
+        /* Animation Cinématographique (Vision Pr Lamah) */
+        .cinematic-map {
             position: relative;
+            height: 120px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
         }
-        .hero h1 { font-weight: 700; letter-spacing: 1px; }
+        .cinematic-icon {
+            position: absolute;
+            opacity: 0;
+            animation-duration: 9s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+        }
+        
+        /* 1. Le Monde */
+        .map-world { font-size: 4.5rem; animation-name: zoomWorld; }
+        @keyframes zoomWorld {
+            0% { opacity: 0; transform: scale(0.5); }
+            10% { opacity: 1; transform: scale(1); }
+            28% { opacity: 1; transform: scale(1.3); }
+            33% { opacity: 0; transform: scale(1.8); }
+            100% { opacity: 0; }
+        }
+
+        /* 2. L'Afrique */
+        .map-africa { font-size: 5rem; animation-name: zoomAfrica; }
+        @keyframes zoomAfrica {
+            0%, 28% { opacity: 0; transform: scale(0.5); }
+            33% { opacity: 1; transform: scale(1); }
+            61% { opacity: 1; transform: scale(1.3); }
+            66% { opacity: 0; transform: scale(1.8); }
+            100% { opacity: 0; }
+        }
+
+        /* 3. La Guinée */
+        .map-guinea { font-size: 4rem; color: var(--accent-color); animation-name: zoomGuinea; }
+        @keyframes zoomGuinea {
+            0%, 61% { opacity: 0; transform: scale(0.5); }
+            66% { opacity: 1; transform: scale(1); }
+            95% { opacity: 1; transform: scale(1.2); }
+            100% { opacity: 0; transform: scale(1.5); }
+        }
+
+        .hero h1 { font-weight: 700; letter-spacing: 1px; margin-top: 10px; }
         .hero-subtitle { font-size: 1.2rem; font-style: italic; opacity: 0.9; }
-        
-        /* Animations Cartographiques (Vision Pr Lamah) */
-        .map-sequence-container { height: 120px; position: relative; width: 120px; margin: 0 auto; }
-        .map-step { animation-duration: 6s; animation-fill-mode: forwards; animation-iteration-count: infinite; }
-        
-        .map-world { animation-name: showWorld; }
-        @keyframes showWorld {
-            0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
-            10% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-            30% { opacity: 1; }
-            35% { opacity: 0; }
-            100% { opacity: 0; }
-        }
 
-        .map-africa { animation-name: showAfrica; }
-        @keyframes showAfrica {
-            0% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
-            33% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
-            38% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
-            60% { opacity: 1; }
-            65% { opacity: 0; }
-            100% { opacity: 0; }
+        /* Reproduction Numérique de l'Arrêté Légal */
+        .document-replica {
+            background-color: #ffffff;
+            border: 1px solid #dcdcdc;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            margin-top: -40px; /* Chevauchement élégant sur le bandeau bleu */
+            position: relative;
+            z-index: 10;
+            font-family: 'Times New Roman', Times, serif;
+            color: #222;
         }
-
-        .map-guinea { animation-name: showGuinea; }
-        @keyframes showGuinea {
-            0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
-            63% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
-            68% { opacity: 1; transform: translate(-50%, -50%) scale(1.5); color: var(--accent-color); }
-            95% { opacity: 1; transform: translate(-50%, -50%) scale(1.5); }
-            100% { opacity: 0; }
+        .doc-header-line { border-top: 1px dashed #666; width: 40%; margin: 5px auto; }
+        .doc-number {
+            color: #0033cc;
+            font-size: 2rem;
+            font-family: 'Georgia', serif;
+            font-style: italic;
+            font-weight: bold;
         }
         
         /* Sections */
         section { padding: 60px 0; }
         .section-title { 
-            color: var(--primary-color); 
-            font-weight: 700; 
-            margin-bottom: 40px; 
-            text-transform: uppercase;
-            border-bottom: 3px solid var(--accent-color);
-            display: inline-block;
-            padding-bottom: 10px;
+            color: var(--primary-color); font-weight: 700; margin-bottom: 40px; 
+            text-transform: uppercase; border-bottom: 3px solid var(--accent-color);
+            display: inline-block; padding-bottom: 10px;
         }
         
         /* Cards Bureau */
@@ -107,39 +137,61 @@
         </div>
     </nav>
 
-    <!-- En-tête / Accueil Animé (Vision Pr Lamah) -->
+    <!-- En-tête / Accueil Animé -->
     <header class="hero">
-        <div class="container position-relative" style="z-index: 2;">
-            
-            <!-- Séquence d'animation cartographique -->
-            <div class="map-sequence-container mb-4">
-                <!-- 1. Carte du Monde -->
-                <i class="fas fa-globe map-step map-world fa-4x text-white position-absolute top-50 start-50 translate-middle"></i>
-                <!-- 2. Carte d'Afrique -->
-                <i class="fas fa-globe-africa map-step map-africa fa-5x text-white position-absolute top-50 start-50 translate-middle" style="opacity: 0;"></i>
-                <!-- 3. Carte de la Guinée (Pin) qui apparaît et s'agrandit -->
-                <i class="fas fa-map-marker-alt map-step map-guinea text-danger position-absolute top-50 start-50 translate-middle" style="font-size: 5rem; opacity: 0;"></i>
+        <div class="container">
+            <!-- Animation Cinématographique Zoom -->
+            <div class="cinematic-map">
+                <i class="fas fa-globe cinematic-icon map-world"></i>
+                <i class="fas fa-globe-africa cinematic-icon map-africa"></i>
+                <i class="fas fa-map-marker-alt cinematic-icon map-guinea"></i>
             </div>
 
             <h1 class="display-4 fw-bold">S.O.G.U.I.C.O.T</h1>
             <p class="hero-subtitle mt-2 fs-4">Société Guinéenne de Chirurgie Orthopédique et Traumatologique</p>
             <p class="mt-3 lead">Créée le 19 Mars 2020 par et pour les orthopédistes guinéens.</p>
-            
-            <!-- Intégration de l'Arrêté Légal -->
-            <div class="legal-badge mt-4 p-3 bg-white text-dark rounded shadow mx-auto" style="max-width: 600px;">
-                <p class="mb-2 fw-bold text-primary"><i class="fas fa-certificate me-2"></i>Agrément Officiel</p>
-                <!-- Remarque Nora: Assurez-vous d'avoir uploadé arrete917.jpg sur GitHub -->
-                <img src="arrete917.jpg" alt="Arrêté A/2020/917 MATD" class="img-fluid border" style="max-height: 150px; display: block; margin: 0 auto;">
-                <p class="small text-muted mt-2 mb-0">Arrêté A/2020/917/MATD/SERPROMA/SGG</p>
-            </div>
         </div>
     </header>
 
+    <!-- Reproduction Numérique de l'Arrêté Officiel -->
+    <div class="container">
+        <div class="document-replica mx-auto p-4 p-md-5 rounded">
+            <div class="row text-center text-uppercase fw-bold" style="font-size: 0.8rem;">
+                <div class="col-md-5 mb-3 mb-md-0">
+                    <p class="mb-1">MINISTERE DE L'ADMINISTRATION DU TERRITOIRE ET DE LA DECENTRALISATION</p>
+                    <div class="doc-header-line"></div>
+                    <p class="mb-0 mt-1">SERVICE NATIONAL DE REGLEMENTATION DE PROMOTION DES ORGANISATIONS NON GOUVERNEMENTALES ET MOUVEMENTS ASSOCIATIFS «SERPROMA».</p>
+                </div>
+                <div class="col-md-2 d-flex align-items-center justify-content-center opacity-25 d-none d-md-flex">
+                    <i class="fas fa-balance-scale fa-3x text-muted"></i>
+                </div>
+                <div class="col-md-5">
+                    <p class="mb-1">REPUBLIQUE DE GUINEE</p>
+                    <div class="doc-header-line"></div>
+                    <p class="mt-1" style="text-transform: none; font-style: italic;">Travail-Justice-Solidarité</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5">
+                <h5 class="text-decoration-underline fw-bold mb-3">ARRETE</h5>
+                <p class="fw-bold fs-5">
+                    A/2020/ <span class="doc-number">917</span> /MATD/SERPROMA/SGG
+                </p>
+                <p class="fw-bold mt-4 px-md-5" style="font-size: 1.1rem;">
+                    PORTANT AGREMENT DE LA SOCIETE GUINEENNE DE CHIRURGIE ORTHOPEDIE TRAUMATOLOGIE.
+                </p>
+                <p class="fw-bold mt-5 text-uppercase" style="font-size: 0.9rem;">
+                    LE MINISTRE DE L'ADMINISTRATION DU TERRITOIRE ET DE LA DECENTRARLISATION.
+                </p>
+            </div>
+        </div>
+    </div>
+
     <!-- Qui sommes-nous -->
-    <section id="presentation" class="container text-center">
+    <section id="presentation" class="container text-center pt-5">
         <h2 class="section-title">Notre Histoire</h2>
         <p class="lead text-muted w-75 mx-auto">
-            La SOGUICOT est née d'une volonté commune d'excellence médicale. Elle est officiellement reconnue par le Ministère de l'Administration du Territoire et de la Décentralisation. Nous sommes le garant de la pratique orthopédique et traumatologique en République de Guinée, et le répondant devant l'État et les autorités du métier.
+            La SOGUICOT est née d'une volonté commune d'excellence médicale. Elle est le garant de la pratique orthopédique et traumatologique en République de Guinée, et le répondant devant l'État et les autorités du métier.
         </p>
     </section>
 
@@ -290,7 +342,7 @@
             </div>
             
             <div class="text-center mt-5">
-                <!-- Remarque Nora: N'oubliez pas d'insérer le lien Google Forms à la place du # ci-dessous -->
+                <!-- Remarque Nora: N'oubliez pas de remettre le lien Google Forms à la place du # ci-dessous -->
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSdC8EZa8TJsakGVjckZkpYqZsQ2tf3pUW-OGuhj9Z8cva4_kw/viewform?usp=header" class="btn btn-primary btn-lg px-5 py-3 shadow" style="background-color: var(--primary-color);">Remplir le Formulaire d'Adhésion en Ligne</a>
             </div>
         </div>
