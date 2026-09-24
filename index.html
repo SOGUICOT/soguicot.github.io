@@ -211,12 +211,12 @@
         
         /* --- NORA ENGINE : LE STATUT IMPOSANT ET INTÉGRAL DU PRÉSIDENT --- */
         .president-img { 
-            width: 220px; 
-            height: auto; /* Libération du format d'origine, plus aucune coupure */
+            width: 250px; /* Échelle majorée pour marquer l'espace étendu */
+            height: auto; /* Libération du format d'origine, aucune coupure */
             border: 8px solid #ffffff; 
             box-shadow: 0 15px 35px rgba(0, 51, 102, 0.3); 
             border-radius: 8px; 
-            margin-bottom: 20px; 
+            margin-bottom: 25px; 
             transition: transform 0.3s ease;
         }
         
@@ -470,29 +470,29 @@
         <h2 class="section-title text-center d-block mx-auto">Le Bureau Exécutif</h2>
         <div class="row g-4 mt-2 justify-content-center">
             
-            <!-- Présidence (Isolée, Photo Massive et Intégrale) -->
-            <div class="col-md-6">
-                <div class="card card-bureau h-100 text-center p-4 border-0" style="background: linear-gradient(to bottom, #ffffff, #f8f9fa);">
-                    <div class="card-header card-header-custom mb-3 rounded">Présidence</div>
+            <!-- Présidence (Espace Dominant : col-lg-7, marges larges p-5) -->
+            <div class="col-lg-7 col-md-12">
+                <div class="card card-bureau h-100 text-center p-5 border-0" style="background: linear-gradient(to bottom, #ffffff, #f8f9fa);">
+                    <div class="card-header card-header-custom mb-4 rounded fs-5">Présidence</div>
                     <div class="card-body d-flex flex-column align-items-center justify-content-center">
                         <img src="WhatsApp%20Image%202026-09-21%20at%2014.24.20.jpeg" alt="Professeur Léopold Lamah" class="president-img">
                         <p class="mb-0 fs-4 fw-bold text-primary">
-                            <span class="bureau-role d-block mb-1 text-dark" style="font-size: 1rem;">Président</span>
+                            <span class="bureau-role d-block mb-2 text-dark" style="font-size: 1.1rem;">Président</span>
                             Pr Léopold Lamah
                         </p>
                     </div>
                 </div>
             </div>
             
-            <!-- Secrétariat Général -->
-            <div class="col-md-6">
+            <!-- Secrétariat Général (Espace Secondaire : col-lg-5, marges classiques p-4) -->
+            <div class="col-lg-5 col-md-12">
                 <div class="card card-bureau h-100 text-center p-4">
                     <div class="card-header card-header-custom mb-3 rounded">Secrétariat Général</div>
                     <div class="card-body d-flex flex-column align-items-center justify-content-center">
                         <div class="placeholder-img-lg">
                             <i class="fas fa-user-md"></i>
                         </div>
-                        <p class="mb-0 fs-5">
+                        <p class="mb-0 fs-5 mt-2">
                             <span class="bureau-role d-block mb-1">Secrétaire Général</span>
                             Pr Mohamed Lamine Bah (MCA)
                         </p>
@@ -604,7 +604,7 @@
                 </div>
             </div>
 
-            <!-- Secrétariat et informatique -->
+            <!-- Secrétariat et informatique (Humilité et Solidarité : Aucun highlight spécifique) -->
             <div class="col-12">
                 <div class="card card-bureau h-100 border-primary">
                     <div class="card-header bg-primary text-white text-center fw-bold">Secrétariat et informatique</div>
@@ -622,10 +622,11 @@
                             <p class="profile-name">Dr Patrick Fredy Noumahayon</p>
                         </div>
                         <div class="text-center" style="min-width: 120px;">
-                            <div class="placeholder-img-sm border-primary text-primary">
+                            <div class="placeholder-img-sm">
                                 <i class="fas fa-user-md"></i>
                             </div>
-                            <p class="profile-name fw-bold text-primary">Dr Amara Tabaouo Samaké</p>
+                            <!-- Le Dr Samaké traité avec la même rigueur typographique que ses pairs -->
+                            <p class="profile-name">Dr Amara Tabaouo Samaké</p>
                         </div>
                     </div>
                 </div>
