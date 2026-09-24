@@ -33,11 +33,11 @@
         .hero h1 { font-weight: 700; letter-spacing: 2px; }
         .hero-subtitle { font-size: 1.3rem; font-style: italic; opacity: 0.95; }
         
-        /* Séquence Cartographique avec vos images locales */
+        /* Séquence Sémantique Pure (Monde -> Afrique -> Guinée sans marqueurs) */
         .map-focus-container {
             position: relative;
-            height: 140px;
-            width: 140px;
+            height: 130px;
+            width: 130px;
             margin: 30px auto 10px auto;
             display: flex;
             justify-content: center;
@@ -51,23 +51,13 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            color: #ffffff;
         }
 
-        .layer-world { animation-delay: 0s; }
-        .layer-africa { animation-delay: 3s; }
-        .layer-guinea { animation-delay: 6s; }
-
-        /* Vos images locales uploadées sur GitHub */
-        .custom-map-img {
-            width: 110px;
-            height: auto;
-            object-fit: contain;
-            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.4)); 
-        }
-        
-        .custom-guinea { 
-            filter: drop-shadow(0 0 15px rgba(230, 57, 70, 0.8)); 
-        }
+        .layer-world { animation-delay: 0s; font-size: 4.5rem; }
+        .layer-africa { animation-delay: 3s; font-size: 5rem; }
+        /* Remplacement du marqueur par une sphère/globe régionalisé ou une icône géographique pure de la Guinée */
+        .layer-guinea { animation-delay: 6s; font-size: 5.5rem; color: var(--accent-color); text-shadow: 0 0 20px rgba(230, 57, 70, 0.8); }
 
         @keyframes sequenceReveal {
             0% { opacity: 0; transform: scale(0.7) translateY(10px); }
@@ -153,22 +143,16 @@
         </div>
     </nav>
 
-    <!-- En-tête : Séquence Cartographique avec vos images locales -->
+    <!-- En-tête : Séquence Cartographique Sémantique Pice (Monde -> Afrique -> Guinée sans marqueurs) -->
     <header class="hero">
         <div class="container">
             <h1 class="display-4 fw-bold">S.O.G.U.I.C.O.T</h1>
             <p class="hero-subtitle mt-2">Société Guinéenne de Chirurgie Orthopédique et Traumatologique</p>
             
             <div class="map-focus-container">
-                <div class="map-layer layer-world">
-                    <img src="monde.png" alt="Monde" class="custom-map-img">
-                </div>
-                <div class="map-layer layer-africa">
-                    <img src="afrique.png" alt="Afrique" class="custom-map-img">
-                </div>
-                <div class="map-layer layer-guinea">
-                    <img src="guinee.png" alt="Guinée" class="custom-map-img custom-guinea">
-                </div>
+                <div class="map-layer layer-world"><i class="fas fa-globe"></i></div>
+                <div class="map-layer layer-africa"><i class="fas fa-globe-africa"></i></div>
+                <div class="map-layer layer-guinea"><i class="fas fa-flag"></i></div>
             </div>
         </div>
     </header>
@@ -215,7 +199,7 @@
         </p>
     </section>
 
-    <!-- Nos Objectifs (Texte Officiel Intégral) -->
+    <!-- Nos Objectifs -->
     <section id="objectifs" class="bg-white">
         <div class="container">
             <h2 class="section-title text-center d-block mx-auto">Nos Objectifs</h2>
@@ -326,7 +310,7 @@
         </div>
     </section>
 
-    <!-- Adhésion & Statuts (Texte Officiel Intégral) -->
+    <!-- Adhésion & Statuts -->
     <section id="adhesion" class="bg-white">
         <div class="container">
             <h2 class="section-title text-center d-block mx-auto">Adhésion & Statuts</h2>
