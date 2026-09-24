@@ -119,14 +119,14 @@
         .card-bureau:hover { transform: translateY(-5px); }
         .card-header-custom { background-color: var(--secondary-color); color: white; font-weight: bold; }
         
-        /* Photo du Professeur - Format identité */
+        /* Cadre Académique du Professeur */
         .president-img { 
-            width: 130px; 
-            height: 130px; 
+            width: 140px; 
+            height: auto; 
             object-fit: cover; 
-            border: 4px solid var(--bg-light); 
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
-            border-radius: 50%;
+            border: 6px solid #ffffff; /* Passe-partout blanc de l'encadrement */
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* Ombre pour l'effet cadre mural */
+            border-radius: 4px; /* Coins très légèrement adoucis pour l'élégance */
             margin-bottom: 15px;
         }
         
@@ -165,9 +165,9 @@
                 <div class="map-layer layer-world">
                     <i class="fas fa-globe"></i>
                 </div>
-                <!-- 2. Véritable forme de l'Afrique -->
+                <!-- 2. Véritable forme de l'Afrique (Source SVG brute inviolable) -->
                 <div class="map-layer layer-africa">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Africa_silhouette.svg/512px-Africa_silhouette.svg.png" alt="Carte de l'Afrique" class="africa-vector">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Africa_silhouette.svg" alt="Carte de l'Afrique" class="africa-vector">
                 </div>
                 <!-- 3. Véritable forme de la Guinée -->
                 <div class="map-layer layer-guinea">
@@ -253,7 +253,6 @@
                 <div class="card card-bureau h-100">
                     <div class="card-header card-header-custom text-center">Présidence</div>
                     <div class="card-body text-center">
-                        <!-- Intégration de la photo du Pr Lamah avec encodage sécurisé pour GitHub -->
                         <img src="WhatsApp%20Image%202026-09-21%20at%2014.24.20.jpeg" alt="Professeur Léopold Lamah" class="president-img">
                         <p class="mb-1"><strong>Président :</strong> Pr Léopold Lamah</p>
                         <p class="mb-0"><strong>Secrétaire général :</strong> Dr Mohamed Lamine Bah (mca)</p>
@@ -369,7 +368,11 @@
             </div>
             
             <div class="text-center mt-5">
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdC8EZa8TJsakGVjckZkpYqZsQ2tf3pUW-OGuhj9Z8cva4_kw/viewform?usp=header" class="btn btn-primary btn-lg px-5 py-3 shadow" style="background-color: var(--primary-color);">Remplir le formulaire d'adhésion en ligne</a>
+                <!-- Bouton sécurisé par le NORA ENGINE -->
+                <button onclick="securiserInscription()" class="btn btn-primary btn-lg px-5 py-3 shadow" style="background-color: var(--primary-color); border: none;">
+                    <i class="fas fa-lock me-2"></i>Remplir le formulaire d'adhésion en ligne
+                </button>
+                <p class="small text-muted mt-2"><i class="fas fa-shield-alt me-1"></i> Accès restreint au bureau et secrétariat informatique</p>
             </div>
         </div>
     </section>
@@ -383,5 +386,25 @@
 
     <!-- Script Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- MOTEUR NORA : Sas de Sécurité pour les Adhésions -->
+    <script>
+        function securiserInscription() {
+            const CODE_SECRET = "SOGUICOT2026"; 
+            
+            // Le lien officiel est injecté ici.
+            const URL_FORMULAIRE = "https://docs.google.com/forms/d/e/1FAIpQLSdC8EZa8TJsakGVjckZkpYqZsQ2tf3pUW-OGuhj9Z8cva4_kw/viewform?usp=header"; 
+            
+            let codeSaisi = prompt("ACCÈS SÉCURISÉ\n\nVeuillez saisir le code d'autorisation pour inscrire un nouveau membre :");
+            
+            if (codeSaisi !== null) {
+                if (codeSaisi.toUpperCase() === CODE_SECRET) {
+                    window.location.href = URL_FORMULAIRE;
+                } else {
+                    alert("ACCÈS REFUSÉ : Le code est incorrect.\n\nSeuls les membres du bureau et du secrétariat informatique sont habilités à procéder aux inscriptions.");
+                }
+            }
+        }
+    </script>
 </body>
 </html>
