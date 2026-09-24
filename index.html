@@ -33,7 +33,7 @@
         .hero h1 { font-weight: 700; letter-spacing: 2px; }
         .hero-subtitle { font-size: 1.3rem; font-style: italic; opacity: 0.95; }
         
-        /* L'Orfèvrerie Numérique : Séquence Cartographique Focalisée */
+        /* Séquence Cartographique Focalisée */
         .map-focus-container {
             position: relative;
             height: 140px;
@@ -47,7 +47,6 @@
         .map-layer {
             position: absolute;
             opacity: 0;
-            /* Cycle total de 9 secondes pour les 3 cartes */
             animation: sequenceReveal 9s infinite ease-in-out; 
             display: flex;
             flex-direction: column;
@@ -55,7 +54,6 @@
             color: #ffffff;
         }
 
-        /* Distribution temporelle mathématique (3 secondes par carte) */
         .layer-world { animation-delay: 0s; }
         .layer-africa { animation-delay: 3s; }
         .layer-guinea { animation-delay: 6s; }
@@ -63,23 +61,21 @@
         .layer-world i { font-size: 4.5rem; }
         .layer-africa i { font-size: 5.5rem; }
         
-        /* Silhouette vectorielle de la Guinée inversée en blanc avec un halo d'urgence rouge */
         .guinea-vector { 
             width: 110px; 
             height: auto; 
             filter: invert(100%) drop-shadow(0 0 15px rgba(230, 57, 70, 0.8)); 
         }
 
-        /* L'animation : Apparition fluide, travelling avant (zoom), disparition */
         @keyframes sequenceReveal {
             0% { opacity: 0; transform: scale(0.7) translateY(10px); }
             8% { opacity: 1; transform: scale(1) translateY(0); }
-            25% { opacity: 1; transform: scale(1.15) translateY(0); } /* Travelling lent */
-            33% { opacity: 0; transform: scale(1.4) translateY(-10px); } /* Sortie */
-            100% { opacity: 0; } /* Reste invisible jusqu'à son prochain tour */
+            25% { opacity: 1; transform: scale(1.15) translateY(0); }
+            33% { opacity: 0; transform: scale(1.4) translateY(-10px); }
+            100% { opacity: 0; }
         }
 
-        /* Le "Trompe-l'oeil" de l'Arrêté (Apparence d'image scannée) */
+        /* Le "Trompe-l'oeil" de l'Arrêté */
         .arrete-image-css {
             background-color: #ffffff;
             border: 1px solid #cccccc;
@@ -116,6 +112,7 @@
         .card-bureau { border: none; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: transform 0.3s; }
         .card-bureau:hover { transform: translateY(-5px); }
         .card-header-custom { background-color: var(--secondary-color); color: white; font-weight: bold; }
+        .president-img { width: 110px; height: 110px; object-fit: cover; border: 4px solid var(--bg-light); box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
         
         /* Footer */
         footer { background-color: var(--primary-color); color: white; padding: 30px 0; text-align: center; }
@@ -149,15 +146,12 @@
             
             <!-- Foyer visuel de l'animation -->
             <div class="map-focus-container">
-                <!-- Carte du monde -->
                 <div class="map-layer layer-world">
                     <i class="fas fa-globe"></i>
                 </div>
-                <!-- Carte d'Afrique -->
                 <div class="map-layer layer-africa">
                     <i class="fas fa-globe-africa"></i>
                 </div>
-                <!-- Véritable Carte de la Guinée (Vectorielle Open Source) -->
                 <div class="map-layer layer-guinea">
                     <img src="https://raw.githubusercontent.com/djaiss/mapsicon/master/all/gn/vector.svg" alt="Carte de la Guinée" class="guinea-vector">
                 </div>
@@ -168,7 +162,6 @@
     <!-- Reproduction de l'Arrêté (Style Image Document Officiel) -->
     <div class="container">
         <div class="arrete-image-css">
-            <!-- En-tête du document -->
             <div class="row text-center text-uppercase fw-bold" style="font-size: 0.85rem;">
                 <div class="col-md-5 mb-3 mb-md-0">
                     <p class="mb-1">MINISTERE DE L'ADMINISTRATION DU TERRITOIRE ET DE LA DECENTRALISATION</p>
@@ -185,7 +178,6 @@
                 </div>
             </div>
             
-            <!-- Corps de l'Arrêté -->
             <div class="text-center mt-5 pt-3">
                 <h5 class="text-decoration-underline fw-bold mb-4" style="font-size: 1.5rem;">ARRETE</h5>
                 <p class="fw-bold fs-5 mb-4">
@@ -216,18 +208,18 @@
             <div class="row mt-4">
                 <div class="col-md-6 mb-3">
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i><strong>Promouvoir et développer</strong> la chirurgie orthopédique en Guinée.</li>
-                        <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i><strong>Améliorer la prise en charge</strong> des lésions traumatologiques, orthopédiques, infectieuses et tumorales.</li>
-                        <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i><strong>Favoriser la formation continue</strong> des chirurgiens et professionnels de santé.</li>
-                        <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i><strong>Sensibiliser à la prévention</strong> (accidents de la voie publique et du travail).</li>
+                        <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i><span class="text-dark fw-bold">Promouvoir et développer</span> la chirurgie orthopédique en Guinée.</li>
+                        <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i><span class="text-dark fw-bold">Améliorer la prise en charge</span> des lésions traumatologiques, orthopédiques, infectieuses et tumorales.</li>
+                        <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i><span class="text-dark fw-bold">Favoriser la formation continue</span> des chirurgiens et professionnels de santé.</li>
+                        <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i><span class="text-dark fw-bold">Sensibiliser à la prévention</span> (accidents de la voie publique et du travail).</li>
                     </ul>
                 </div>
                 <div class="col-md-6 mb-3">
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i><strong>Encourager la recherche</strong> scientifique et la diffusion des connaissances.</li>
-                        <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i><strong>Organiser des congrès</strong> et ateliers scientifiques.</li>
-                        <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i><strong>Faciliter les échanges</strong> avec les sociétés savantes internationales.</li>
-                        <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i><strong>Élaborer les bonnes pratiques</strong> et recommandations nationales.</li>
+                        <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i><span class="text-dark fw-bold">Encourager la recherche</span> scientifique et la diffusion des connaissances.</li>
+                        <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i><span class="text-dark fw-bold">Organiser des congrès</span> et ateliers scientifiques.</li>
+                        <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i><span class="text-dark fw-bold">Faciliter les échanges</span> avec les sociétés savantes internationales.</li>
+                        <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i><span class="text-dark fw-bold">Élaborer les bonnes pratiques</span> et recommandations nationales.</li>
                     </ul>
                 </div>
             </div>
@@ -241,9 +233,10 @@
             <div class="col-md-4">
                 <div class="card card-bureau h-100">
                     <div class="card-header card-header-custom text-center">Présidence</div>
-                    <div class="card-body">
-                        <p><strong>Président :</strong> Pr. Léopold Lamah</p>
-                        <p><strong>Secrétaire Général :</strong> Dr Mohamed Lamine Bah (MCA)</p>
+                    <div class="card-body text-center">
+                        <img src="WhatsApp Image 2026-09-21 at 14.24.20.jpeg" alt="Professeur Léopold Lamah" class="president-img rounded-circle mb-3">
+                        <p class="mb-1"><span class="text-muted">Président :</span> Pr Léopold Lamah</p>
+                        <p class="mb-0"><span class="text-muted">Secrétaire général :</span> Dr Mohamed Lamine Bah (mca)</p>
                     </div>
                 </div>
             </div>
@@ -251,8 +244,8 @@
                 <div class="card card-bureau h-100">
                     <div class="card-header card-header-custom text-center">Trésorerie</div>
                     <div class="card-body">
-                        <ul class="list-unstyled">
-                            <li>Dr Nouhou Mangué Camara</li>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-2">Dr Nouhou Mangué Camara</li>
                             <li>Dr Rouguiatou Diallo</li>
                         </ul>
                     </div>
@@ -260,32 +253,33 @@
             </div>
             <div class="col-md-4">
                 <div class="card card-bureau h-100 border-primary">
-                    <div class="card-header bg-primary text-white text-center">Secrétariat & Informatique</div>
+                    <div class="card-header bg-primary text-white text-center">Secrétariat et informatique</div>
                     <div class="card-body">
-                        <ul class="list-unstyled">
-                            <li>Dr Abraham Gbanamou</li>
-                            <li><strong>Dr Patrick Fredy NOUMAHAYON</strong></li>
-                            <li><strong>Dr Amara Tabaouo Samaké</strong></li>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-2">Dr Abraham Gbanamou</li>
+                            <li class="mb-2">Dr Patrick Fredy Noumahayon</li>
+                            <li>Dr Amara Tabaouo Samaké</li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="card card-bureau h-100">
-                    <div class="card-header card-header-custom text-center">Formation & Information</div>
+                    <div class="card-header card-header-custom text-center">Formation et information</div>
                     <div class="card-body">
-                        <p><strong>Formation :</strong> Dr Mamadou Moustapha Diallo, Dr Tafsir Camara, Dr Fodé Ibrahima Kourala Keita</p>
-                        <p><strong>Information :</strong> Dr Abdoulaye Camara, Dr Amadou Tanou Bah</p>
+                        <p class="mb-2"><span class="text-muted">Formation :</span><br>Dr Mamadou Moustapha Diallo<br>Dr Tafsir Camara<br>Dr Fodé Ibrahima Kourala Keita</p>
+                        <hr class="text-muted">
+                        <p class="mb-0"><span class="text-muted">Information :</span><br>Dr Abdoulaye Camara<br>Dr Amadou Tanou Bah</p>
                     </div>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="card card-bureau h-100">
-                    <div class="card-header card-header-custom text-center">Relations Extérieures</div>
+                    <div class="card-header card-header-custom text-center">Relations extérieures</div>
                     <div class="card-body">
-                        <ul class="list-unstyled">
-                            <li>Dr Sory Sidimé</li>
-                            <li>Dr Amira P Aboud</li>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-2">Dr Sory Sidimé</li>
+                            <li class="mb-2">Dr Amira P Aboud</li>
                             <li>Dr Hawa Lamara Diallo</li>
                         </ul>
                     </div>
@@ -302,8 +296,8 @@
                 <div class="col-md-6">
                     <div class="alert alert-info">
                         <h5><i class="fas fa-info-circle me-2"></i>Frais d'Adhésion</h5>
-                        <p class="mb-1"><strong>Anciens membres :</strong> 100 000 GNF + Demande adressée au Président.</p>
-                        <p class="mb-0"><strong>Nouveaux membres (dès le 1er Août) :</strong> 200 000 GNF + Demande d'adhésion.</p>
+                        <p class="mb-1"><span class="text-dark fw-bold">Anciens membres :</span> 100 000 GNF + Demande adressée au président.</p>
+                        <p class="mb-0"><span class="text-dark fw-bold">Nouveaux membres (dès le 1er Août) :</span> 200 000 GNF + Demande d'adhésion.</p>
                     </div>
                     <div class="alert alert-warning mt-3">
                         <h5><i class="fas fa-exclamation-triangle me-2"></i>Règlement & Amendes</h5>
@@ -327,23 +321,23 @@
                     <p class="text-muted small mb-3">La société est composée de 4 catégories de membres principaux :</p>
                     <ul class="list-group">
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            Membres Titulaires (Seniors)
+                            Membres titulaires (seniors)
                             <span class="badge bg-primary rounded-pill">Actifs > 4 ans</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            Membres Seniors
+                            Membres seniors
                             <span class="badge bg-secondary rounded-pill">Spécialistes</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            Membres Juniors
-                            <span class="badge bg-secondary rounded-pill">En Formation</span>
+                            Membres juniors
+                            <span class="badge bg-secondary rounded-pill">En formation</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            Membres Associés
-                            <span class="badge bg-secondary rounded-pill">Autres Spécialités/Étrangers</span>
+                            Membres associés
+                            <span class="badge bg-secondary rounded-pill">Autres spécialités/étrangers</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            Membres d'Honneur
+                            Membres d'honneur
                             <span class="badge bg-warning text-dark rounded-pill">Honorifiques</span>
                         </li>
                     </ul>
@@ -351,8 +345,7 @@
             </div>
             
             <div class="text-center mt-5">
-                <!-- Remarque Nora : Le lien vers votre Google Forms sera à intégrer ici -->
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdC8EZa8TJsakGVjckZkpYqZsQ2tf3pUW-OGuhj9Z8cva4_kw/viewform?usp=header" class="btn btn-primary btn-lg px-5 py-3 shadow" style="background-color: var(--primary-color);">Remplir le Formulaire d'Adhésion en Ligne</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdC8EZa8TJsakGVjckZkpYqZsQ2tf3pUW-OGuhj9Z8cva4_kw/viewform?usp=header" class="btn btn-primary btn-lg px-5 py-3 shadow" style="background-color: var(--primary-color);">Remplir le formulaire d'adhésion en ligne</a>
             </div>
         </div>
     </section>
@@ -360,7 +353,7 @@
     <footer>
         <div class="container">
             <p class="mb-0">&copy; 2026 SOGUICOT - Tous droits réservés.</p>
-            <p class="small mt-1 opacity-75">Conçu et administré par l'équipe Secrétariat & Informatique</p>
+            <p class="small mt-1 opacity-75">Conçu et administré par l'équipe secrétariat et informatique</p>
         </div>
     </footer>
 
