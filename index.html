@@ -107,7 +107,7 @@
         }
         
         /* Sections */
-        section { padding: 40px 0; }
+        section { padding: 50px 0; }
         .section-title { 
             color: var(--primary-color); font-weight: 700; margin-bottom: 40px; 
             text-transform: uppercase; border-bottom: 3px solid var(--accent-color);
@@ -124,11 +124,14 @@
             width: 140px; 
             height: auto; 
             object-fit: cover; 
-            border: 6px solid #ffffff; /* Passe-partout blanc de l'encadrement */
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* Ombre pour l'effet cadre mural */
-            border-radius: 4px; /* Coins très légèrement adoucis pour l'élégance */
+            border: 6px solid #ffffff; 
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15); 
+            border-radius: 4px; 
             margin-bottom: 15px;
         }
+
+        /* Listes complexes pour Adhésion */
+        .list-group-custom .list-group-item { background: transparent; border: none; padding-left: 0; padding-top: 0.75rem; padding-bottom: 0.75rem; }
         
         /* Footer */
         footer { background-color: var(--primary-color); color: white; padding: 30px 0; text-align: center; }
@@ -161,15 +164,10 @@
             <p class="hero-subtitle mt-2">Société Guinéenne de Chirurgie Orthopédique et Traumatologique</p>
             
             <div class="map-focus-container">
-                <!-- 1. Carte du Monde -->
-                <div class="map-layer layer-world">
-                    <i class="fas fa-globe"></i>
-                </div>
-                <!-- 2. Véritable forme de l'Afrique (Source SVG brute inviolable) -->
+                <div class="map-layer layer-world"><i class="fas fa-globe"></i></div>
                 <div class="map-layer layer-africa">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Africa_silhouette.svg" alt="Carte de l'Afrique" class="africa-vector">
                 </div>
-                <!-- 3. Véritable forme de la Guinée -->
                 <div class="map-layer layer-guinea">
                     <img src="https://raw.githubusercontent.com/djaiss/mapsicon/master/all/gn/vector.svg" alt="Carte de la Guinée" class="guinea-vector">
                 </div>
@@ -211,7 +209,7 @@
         </div>
     </div>
 
-    <!-- Qui sommes-nous -->
+    <!-- Notre Histoire -->
     <section id="presentation" class="container text-center pt-2">
         <h2 class="section-title">Notre Histoire</h2>
         <p class="lead text-muted w-75 mx-auto">
@@ -219,25 +217,49 @@
         </p>
     </section>
 
-    <!-- Objectifs -->
+    <!-- Nos Objectifs (Texte Officiel Intégral) -->
     <section id="objectifs" class="bg-white">
         <div class="container">
             <h2 class="section-title text-center d-block mx-auto">Nos Objectifs</h2>
             <div class="row mt-4">
                 <div class="col-md-6 mb-3">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i><strong>Promouvoir et développer</strong> la chirurgie orthopédique en Guinée.</li>
-                        <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i><strong>Améliorer la prise en charge</strong> des lésions traumatologiques, orthopédiques, infectieuses et tumorales.</li>
-                        <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i><strong>Favoriser la formation continue</strong> des chirurgiens et professionnels de santé.</li>
-                        <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i><strong>Sensibiliser à la prévention</strong> (accidents de la voie publique et du travail).</li>
+                    <ul class="list-group list-group-flush list-group-custom">
+                        <li class="list-group-item d-flex align-items-start">
+                            <i class="fas fa-caret-right text-primary mt-1 me-3"></i>
+                            <div>Promouvoir et développer la chirurgie orthopédique et traumatologique en Guinée.</div>
+                        </li>
+                        <li class="list-group-item d-flex align-items-start">
+                            <i class="fas fa-caret-right text-primary mt-1 me-3"></i>
+                            <div>Contribuer à l’amélioration de la prise en charge des patients souffrant de lésions traumatologiques, les séquelles de traumatismes, de lésions orthopédiques, infectieuses voire tumorales de l’appareil locomoteur.</div>
+                        </li>
+                        <li class="list-group-item d-flex align-items-start">
+                            <i class="fas fa-caret-right text-primary mt-1 me-3"></i>
+                            <div>Favoriser la formation continue et le perfectionnement des chirurgiens orthopédistes et des autres professionnels de santé concernés.</div>
+                        </li>
+                        <li class="list-group-item d-flex align-items-start">
+                            <i class="fas fa-caret-right text-primary mt-1 me-3"></i>
+                            <div>Encourager la recherche scientifique et la diffusion des connaissances dans le domaine.</div>
+                        </li>
                     </ul>
                 </div>
                 <div class="col-md-6 mb-3">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i><strong>Encourager la recherche</strong> scientifique et la diffusion des connaissances.</li>
-                        <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i><strong>Organiser des congrès</strong> et ateliers scientifiques.</li>
-                        <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i><strong>Faciliter les échanges</strong> avec les sociétés savantes internationales.</li>
-                        <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i><strong>Élaborer les bonnes pratiques</strong> et recommandations nationales.</li>
+                    <ul class="list-group list-group-flush list-group-custom">
+                        <li class="list-group-item d-flex align-items-start">
+                            <i class="fas fa-caret-right text-primary mt-1 me-3"></i>
+                            <div>Organiser des congrès, conférences, séminaires et ateliers scientifiques.</div>
+                        </li>
+                        <li class="list-group-item d-flex align-items-start">
+                            <i class="fas fa-caret-right text-primary mt-1 me-3"></i>
+                            <div>Faciliter les échanges professionnels avec les sociétés savantes nationales et internationales.</div>
+                        </li>
+                        <li class="list-group-item d-flex align-items-start">
+                            <i class="fas fa-caret-right text-primary mt-1 me-3"></i>
+                            <div>Participer à l’élaboration et à la promotion de bonnes pratiques et recommandations en orthopédie-traumatologie.</div>
+                        </li>
+                        <li class="list-group-item d-flex align-items-start">
+                            <i class="fas fa-caret-right text-primary mt-1 me-3"></i>
+                            <div>Sensibiliser aux mesures de prévention des traumatismes, notamment les accidents de la voie publique et les accidents du travail.</div>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -248,18 +270,16 @@
     <section id="bureau" class="container">
         <h2 class="section-title text-center d-block mx-auto">Le Bureau Exécutif</h2>
         <div class="row g-4 mt-2">
-            <!-- Présidence -->
             <div class="col-md-4">
                 <div class="card card-bureau h-100">
                     <div class="card-header card-header-custom text-center">Présidence</div>
                     <div class="card-body text-center">
                         <img src="WhatsApp%20Image%202026-09-21%20at%2014.24.20.jpeg" alt="Professeur Léopold Lamah" class="president-img">
-                        <p class="mb-1"><strong>Président :</strong> Pr Léopold Lamah</p>
-                        <p class="mb-0"><strong>Secrétaire général :</strong> Dr Mohamed Lamine Bah (mca)</p>
+                        <p class="mb-1"><span class="text-muted">Président :</span> Pr Léopold Lamah</p>
+                        <p class="mb-0"><span class="text-muted">Secrétaire général :</span> Dr Mohamed Lamine Bah (mca)</p>
                     </div>
                 </div>
             </div>
-            <!-- Trésorerie -->
             <div class="col-md-4">
                 <div class="card card-bureau h-100">
                     <div class="card-header card-header-custom text-center">Trésorerie</div>
@@ -271,7 +291,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Secrétariat & Info -->
             <div class="col-md-4">
                 <div class="card card-bureau h-100 border-primary">
                     <div class="card-header bg-primary text-white text-center">Secrétariat et informatique</div>
@@ -284,18 +303,16 @@
                     </div>
                 </div>
             </div>
-            <!-- Formation -->
             <div class="col-md-6">
                 <div class="card card-bureau h-100">
                     <div class="card-header card-header-custom text-center">Formation et information</div>
                     <div class="card-body">
-                        <p class="mb-2"><strong>Formation :</strong><br>Dr Mamadou Moustapha Diallo<br>Dr Tafsir Camara<br>Dr Fodé Ibrahima Kourala Keita</p>
+                        <p class="mb-2"><span class="text-muted">Formation :</span><br>Dr Mamadou Moustapha Diallo<br>Dr Tafsir Camara<br>Dr Fodé Ibrahima Kourala Keita</p>
                         <hr class="text-muted">
-                        <p class="mb-0"><strong>Information :</strong><br>Dr Abdoulaye Camara<br>Dr Amadou Tanou Bah</p>
+                        <p class="mb-0"><span class="text-muted">Information :</span><br>Dr Abdoulaye Camara<br>Dr Amadou Tanou Bah</p>
                     </div>
                 </div>
             </div>
-            <!-- Relations Extérieures -->
             <div class="col-md-6">
                 <div class="card card-bureau h-100">
                     <div class="card-header card-header-custom text-center">Relations extérieures</div>
@@ -311,58 +328,100 @@
         </div>
     </section>
 
-    <!-- Adhésion -->
+    <!-- Adhésion & Statuts (Texte Officiel Intégral) -->
     <section id="adhesion" class="bg-white">
         <div class="container">
             <h2 class="section-title text-center d-block mx-auto">Adhésion & Statuts</h2>
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <div class="alert alert-info">
-                        <h5><i class="fas fa-info-circle me-2"></i>Frais d'Adhésion</h5>
-                        <p class="mb-1"><strong>Anciens membres :</strong> 100 000 GNF + Demande adressée au président.</p>
-                        <p class="mb-0"><strong>Nouveaux membres (dès le 1er Août) :</strong> 200 000 GNF + Demande d'adhésion.</p>
+            
+            <div class="row g-4 mt-2">
+                <!-- Colonne Gauche -->
+                <div class="col-lg-6">
+                    <!-- 1. Volets Adhésion -->
+                    <div class="card shadow-sm border-0 mb-4">
+                        <div class="card-header bg-primary text-white fw-bold">1- Volets adhésion</div>
+                        <div class="card-body">
+                            <ul class="mb-3">
+                                <li>Tous les anciens membres doivent faire une demande d’adhésion avec un montant de 100 milles francs adressée au président de la société.</li>
+                                <li>Les nouveaux membres (à partir du 1er Aout) doivent en plus de la demande d’adhésion payer 200 milles.</li>
+                            </ul>
+                            <h6 class="fw-bold">Critères d’adhésion :</h6>
+                            <ul><li>Diplôme d’État en médecine</li></ul>
+                        </div>
                     </div>
-                    <div class="alert alert-warning mt-3">
-                        <h5><i class="fas fa-exclamation-triangle me-2"></i>Règlement & Amendes</h5>
-                        <ul class="mb-0 small">
-                            <li><strong>Présence obligatoire.</strong> 3 absences = Amende de 500 000 GNF (délai 72h).</li>
-                            <li><strong>Cotisation incomplète</strong> au 31 décembre = Reste dû + Amende de 500 000 GNF (avant le 28 fév).</li>
-                            <li><strong>Critères d'exclusion :</strong> 3 absences successives, refus de payer les amendes, ou non-paiement sur 12 mois.</li>
-                        </ul>
-                    </div>
-                    <div class="alert alert-success mt-3">
-                        <h5><i class="fas fa-star me-2"></i>Avantages</h5>
-                        <ul class="mb-0 small">
-                            <li><strong>Priorité</strong> sur les formations théoriques et pratiques.</li>
-                            <li><strong>Représentation</strong> de la société dans les réunions scientifiques.</li>
-                            <li><strong>Gratuité</strong> de participation aux congrès organisés par la société.</li>
-                        </ul>
+
+                    <!-- 3. Obligations & 4. Exclusions -->
+                    <div class="card shadow-sm border-0 mb-4 border-start border-warning border-4">
+                        <div class="card-body">
+                            <h5 class="fw-bold text-dark border-bottom pb-2">3- Obligations des membres</h5>
+                            <ul>
+                                <li>Participation obligatoire aux réunions (3 absences même justifiées est passibles d’une amende de 500 milles dans un délai de 72h).</li>
+                                <li>Paiement des cotisations (Le paiement incomplet des cotisations au 31 décembre de l’année entraine une obligation du paiement du reste de la somme due plus une amende de 500 milles au plus tard le 28 février de l’année suivante).</li>
+                            </ul>
+                            
+                            <h5 class="fw-bold text-dark border-bottom pb-2 mt-4">4- Critères d’exclusion :</h5>
+                            <ul>
+                                <li>3 absences successives aux réunions même justifiées ;</li>
+                                <li>Le refus du paiement des amendes d’absence ;</li>
+                                <li>Le non-paiement de la cotisation sur 12 mois.</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <h4>Critère de base : Diplôme d'État en médecine</h4>
-                    <p class="text-muted small mb-3">La société est composée de 4 catégories de membres principaux :</p>
-                    <ul class="list-group">
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <strong>Membres titulaires (seniors)</strong>
-                            <span class="badge bg-primary rounded-pill">Actifs > 4 ans</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <strong>Membres seniors</strong>
-                            <span class="badge bg-secondary rounded-pill">Spécialistes</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <strong>Membres juniors</strong>
-                            <span class="badge bg-secondary rounded-pill">En formation</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <strong>Membres associés</strong>
-                            <span class="badge bg-secondary rounded-pill">Autres spécialités/étrangers</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <strong>Membres d'honneur</strong>
-                            <span class="badge bg-warning text-dark rounded-pill">Honorifiques</span>
-                        </li>
+
+                <!-- Colonne Droite -->
+                <div class="col-lg-6">
+                    <!-- 2. Membres de la SOGUICOT -->
+                    <div class="card shadow-sm border-0 mb-4">
+                        <div class="card-header bg-secondary text-white fw-bold">2- Membres de la SOGUICOT</div>
+                        <div class="card-body">
+                            <p class="text-muted fst-italic">Quatre catégories de membres</p>
+                            
+                            <h6 class="fw-bold text-primary">Membres titulaires : ce sont les membres seniors qui :</h6>
+                            <ul>
+                                <li>Ont quatre années d’ancienneté ;</li>
+                                <li>Se sont acquittés de la totalité de la cotisation ;</li>
+                                <li>Ont participé effectivement aux activités de la société ;</li>
+                                <li>Peuvent être membre du bureau exécutif.</li>
+                            </ul>
+
+                            <h6 class="fw-bold text-primary mt-3">Membres seniors : médecin</h6>
+                            <ul>
+                                <li>Détenteur du diplôme de spécialiste en chirurgie orthopédique et traumatologique ;</li>
+                                <li>Nationalité guinéenne ;</li>
+                                <li>Exerçant la profession.</li>
+                            </ul>
+
+                            <h6 class="fw-bold text-primary mt-3">Membres juniors :</h6>
+                            <ul>
+                                <li>Médecins de nationalité guinéenne en cours de formation en chirurgie Orthopédique et traumatologique.</li>
+                            </ul>
+
+                            <h6 class="fw-bold text-primary mt-3">Membres associés : Médecin</h6>
+                            <ul>
+                                <li>Médecin guinéen d’une autre spécialité (diplôme de spécialiste) ;</li>
+                                <li>Médecin Orthopédiste étranger.</li>
+                            </ul>
+
+                            <h6 class="fw-bold text-primary mt-3">Membres d’Honneur :</h6>
+                            <ul>
+                                <li>Ancien président de la SOGUICOT ;</li>
+                                <li>Toute personne guinéenne ou étrangère ayant rendu à la société ou à la chirurgie orthopédique et traumatologique des services éminents.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Avantages -->
+            <div class="card shadow-sm border-0 mt-2 border-start border-success border-4">
+                <div class="card-body">
+                    <h5 class="fw-bold text-success border-bottom pb-2">5- Les avantages liés à la Société</h5>
+                    <ul class="mb-0">
+                        <li>La SOGUICOT doit être le garant de l’exercice de la pratique de la chirurgie orthopédique et traumatologique.</li>
+                        <li>Elle est le répondant devant l’Etat et les autorités du métier de l’orthopédie traumatologie.</li>
+                        <li>Les membres de la SOGUICOT sont les premiers bénéficiaires des avantages de formations théoriques et pratiques liées aux coopérations avec partenaires nationaux et étrangers.</li>
+                        <li>Les membres de la SOGUICOT représentent la société dans les différentes réunions scientifiques.</li>
+                        <li>Les congrès sont organisés par les membres de la société qui y participent gratuitement.</li>
                     </ul>
                 </div>
             </div>
