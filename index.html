@@ -33,11 +33,11 @@
         .hero h1 { font-weight: 700; letter-spacing: 2px; }
         .hero-subtitle { font-size: 1.3rem; font-style: italic; opacity: 0.95; }
         
-        /* Séquence Sémantique Pure (Monde -> Afrique -> Guinée sans marqueurs) */
+        /* Séquence Cartographique Sémantique & Géographique */
         .map-focus-container {
             position: relative;
-            height: 130px;
-            width: 130px;
+            height: 140px;
+            width: 140px;
             margin: 30px auto 10px auto;
             display: flex;
             justify-content: center;
@@ -56,8 +56,14 @@
 
         .layer-world { animation-delay: 0s; font-size: 4.5rem; }
         .layer-africa { animation-delay: 3s; font-size: 5rem; }
-        /* Remplacement du marqueur par une sphère/globe régionalisé ou une icône géographique pure de la Guinée */
-        .layer-guinea { animation-delay: 6s; font-size: 5.5rem; color: var(--accent-color); text-shadow: 0 0 20px rgba(230, 57, 70, 0.8); }
+        
+        /* Silhouette vectorielle exacte de la Guinée sans marqueur */
+        .layer-guinea { animation-delay: 6s; }
+        .guinea-vector { 
+            width: 110px; 
+            height: auto; 
+            filter: invert(100%) drop-shadow(0 0 15px rgba(230, 57, 70, 0.8)); 
+        }
 
         @keyframes sequenceReveal {
             0% { opacity: 0; transform: scale(0.7) translateY(10px); }
@@ -143,7 +149,7 @@
         </div>
     </nav>
 
-    <!-- En-tête : Séquence Cartographique Sémantique Pice (Monde -> Afrique -> Guinée sans marqueurs) -->
+    <!-- En-tête : Séquence Cartographique (Monde -> Afrique -> Guinée vectorielle pure) -->
     <header class="hero">
         <div class="container">
             <h1 class="display-4 fw-bold">S.O.G.U.I.C.O.T</h1>
@@ -152,7 +158,9 @@
             <div class="map-focus-container">
                 <div class="map-layer layer-world"><i class="fas fa-globe"></i></div>
                 <div class="map-layer layer-africa"><i class="fas fa-globe-africa"></i></div>
-                <div class="map-layer layer-guinea"><i class="fas fa-flag"></i></div>
+                <div class="map-layer layer-guinea">
+                    <img src="https://raw.githubusercontent.com/djaiss/mapsicon/master/all/gn/vector.svg" alt="Guinée" class="guinea-vector">
+                </div>
             </div>
         </div>
     </header>
