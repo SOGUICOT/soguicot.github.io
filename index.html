@@ -209,13 +209,12 @@
             font-size: 1.1rem; 
         }
         
-        /* --- NORA ENGINE : LE STATUT IMPOSANT DU PRESIDENT --- */
+        /* --- NORA ENGINE : LE STATUT IMPOSANT ET INTÉGRAL DU PRÉSIDENT --- */
         .president-img { 
             width: 220px; 
-            height: 220px; 
-            object-fit: cover; 
+            height: auto; /* Libération du format d'origine, plus aucune coupure */
             border: 8px solid #ffffff; 
-            box-shadow: 0 15px 35px rgba(0, 51, 102, 0.3); /* Ombre aux couleurs de la société */
+            box-shadow: 0 15px 35px rgba(0, 51, 102, 0.3); 
             border-radius: 8px; 
             margin-bottom: 20px; 
             transition: transform 0.3s ease;
@@ -471,7 +470,7 @@
         <h2 class="section-title text-center d-block mx-auto">Le Bureau Exécutif</h2>
         <div class="row g-4 mt-2 justify-content-center">
             
-            <!-- Présidence (Isolée, Photo Massive) -->
+            <!-- Présidence (Isolée, Photo Massive et Intégrale) -->
             <div class="col-md-6">
                 <div class="card card-bureau h-100 text-center p-4 border-0" style="background: linear-gradient(to bottom, #ffffff, #f8f9fa);">
                     <div class="card-header card-header-custom mb-3 rounded">Présidence</div>
