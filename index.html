@@ -66,7 +66,7 @@
             opacity: 0.95; 
         }
         
-        /* --- NORA ENGINE : Séquence Cartographique Cinématographique --- */
+        /* --- NORA ENGINE : GLOBE MATHÉMATIQUE AUTONOME (Zéro Serveur) --- */
         .map-focus-container { 
             position: relative; 
             height: 180px; 
@@ -76,52 +76,70 @@
             justify-content: center; 
             align-items: center; 
         }
-        
-        .map-layer { 
-            position: absolute; 
-            opacity: 0; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            color: #ffffff; 
-            animation: sequenceReveal 9s infinite ease-in-out; 
-            text-shadow: 0 0 25px rgba(255, 255, 255, 0.6); 
-        }
-        
-        .layer-world { 
-            animation-delay: 0s; 
-            font-size: 5.5rem; 
-        }
-        
-        .layer-africa { 
-            animation-delay: 3s; 
-            text-shadow: none; /* Halo géré par le SVG vectoriel */
-        }
-        
-        .layer-guinea { 
-            animation-delay: 6s; 
-            text-shadow: none; 
-        }
-        
-        /* Cartes vectorielles : Afrique puis Guinée */
-        .africa-vector {
-            width: 120px;
-            height: auto;
-            filter: invert(100%) drop-shadow(0 0 20px rgba(255, 255, 255, 0.8));
-        }
 
-        .guinea-vector { 
+        .nora-globe {
+            position: relative; 
             width: 150px; 
-            height: auto; 
-            filter: invert(100%) drop-shadow(0 0 15px rgba(230, 57, 70, 0.9)); 
+            height: 150px; 
+            perspective: 1000px; 
+            margin: 0 auto;
         }
 
-        @keyframes sequenceReveal {
-            0% { opacity: 0; transform: scale(0.7) translateY(10px); }
-            8% { opacity: 1; transform: scale(1) translateY(0); }
-            25% { opacity: 1; transform: scale(1.15) translateY(0); }
-            33% { opacity: 0; transform: scale(1.4) translateY(-10px); }
-            100% { opacity: 0; }
+        .nora-globe-base {
+            width: 100%; 
+            height: 100%; 
+            border-radius: 50%; 
+            background: radial-gradient(circle at 30% 30%, #0055A4, #001122); 
+            box-shadow: inset -15px -15px 25px rgba(0,0,0,0.5), 0 10px 25px rgba(0,0,0,0.3); 
+            position: absolute; 
+            top: 0; 
+            left: 0;
+        }
+
+        .nora-meridian-1 {
+            width: 100%; 
+            height: 100%; 
+            border-radius: 50%; 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            border: 1px solid rgba(255,255,255,0.1); 
+            border-left: 2px solid rgba(255,255,255,0.4); 
+            animation: spinGlobe 4s infinite linear;
+        }
+
+        .nora-meridian-2 {
+            width: 100%; 
+            height: 100%; 
+            border-radius: 50%; 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            border: 1px solid rgba(255,255,255,0.1); 
+            transform: rotateX(60deg); 
+            animation: spinGlobe 4s infinite linear reverse;
+        }
+
+        .nora-guinea-marker {
+            position: absolute; 
+            top: 42%; 
+            left: 32%; 
+            width: 12px; 
+            height: 12px; 
+            background-color: var(--accent-color); 
+            border-radius: 50%; 
+            box-shadow: 0 0 15px var(--accent-color); 
+            animation: pulsePulse 2s infinite;
+        }
+
+        @keyframes spinGlobe { 
+            100% { transform: rotateY(360deg); } 
+        }
+        
+        @keyframes pulsePulse { 
+            0% { transform: scale(1); opacity: 1; } 
+            50% { transform: scale(1.6); opacity: 0.7; } 
+            100% { transform: scale(1); opacity: 1; } 
         }
 
         /* L'Arrêté (Filigrane) */
@@ -218,7 +236,7 @@
             font-size: 1.1rem; 
         }
         
-        /* Le Statut du Président */
+        /* LE STATUT IMPOSANT ET INTÉGRAL DU PRÉSIDENT */
         .president-img { 
             width: 250px; 
             height: auto; 
@@ -345,33 +363,38 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#presentation">Histoire</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#objectifs">Objectifs</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#bureau">Le Bureau</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#adhesion">Adhésion & Statuts</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#presentation">Histoire</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#objectifs">Objectifs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#bureau">Le Bureau</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#adhesion">Adhésion & Statuts</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- En-tête : Séquence Cartographique -->
+    <!-- En-tête : Sphère Mathématique -->
     <header class="hero d-print-none">
         <div class="container">
             <h1 class="display-4">S.O.G.U.I.C.O.T</h1>
             <p class="hero-subtitle mt-2">Société Guinéenne de Chirurgie Orthopédique et Traumatologique</p>
             
             <div class="map-focus-container" aria-hidden="true">
-                <!-- 1. Le Monde -->
-                <div class="map-layer layer-world">
-                    <i class="fas fa-globe"></i>
-                </div>
-                <!-- 2. L'Afrique Vectorielle (Correction Nora) -->
-                <div class="map-layer layer-africa">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Africa_silhouette.svg" alt="Afrique" class="africa-vector">
-                </div>
-                <!-- 3. La Guinée -->
-                <div class="map-layer layer-guinea">
-                    <img src="https://raw.githubusercontent.com/djaiss/mapsicon/master/all/gn/vector.svg" alt="Guinée" class="guinea-vector">
+                <div class="nora-globe">
+                    <!-- Océan -->
+                    <div class="nora-globe-base"></div>
+                    <!-- Rotation des méridiens -->
+                    <div class="nora-meridian-1"></div>
+                    <div class="nora-meridian-2"></div>
+                    <!-- Point de focalisation : La Guinée -->
+                    <div class="nora-guinea-marker"></div>
                 </div>
             </div>
         </div>
