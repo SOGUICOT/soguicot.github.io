@@ -66,47 +66,55 @@
             opacity: 0.95; 
         }
         
-        /* --- NORA ENGINE : HOLOGRAMME AFRIQUE & GUINÉE (Zéro image externe) --- */
-        .hologram-container {
-            position: relative;
-            width: 220px;
-            height: 220px;
-            margin: 20px auto 10px auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        /* --- NORA ENGINE : Séquence Cartographique Renforcée --- */
+        .map-focus-container { 
+            position: relative; 
+            height: 180px; 
+            width: 180px; 
+            margin: 20px auto 10px auto; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+        }
+        
+        .map-layer { 
+            position: absolute; 
+            opacity: 0; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            color: #ffffff; 
+            animation: sequenceReveal 9s infinite ease-in-out; 
+            text-shadow: 0 0 25px rgba(255, 255, 255, 0.6); 
+        }
+        
+        .layer-world { 
+            animation-delay: 0s; 
+            font-size: 5.5rem; 
+        }
+        
+        .layer-africa { 
+            animation-delay: 3s; 
+            font-size: 7.5rem; 
+        }
+        
+        .layer-guinea { 
+            animation-delay: 6s; 
+            text-shadow: none; 
+        }
+        
+        .guinea-vector { 
+            width: 130px; 
+            height: auto; 
+            filter: invert(100%) drop-shadow(0 0 15px rgba(230, 57, 70, 0.9)); 
         }
 
-        .hologram-globe {
-            position: relative;
-            color: #ffffff;
-            font-size: 10rem; /* Taille massive de l'Afrique */
-            filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.4));
-            animation: floatGlobe 4s ease-in-out infinite;
-        }
-
-        /* Marqueur rouge sang ultra-précis sur la côte ouest (Guinée) */
-        .guinea-beacon {
-            position: absolute;
-            top: 48%;
-            left: 24%; 
-            width: 16px;
-            height: 16px;
-            background-color: var(--accent-color);
-            border-radius: 50%;
-            box-shadow: 0 0 15px var(--accent-color), 0 0 30px var(--accent-color);
-            animation: beaconPulse 1.5s infinite;
-        }
-
-        @keyframes floatGlobe {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-12px); }
-        }
-
-        @keyframes beaconPulse {
-            0% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.8); opacity: 0.6; }
-            100% { transform: scale(1); opacity: 1; }
+        @keyframes sequenceReveal {
+            0% { opacity: 0; transform: scale(0.7) translateY(10px); }
+            8% { opacity: 1; transform: scale(1) translateY(0); }
+            25% { opacity: 1; transform: scale(1.15) translateY(0); }
+            33% { opacity: 0; transform: scale(1.4) translateY(-10px); }
+            100% { opacity: 0; }
         }
 
         /* L'Arrêté (Filigrane) */
@@ -203,7 +211,7 @@
             font-size: 1.1rem; 
         }
         
-        /* LE STATUT IMPOSANT ET INTÉGRAL DU PRÉSIDENT */
+        /* --- NORA ENGINE : LE STATUT IMPOSANT ET INTÉGRAL DU PRÉSIDENT --- */
         .president-img { 
             width: 250px; 
             height: auto; 
@@ -347,18 +355,21 @@
         </div>
     </nav>
 
-    <!-- En-tête : Hologramme Afrique & Guinée -->
+    <!-- En-tête : Séquence Cartographique -->
     <header class="hero d-print-none">
         <div class="container">
             <h1 class="display-4">S.O.G.U.I.C.O.T</h1>
             <p class="hero-subtitle mt-2">Société Guinéenne de Chirurgie Orthopédique et Traumatologique</p>
             
-            <div class="hologram-container" aria-hidden="true">
-                <div class="hologram-globe">
-                    <!-- Globe centré sur l'Afrique -->
+            <div class="map-focus-container" aria-hidden="true">
+                <div class="map-layer layer-world">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <div class="map-layer layer-africa">
                     <i class="fas fa-globe-africa"></i>
-                    <!-- Faisceau lumineux sur la Guinée -->
-                    <div class="guinea-beacon" title="Guinée"></div>
+                </div>
+                <div class="map-layer layer-guinea">
+                    <img src="https://raw.githubusercontent.com/djaiss/mapsicon/master/all/gn/vector.svg" alt="Guinée" class="guinea-vector">
                 </div>
             </div>
         </div>
@@ -463,7 +474,7 @@
         <h2 class="section-title text-center d-block mx-auto">Le Bureau Exécutif</h2>
         <div class="row g-4 mt-2 justify-content-center">
             
-            <!-- Présidence -->
+            <!-- Présidence (Espace Dominant : col-lg-7, marges larges p-5) -->
             <div class="col-lg-7 col-md-12">
                 <div class="card card-bureau h-100 text-center p-5 border-0" style="background: linear-gradient(to bottom, #ffffff, #f8f9fa);">
                     <div class="card-header card-header-custom mb-4 rounded fs-5">Présidence</div>
@@ -477,7 +488,7 @@
                 </div>
             </div>
             
-            <!-- Secrétariat Général -->
+            <!-- Secrétariat Général (Espace Secondaire : col-lg-5, marges classiques p-4) -->
             <div class="col-lg-5 col-md-12">
                 <div class="card card-bureau h-100 text-center p-4">
                     <div class="card-header card-header-custom mb-3 rounded">Secrétariat Général</div>
@@ -597,7 +608,7 @@
                 </div>
             </div>
 
-            <!-- Secrétariat et informatique -->
+            <!-- Secrétariat et informatique (Humilité et Solidarité : Aucun highlight spécifique) -->
             <div class="col-12">
                 <div class="card card-bureau h-100 border-primary">
                     <div class="card-header bg-primary text-white text-center fw-bold">Secrétariat et informatique</div>
@@ -615,9 +626,10 @@
                             <p class="profile-name">Dr Patrick Fredy Noumahayon</p>
                         </div>
                         <div class="text-center" style="min-width: 120px;">
-                            <div class="placeholder-img-sm border-primary text-primary">
+                            <div class="placeholder-img-sm">
                                 <i class="fas fa-user-md"></i>
                             </div>
+                            <!-- Le Dr Samaké traité avec la même rigueur typographique que ses pairs -->
                             <p class="profile-name">Dr Amara Tabaouo Samaké</p>
                         </div>
                     </div>
