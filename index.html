@@ -66,7 +66,7 @@
             opacity: 0.95; 
         }
         
-        /* --- NORA ENGINE : Séquence Cartographique Renforcée --- */
+        /* --- NORA ENGINE : Séquence Cartographique Cinématographique --- */
         .map-focus-container { 
             position: relative; 
             height: 180px; 
@@ -95,7 +95,7 @@
         
         .layer-africa { 
             animation-delay: 3s; 
-            font-size: 7.5rem; 
+            text-shadow: none; /* Halo géré par le SVG vectoriel */
         }
         
         .layer-guinea { 
@@ -103,8 +103,15 @@
             text-shadow: none; 
         }
         
+        /* Cartes vectorielles : Afrique puis Guinée */
+        .africa-vector {
+            width: 120px;
+            height: auto;
+            filter: invert(100%) drop-shadow(0 0 20px rgba(255, 255, 255, 0.8));
+        }
+
         .guinea-vector { 
-            width: 130px; 
+            width: 150px; 
             height: auto; 
             filter: invert(100%) drop-shadow(0 0 15px rgba(230, 57, 70, 0.9)); 
         }
@@ -211,7 +218,7 @@
             font-size: 1.1rem; 
         }
         
-        /* --- NORA ENGINE : LE STATUT IMPOSANT ET INTÉGRAL DU PRÉSIDENT --- */
+        /* Le Statut du Président */
         .president-img { 
             width: 250px; 
             height: auto; 
@@ -338,18 +345,10 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#presentation">Histoire</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#objectifs">Objectifs</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#bureau">Le Bureau</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#adhesion">Adhésion & Statuts</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#presentation">Histoire</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#objectifs">Objectifs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#bureau">Le Bureau</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#adhesion">Adhésion & Statuts</a></li>
                 </ul>
             </div>
         </div>
@@ -362,12 +361,15 @@
             <p class="hero-subtitle mt-2">Société Guinéenne de Chirurgie Orthopédique et Traumatologique</p>
             
             <div class="map-focus-container" aria-hidden="true">
+                <!-- 1. Le Monde -->
                 <div class="map-layer layer-world">
                     <i class="fas fa-globe"></i>
                 </div>
+                <!-- 2. L'Afrique Vectorielle (Correction Nora) -->
                 <div class="map-layer layer-africa">
-                    <i class="fas fa-globe-africa"></i>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Africa_silhouette.svg" alt="Afrique" class="africa-vector">
                 </div>
+                <!-- 3. La Guinée -->
                 <div class="map-layer layer-guinea">
                     <img src="https://raw.githubusercontent.com/djaiss/mapsicon/master/all/gn/vector.svg" alt="Guinée" class="guinea-vector">
                 </div>
@@ -474,7 +476,7 @@
         <h2 class="section-title text-center d-block mx-auto">Le Bureau Exécutif</h2>
         <div class="row g-4 mt-2 justify-content-center">
             
-            <!-- Présidence (Espace Dominant : col-lg-7, marges larges p-5) -->
+            <!-- Présidence -->
             <div class="col-lg-7 col-md-12">
                 <div class="card card-bureau h-100 text-center p-5 border-0" style="background: linear-gradient(to bottom, #ffffff, #f8f9fa);">
                     <div class="card-header card-header-custom mb-4 rounded fs-5">Présidence</div>
@@ -488,7 +490,7 @@
                 </div>
             </div>
             
-            <!-- Secrétariat Général (Espace Secondaire : col-lg-5, marges classiques p-4) -->
+            <!-- Secrétariat Général -->
             <div class="col-lg-5 col-md-12">
                 <div class="card card-bureau h-100 text-center p-4">
                     <div class="card-header card-header-custom mb-3 rounded">Secrétariat Général</div>
@@ -608,7 +610,7 @@
                 </div>
             </div>
 
-            <!-- Secrétariat et informatique (Humilité et Solidarité : Aucun highlight spécifique) -->
+            <!-- Secrétariat et informatique -->
             <div class="col-12">
                 <div class="card card-bureau h-100 border-primary">
                     <div class="card-header bg-primary text-white text-center fw-bold">Secrétariat et informatique</div>
@@ -626,10 +628,9 @@
                             <p class="profile-name">Dr Patrick Fredy Noumahayon</p>
                         </div>
                         <div class="text-center" style="min-width: 120px;">
-                            <div class="placeholder-img-sm">
+                            <div class="placeholder-img-sm border-primary text-primary">
                                 <i class="fas fa-user-md"></i>
                             </div>
-                            <!-- Le Dr Samaké traité avec la même rigueur typographique que ses pairs -->
                             <p class="profile-name">Dr Amara Tabaouo Samaké</p>
                         </div>
                     </div>
