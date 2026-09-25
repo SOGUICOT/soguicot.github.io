@@ -19,9 +19,7 @@
             --bg-light: #f8f9fa;
         }
         
-        html { 
-            scroll-behavior: smooth; 
-        }
+        html { scroll-behavior: smooth; }
         
         body { 
             font-family: 'Segoe UI', system-ui, sans-serif; 
@@ -42,9 +40,7 @@
             transition: color 0.3s ease; 
         }
         
-        .nav-link:hover { 
-            color: var(--accent-color) !important; 
-        }
+        .nav-link:hover { color: var(--accent-color) !important; }
         
         /* Hero Section */
         .hero { 
@@ -66,12 +62,12 @@
             opacity: 0.95; 
         }
         
-        /* Séquence Cartographique */
+        /* --- NORA ENGINE : Séquence Cartographique Renforcée --- */
         .map-focus-container { 
             position: relative; 
-            height: 140px; 
-            width: 140px; 
-            margin: 30px auto 10px auto; 
+            height: 180px; /* Espace agrandi */
+            width: 180px; 
+            margin: 20px auto 10px auto; 
             display: flex; 
             justify-content: center; 
             align-items: center; 
@@ -85,26 +81,28 @@
             align-items: center; 
             color: #ffffff; 
             animation: sequenceReveal 9s infinite ease-in-out; 
+            text-shadow: 0 0 25px rgba(255, 255, 255, 0.6); /* Halo lumineux pour un détachement parfait */
         }
         
         .layer-world { 
             animation-delay: 0s; 
-            font-size: 4.5rem; 
+            font-size: 5.5rem; /* Rééquilibré */
         }
         
         .layer-africa { 
             animation-delay: 3s; 
-            font-size: 5rem; 
+            font-size: 7.5rem; /* Massivement imposante et visible */
         }
         
         .layer-guinea { 
             animation-delay: 6s; 
+            text-shadow: none; /* Le halo est géré par le drop-shadow SVG ci-dessous */
         }
         
         .guinea-vector { 
-            width: 110px; 
+            width: 130px; /* Légèrement augmentée */
             height: auto; 
-            filter: invert(100%) drop-shadow(0 0 15px rgba(230, 57, 70, 0.8)); 
+            filter: invert(100%) drop-shadow(0 0 15px rgba(230, 57, 70, 0.9)); 
         }
 
         @keyframes sequenceReveal {
@@ -132,194 +130,46 @@
             overflow: hidden;
         }
         
-        .arrete-watermark { 
-            position: absolute; 
-            top: 50%; 
-            left: 50%; 
-            transform: translate(-50%, -50%); 
-            font-size: 18rem; 
-            color: rgba(0,0,0,0.025); 
-            z-index: 0; 
-            pointer-events: none; 
-        }
-        
-        .arrete-content { 
-            position: relative; 
-            z-index: 1; 
-        }
-        
-        .doc-header-line { 
-            border-top: 1px dashed #555; 
-            width: 60%; 
-            margin: 8px auto; 
-        }
-        
-        .doc-number { 
-            color: #0033cc; 
-            font-size: 2.2rem; 
-            font-family: 'Georgia', serif; 
-            font-style: italic; 
-            font-weight: bold; 
-            padding: 0 10px; 
-        }
+        .arrete-watermark { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 18rem; color: rgba(0,0,0,0.025); z-index: 0; pointer-events: none; }
+        .arrete-content { position: relative; z-index: 1; }
+        .doc-header-line { border-top: 1px dashed #555; width: 60%; margin: 8px auto; }
+        .doc-number { color: #0033cc; font-size: 2.2rem; font-family: 'Georgia', serif; font-style: italic; font-weight: bold; padding: 0 10px; }
         
         /* Sections & Animation de défilement */
-        section { 
-            padding: 60px 0; 
-            scroll-margin-top: 70px; 
-        }
-        
-        .nora-reveal { 
-            opacity: 0; 
-            transform: translateY(30px); 
-            transition: all 0.8s ease-out; 
-        }
-        
-        .nora-reveal.active { 
-            opacity: 1; 
-            transform: translateY(0); 
-        }
-        
-        .section-title { 
-            color: var(--primary-color); 
-            font-weight: 800; 
-            margin-bottom: 40px; 
-            text-transform: uppercase; 
-            border-bottom: 3px solid var(--accent-color); 
-            display: inline-block; 
-            padding-bottom: 10px; 
-        }
+        section { padding: 60px 0; scroll-margin-top: 70px; }
+        .nora-reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .nora-reveal.active { opacity: 1; transform: translateY(0); }
+        .section-title { color: var(--primary-color); font-weight: 800; margin-bottom: 40px; text-transform: uppercase; border-bottom: 3px solid var(--accent-color); display: inline-block; padding-bottom: 10px; }
         
         /* Bureau & Trombinoscope */
-        .card-bureau { 
-            border: none; 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.04); 
-            transition: transform 0.3s, box-shadow 0.3s; 
-        }
+        .card-bureau { border: none; box-shadow: 0 5px 15px rgba(0,0,0,0.04); transition: transform 0.3s, box-shadow 0.3s; }
+        .card-bureau:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
+        .card-header-custom { background-color: var(--secondary-color); color: white; font-weight: bold; font-size: 1.1rem; }
         
-        .card-bureau:hover { 
-            transform: translateY(-5px); 
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08); 
-        }
+        .president-img { width: 250px; height: auto; border: 8px solid #ffffff; box-shadow: 0 15px 35px rgba(0, 51, 102, 0.3); border-radius: 8px; margin-bottom: 25px; transition: transform 0.3s ease; }
+        .president-img:hover { transform: scale(1.03); }
         
-        .card-header-custom { 
-            background-color: var(--secondary-color); 
-            color: white; 
-            font-weight: bold; 
-            font-size: 1.1rem; 
-        }
-        
-        /* --- NORA ENGINE : LE STATUT IMPOSANT ET INTÉGRAL DU PRÉSIDENT --- */
-        .president-img { 
-            width: 250px; /* Échelle majorée pour marquer l'espace étendu */
-            height: auto; /* Libération du format d'origine, aucune coupure */
-            border: 8px solid #ffffff; 
-            box-shadow: 0 15px 35px rgba(0, 51, 102, 0.3); 
-            border-radius: 8px; 
-            margin-bottom: 25px; 
-            transition: transform 0.3s ease;
-        }
-        
-        .president-img:hover {
-            transform: scale(1.03);
-        }
-        
-        /* Placeholders standards pour les autres membres */
-        .placeholder-img-lg { 
-            width: 140px; 
-            height: 140px; 
-            background-color: #f1f3f5; 
-            border: 6px solid #ffffff; 
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15); 
-            border-radius: 4px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            margin: 0 auto 15px auto; 
-            color: #ced4da; 
-            font-size: 3.5rem; 
-        }
-        
-        .placeholder-img-sm { 
-            width: 90px; 
-            height: 90px; 
-            background-color: #f1f3f5; 
-            border: 4px solid #ffffff; 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
-            border-radius: 4px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            margin: 0 auto 10px auto; 
-            color: #ced4da; 
-            font-size: 2.2rem; 
-            transition: transform 0.2s; 
-        }
-        
-        .placeholder-img-sm:hover { 
-            transform: scale(1.05); 
-        }
+        .placeholder-img-lg { width: 140px; height: 140px; background-color: #f1f3f5; border: 6px solid #ffffff; box-shadow: 0 8px 20px rgba(0,0,0,0.15); border-radius: 4px; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px auto; color: #ced4da; font-size: 3.5rem; }
+        .placeholder-img-sm { width: 90px; height: 90px; background-color: #f1f3f5; border: 4px solid #ffffff; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border-radius: 4px; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px auto; color: #ced4da; font-size: 2.2rem; transition: transform 0.2s; }
+        .placeholder-img-sm:hover { transform: scale(1.05); }
 
-        .bureau-role { 
-            font-weight: 800; 
-            color: #000000; 
-            text-transform: uppercase; 
-            font-size: 0.9rem; 
-            letter-spacing: 0.5px;
-        }
-        
-        .profile-name { 
-            line-height: 1.3; 
-            font-size: 0.95rem; 
-            margin-top: 5px; 
-        }
-        
-        .list-group-custom .list-group-item { 
-            background: transparent; 
-            border: none; 
-            padding-left: 0; 
-            padding-top: 0.8rem; 
-            padding-bottom: 0.8rem; 
-        }
+        .bureau-role { font-weight: 800; color: #000000; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 0.5px;}
+        .profile-name { line-height: 1.3; font-size: 0.95rem; margin-top: 5px; }
+        .list-group-custom .list-group-item { background: transparent; border: none; padding-left: 0; padding-top: 0.8rem; padding-bottom: 0.8rem; }
 
         /* Bouton Action */
-        .btn-nora { 
-            transition: transform 0.2s, box-shadow 0.2s; 
-        }
-        
-        .btn-nora:hover { 
-            transform: scale(1.02); 
-            box-shadow: 0 10px 20px rgba(0, 51, 102, 0.2) !important; 
-        }
+        .btn-nora { transition: transform 0.2s, box-shadow 0.2s; }
+        .btn-nora:hover { transform: scale(1.02); box-shadow: 0 10px 20px rgba(0, 51, 102, 0.2) !important; }
 
         /* Footer */
-        footer { 
-            background-color: var(--primary-color); 
-            color: white; 
-            padding: 30px 0; 
-            text-align: center; 
-        }
+        footer { background-color: var(--primary-color); color: white; padding: 30px 0; text-align: center; }
 
         /* Scalpel Typographique (Mode Impression) */
         @media print {
-            .navbar, .hero, footer, .btn-nora, .nora-reveal { 
-                display: none !important; 
-                opacity: 1 !important; 
-                transform: none !important; 
-            }
-            body { 
-                background-color: white; 
-                color: black; 
-            }
-            .card, .arrete-image-css { 
-                box-shadow: none; 
-                border: 1px solid #000; 
-                break-inside: avoid; 
-            }
-            .section-title { 
-                border-bottom: 2px solid black; 
-                color: black; 
-            }
+            .navbar, .hero, footer, .btn-nora, .nora-reveal { display: none !important; opacity: 1 !important; transform: none !important; }
+            body { background-color: white; color: black; }
+            .card, .arrete-image-css { box-shadow: none; border: 1px solid #000; break-inside: avoid; }
+            .section-title { border-bottom: 2px solid black; color: black; }
         }
     </style>
 </head>
@@ -334,18 +184,10 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#presentation">Histoire</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#objectifs">Objectifs</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#bureau">Le Bureau</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#adhesion">Adhésion & Statuts</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#presentation">Histoire</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#objectifs">Objectifs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#bureau">Le Bureau</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#adhesion">Adhésion & Statuts</a></li>
                 </ul>
             </div>
         </div>
@@ -358,15 +200,9 @@
             <p class="hero-subtitle mt-2">Société Guinéenne de Chirurgie Orthopédique et Traumatologique</p>
             
             <div class="map-focus-container" aria-hidden="true">
-                <div class="map-layer layer-world">
-                    <i class="fas fa-globe"></i>
-                </div>
-                <div class="map-layer layer-africa">
-                    <i class="fas fa-globe-africa"></i>
-                </div>
-                <div class="map-layer layer-guinea">
-                    <img src="https://raw.githubusercontent.com/djaiss/mapsicon/master/all/gn/vector.svg" alt="Guinée" class="guinea-vector">
-                </div>
+                <div class="map-layer layer-world"><i class="fas fa-globe"></i></div>
+                <div class="map-layer layer-africa"><i class="fas fa-globe-africa"></i></div>
+                <div class="map-layer layer-guinea"><img src="https://raw.githubusercontent.com/djaiss/mapsicon/master/all/gn/vector.svg" alt="Guinée" class="guinea-vector"></div>
             </div>
         </div>
     </header>
@@ -375,34 +211,16 @@
     <div class="container nora-reveal">
         <div class="arrete-image-css">
             <i class="fas fa-balance-scale arrete-watermark"></i>
-            
             <div class="arrete-content row text-center text-uppercase fw-bold" style="font-size: 0.85rem;">
-                <div class="col-md-5 mb-3 mb-md-0">
-                    <p class="mb-1">MINISTERE DE L'ADMINISTRATION DU TERRITOIRE ET DE LA DECENTRALISATION</p>
-                    <div class="doc-header-line"></div>
-                    <p class="mb-0 mt-1">SERVICE NATIONAL DE REGLEMENTATION DE PROMOTION DES ORGANISATIONS NON GOUVERNEMENTALES ET MOUVEMENTS ASSOCIATIFS «SERPROMA».</p>
-                </div>
-                
+                <div class="col-md-5 mb-3 mb-md-0"><p class="mb-1">MINISTERE DE L'ADMINISTRATION DU TERRITOIRE ET DE LA DECENTRALISATION</p><div class="doc-header-line"></div><p class="mb-0 mt-1">SERVICE NATIONAL DE REGLEMENTATION DE PROMOTION DES ORGANISATIONS NON GOUVERNEMENTALES ET MOUVEMENTS ASSOCIATIFS «SERPROMA».</p></div>
                 <div class="col-md-2 d-none d-md-flex align-items-center justify-content-center"></div>
-                
-                <div class="col-md-5">
-                    <p class="mb-1">REPUBLIQUE DE GUINEE</p>
-                    <div class="doc-header-line"></div>
-                    <p class="mt-1" style="text-transform: none; font-style: italic;">Travail-Justice-Solidarité</p>
-                </div>
+                <div class="col-md-5"><p class="mb-1">REPUBLIQUE DE GUINEE</p><div class="doc-header-line"></div><p class="mt-1" style="text-transform: none; font-style: italic;">Travail-Justice-Solidarité</p></div>
             </div>
-            
             <div class="arrete-content text-center mt-5 pt-3">
                 <h5 class="text-decoration-underline fw-bold mb-4" style="font-size: 1.5rem;">ARRETE</h5>
-                <p class="fw-bold fs-5 mb-4">
-                    A/2020/ <span class="doc-number">917</span> /MATD/SERPROMA/SGG
-                </p>
-                <p class="fw-bold mt-4 px-md-5" style="font-size: 1.2rem; line-height: 1.6;">
-                    PORTANT AGREMENT DE LA SOCIETE GUINEENNE DE CHIRURGIE ORTHOPEDIE TRAUMATOLOGIE.
-                </p>
-                <p class="fw-bold mt-5 pt-4 text-uppercase" style="font-size: 1rem;">
-                    LE MINISTRE DE L'ADMINISTRATION DU TERRITOIRE ET DE LA DECENTRARLISATION.
-                </p>
+                <p class="fw-bold fs-5 mb-4">A/2020/ <span class="doc-number">917</span> /MATD/SERPROMA/SGG</p>
+                <p class="fw-bold mt-4 px-md-5" style="font-size: 1.2rem; line-height: 1.6;">PORTANT AGREMENT DE LA SOCIETE GUINEENNE DE CHIRURGIE ORTHOPEDIE TRAUMATOLOGIE.</p>
+                <p class="fw-bold mt-5 pt-4 text-uppercase" style="font-size: 1rem;">LE MINISTRE DE L'ADMINISTRATION DU TERRITOIRE ET DE LA DECENTRARLISATION.</p>
             </div>
         </div>
     </div>
@@ -410,9 +228,7 @@
     <!-- Notre Histoire -->
     <section id="presentation" class="container text-center pt-2 nora-reveal">
         <h2 class="section-title">Notre Histoire</h2>
-        <p class="lead text-muted w-75 mx-auto">
-            La SOGUICOT a été créée le 19 Mars 2020 grâce à la volonté et l’engagement de tous les orthopédistes guinéens. Elle est le garant de la pratique orthopédique et traumatologique en République de Guinée.
-        </p>
+        <p class="lead text-muted w-75 mx-auto">La SOGUICOT a été créée le 19 Mars 2020 grâce à la volonté et l’engagement de tous les orthopédistes guinéens. Elle est le garant de la pratique orthopédique et traumatologique en République de Guinée.</p>
     </section>
 
     <!-- Nos Objectifs -->
@@ -422,43 +238,18 @@
             <div class="row mt-4">
                 <div class="col-md-6 mb-3">
                     <ul class="list-group list-group-flush list-group-custom">
-                        <li class="list-group-item d-flex align-items-start">
-                            <i class="fas fa-caret-right text-primary mt-1 me-3"></i>
-                            <div>Promouvoir et développer la chirurgie orthopédique et traumatologique en Guinée.</div>
-                        </li>
-                        <li class="list-group-item d-flex align-items-start">
-                            <i class="fas fa-caret-right text-primary mt-1 me-3"></i>
-                            <div>Contribuer à l’amélioration de la prise en charge des patients souffrant de lésions traumatologiques, les séquelles de traumatismes, de lésions orthopédiques, infectieuses voire tumorales de l’appareil locomoteur.</div>
-                        </li>
-                        <li class="list-group-item d-flex align-items-start">
-                            <i class="fas fa-caret-right text-primary mt-1 me-3"></i>
-                            <div>Favoriser la formation continue et le perfectionnement des chirurgiens orthopédistes et des autres professionnels de santé concernés.</div>
-                        </li>
-                        <li class="list-group-item d-flex align-items-start">
-                            <i class="fas fa-caret-right text-primary mt-1 me-3"></i>
-                            <div>Encourager la recherche scientifique et la diffusion des connaissances dans le domaine.</div>
-                        </li>
+                        <li class="list-group-item d-flex align-items-start"><i class="fas fa-caret-right text-primary mt-1 me-3"></i><div>Promouvoir et développer la chirurgie orthopédique et traumatologique en Guinée.</div></li>
+                        <li class="list-group-item d-flex align-items-start"><i class="fas fa-caret-right text-primary mt-1 me-3"></i><div>Contribuer à l’amélioration de la prise en charge des patients souffrant de lésions traumatologiques, les séquelles de traumatismes, de lésions orthopédiques, infectieuses voire tumorales de l’appareil locomoteur.</div></li>
+                        <li class="list-group-item d-flex align-items-start"><i class="fas fa-caret-right text-primary mt-1 me-3"></i><div>Favoriser la formation continue et le perfectionnement des chirurgiens orthopédistes et des autres professionnels de santé concernés.</div></li>
+                        <li class="list-group-item d-flex align-items-start"><i class="fas fa-caret-right text-primary mt-1 me-3"></i><div>Encourager la recherche scientifique et la diffusion des connaissances dans le domaine.</div></li>
                     </ul>
                 </div>
-                
                 <div class="col-md-6 mb-3">
                     <ul class="list-group list-group-flush list-group-custom">
-                        <li class="list-group-item d-flex align-items-start">
-                            <i class="fas fa-caret-right text-primary mt-1 me-3"></i>
-                            <div>Organiser des congrès, conférences, séminaires et ateliers scientifiques.</div>
-                        </li>
-                        <li class="list-group-item d-flex align-items-start">
-                            <i class="fas fa-caret-right text-primary mt-1 me-3"></i>
-                            <div>Faciliter les échanges professionnels avec les sociétés savantes nationales et internationales.</div>
-                        </li>
-                        <li class="list-group-item d-flex align-items-start">
-                            <i class="fas fa-caret-right text-primary mt-1 me-3"></i>
-                            <div>Participer à l’élaboration et à la promotion de bonnes pratiques et recommandations en orthopédie-traumatologie.</div>
-                        </li>
-                        <li class="list-group-item d-flex align-items-start">
-                            <i class="fas fa-caret-right text-primary mt-1 me-3"></i>
-                            <div>Sensibiliser aux mesures de prévention des traumatismes, notamment les accidents de la voie publique et les accidents du travail.</div>
-                        </li>
+                        <li class="list-group-item d-flex align-items-start"><i class="fas fa-caret-right text-primary mt-1 me-3"></i><div>Organiser des congrès, conférences, séminaires et ateliers scientifiques.</div></li>
+                        <li class="list-group-item d-flex align-items-start"><i class="fas fa-caret-right text-primary mt-1 me-3"></i><div>Faciliter les échanges professionnels avec les sociétés savantes nationales et internationales.</div></li>
+                        <li class="list-group-item d-flex align-items-start"><i class="fas fa-caret-right text-primary mt-1 me-3"></i><div>Participer à l’élaboration et à la promotion de bonnes pratiques et recommandations en orthopédie-traumatologie.</div></li>
+                        <li class="list-group-item d-flex align-items-start"><i class="fas fa-caret-right text-primary mt-1 me-3"></i><div>Sensibiliser aux mesures de prévention des traumatismes, notamment les accidents de la voie publique et les accidents du travail.</div></li>
                     </ul>
                 </div>
             </div>
@@ -470,168 +261,81 @@
         <h2 class="section-title text-center d-block mx-auto">Le Bureau Exécutif</h2>
         <div class="row g-4 mt-2 justify-content-center">
             
-            <!-- Présidence (Espace Dominant : col-lg-7, marges larges p-5) -->
             <div class="col-lg-7 col-md-12">
                 <div class="card card-bureau h-100 text-center p-5 border-0" style="background: linear-gradient(to bottom, #ffffff, #f8f9fa);">
                     <div class="card-header card-header-custom mb-4 rounded fs-5">Présidence</div>
                     <div class="card-body d-flex flex-column align-items-center justify-content-center">
                         <img src="WhatsApp%20Image%202026-09-21%20at%2014.24.20.jpeg" alt="Professeur Léopold Lamah" class="president-img">
                         <p class="mb-0 fs-4 fw-bold text-primary">
-                            <span class="bureau-role d-block mb-2 text-dark" style="font-size: 1.1rem;">Président</span>
-                            Pr Léopold Lamah
+                            <span class="bureau-role d-block mb-2 text-dark" style="font-size: 1.1rem;">Président</span>Pr Léopold Lamah
                         </p>
                     </div>
                 </div>
             </div>
             
-            <!-- Secrétariat Général (Espace Secondaire : col-lg-5, marges classiques p-4) -->
             <div class="col-lg-5 col-md-12">
                 <div class="card card-bureau h-100 text-center p-4">
                     <div class="card-header card-header-custom mb-3 rounded">Secrétariat Général</div>
                     <div class="card-body d-flex flex-column align-items-center justify-content-center">
-                        <div class="placeholder-img-lg">
-                            <i class="fas fa-user-md"></i>
-                        </div>
-                        <p class="mb-0 fs-5 mt-2">
-                            <span class="bureau-role d-block mb-1">Secrétaire Général</span>
-                            Pr Mohamed Lamine Bah (MCA)
+                        <div class="placeholder-img-lg"><i class="fas fa-user-md"></i></div>
+                        <p class="mb-0 fs-5">
+                            <span class="bureau-role d-block mb-1">Secrétaire Général</span>Pr Mohamed Lamine Bah (MCA)
                         </p>
                     </div>
                 </div>
             </div>
             
-            <!-- Trésorerie -->
             <div class="col-lg-4 col-md-12">
                 <div class="card card-bureau h-100">
                     <div class="card-header card-header-custom text-center">Trésorerie</div>
                     <div class="card-body d-flex justify-content-evenly flex-wrap gap-3 pt-4">
-                        <div class="text-center" style="min-width: 100px;">
-                            <div class="placeholder-img-sm">
-                                <i class="fas fa-user-md"></i>
-                            </div>
-                            <p class="profile-name">Dr Nouhou Mangué Camara</p>
-                        </div>
-                        <div class="text-center" style="min-width: 100px;">
-                            <div class="placeholder-img-sm">
-                                <i class="fas fa-user-md"></i>
-                            </div>
-                            <p class="profile-name">Dr Rouguiatou Diallo</p>
-                        </div>
+                        <div class="text-center" style="min-width: 100px;"><div class="placeholder-img-sm"><i class="fas fa-user-md"></i></div><p class="profile-name">Dr Nouhou Mangué Camara</p></div>
+                        <div class="text-center" style="min-width: 100px;"><div class="placeholder-img-sm"><i class="fas fa-user-md"></i></div><p class="profile-name">Dr Rouguiatou Diallo</p></div>
                     </div>
                 </div>
             </div>
             
-            <!-- Relations Extérieures -->
             <div class="col-lg-8 col-md-12">
                 <div class="card card-bureau h-100">
                     <div class="card-header card-header-custom text-center">Relations extérieures</div>
                     <div class="card-body d-flex justify-content-evenly flex-wrap gap-3 pt-4">
-                        <div class="text-center" style="min-width: 130px;">
-                            <div class="placeholder-img-sm">
-                                <i class="fas fa-user-md"></i>
-                            </div>
-                            <p class="profile-name">Dr Sory Sidimé</p>
-                        </div>
-                        <div class="text-center" style="min-width: 130px;">
-                            <div class="placeholder-img-sm">
-                                <i class="fas fa-user-md"></i>
-                            </div>
-                            <p class="profile-name">Dr Amira P Aboud</p>
-                        </div>
-                        <div class="text-center" style="min-width: 130px;">
-                            <div class="placeholder-img-sm">
-                                <i class="fas fa-user-md"></i>
-                            </div>
-                            <p class="profile-name">Dr Hawa Lamara Diallo</p>
-                        </div>
+                        <div class="text-center" style="min-width: 130px;"><div class="placeholder-img-sm"><i class="fas fa-user-md"></i></div><p class="profile-name">Dr Sory Sidimé</p></div>
+                        <div class="text-center" style="min-width: 130px;"><div class="placeholder-img-sm"><i class="fas fa-user-md"></i></div><p class="profile-name">Dr Amira P Aboud</p></div>
+                        <div class="text-center" style="min-width: 130px;"><div class="placeholder-img-sm"><i class="fas fa-user-md"></i></div><p class="profile-name">Dr Hawa Lamara Diallo</p></div>
                     </div>
                 </div>
             </div>
             
-            <!-- Formation et information -->
             <div class="col-12">
                 <div class="card card-bureau h-100">
                     <div class="card-header card-header-custom text-center">Formation et information</div>
                     <div class="card-body py-4">
-                        
-                        <div class="text-center mb-3">
-                            <span class="bureau-role fs-5 text-secondary">Formation</span>
-                        </div>
-                        
+                        <div class="text-center mb-3"><span class="bureau-role fs-5 text-secondary">Formation</span></div>
                         <div class="d-flex justify-content-center flex-wrap gap-4 mb-4">
-                            <div class="text-center" style="min-width: 130px;">
-                                <div class="placeholder-img-sm">
-                                    <i class="fas fa-user-md"></i>
-                                </div>
-                                <p class="profile-name">Dr Mamadou Moustapha Diallo</p>
-                            </div>
-                            <div class="text-center" style="min-width: 130px;">
-                                <div class="placeholder-img-sm">
-                                    <i class="fas fa-user-md"></i>
-                                </div>
-                                <p class="profile-name">Dr Tafsir Camara</p>
-                            </div>
-                            <div class="text-center" style="min-width: 130px;">
-                                <div class="placeholder-img-sm">
-                                    <i class="fas fa-user-md"></i>
-                                </div>
-                                <p class="profile-name">Dr Fodé Ibrahima Kourala Keita</p>
-                            </div>
+                            <div class="text-center" style="min-width: 130px;"><div class="placeholder-img-sm"><i class="fas fa-user-md"></i></div><p class="profile-name">Dr Mamadou Moustapha Diallo</p></div>
+                            <div class="text-center" style="min-width: 130px;"><div class="placeholder-img-sm"><i class="fas fa-user-md"></i></div><p class="profile-name">Dr Tafsir Camara</p></div>
+                            <div class="text-center" style="min-width: 130px;"><div class="placeholder-img-sm"><i class="fas fa-user-md"></i></div><p class="profile-name">Dr Fodé Ibrahima Kourala Keita</p></div>
                         </div>
-                        
                         <hr class="text-muted w-25 mx-auto opacity-25">
-                        
-                        <div class="text-center mb-3 mt-4">
-                            <span class="bureau-role fs-5 text-secondary">Information</span>
-                        </div>
-                        
+                        <div class="text-center mb-3 mt-4"><span class="bureau-role fs-5 text-secondary">Information</span></div>
                         <div class="d-flex justify-content-center flex-wrap gap-4">
-                            <div class="text-center" style="min-width: 130px;">
-                                <div class="placeholder-img-sm">
-                                    <i class="fas fa-user-md"></i>
-                                </div>
-                                <p class="profile-name">Dr Abdoulaye Camara</p>
-                            </div>
-                            <div class="text-center" style="min-width: 130px;">
-                                <div class="placeholder-img-sm">
-                                    <i class="fas fa-user-md"></i>
-                                </div>
-                                <p class="profile-name">Dr Amadou Tanou Bah</p>
-                            </div>
+                            <div class="text-center" style="min-width: 130px;"><div class="placeholder-img-sm"><i class="fas fa-user-md"></i></div><p class="profile-name">Dr Abdoulaye Camara</p></div>
+                            <div class="text-center" style="min-width: 130px;"><div class="placeholder-img-sm"><i class="fas fa-user-md"></i></div><p class="profile-name">Dr Amadou Tanou Bah</p></div>
                         </div>
-                        
                     </div>
                 </div>
             </div>
 
-            <!-- Secrétariat et informatique (Humilité et Solidarité : Aucun highlight spécifique) -->
             <div class="col-12">
                 <div class="card card-bureau h-100 border-primary">
                     <div class="card-header bg-primary text-white text-center fw-bold">Secrétariat et informatique</div>
                     <div class="card-body d-flex justify-content-evenly flex-wrap gap-3 pt-4">
-                        <div class="text-center" style="min-width: 120px;">
-                            <div class="placeholder-img-sm">
-                                <i class="fas fa-user-md"></i>
-                            </div>
-                            <p class="profile-name">Dr Abraham Gbanamou</p>
-                        </div>
-                        <div class="text-center" style="min-width: 120px;">
-                            <div class="placeholder-img-sm">
-                                <i class="fas fa-user-md"></i>
-                            </div>
-                            <p class="profile-name">Dr Patrick Fredy Noumahayon</p>
-                        </div>
-                        <div class="text-center" style="min-width: 120px;">
-                            <div class="placeholder-img-sm">
-                                <i class="fas fa-user-md"></i>
-                            </div>
-                            <!-- Le Dr Samaké traité avec la même rigueur typographique que ses pairs -->
-                            <p class="profile-name">Dr Amara Tabaouo Samaké</p>
-                        </div>
+                        <div class="text-center" style="min-width: 120px;"><div class="placeholder-img-sm"><i class="fas fa-user-md"></i></div><p class="profile-name">Dr Abraham Gbanamou</p></div>
+                        <div class="text-center" style="min-width: 120px;"><div class="placeholder-img-sm"><i class="fas fa-user-md"></i></div><p class="profile-name">Dr Patrick Fredy Noumahayon</p></div>
+                        <div class="text-center" style="min-width: 120px;"><div class="placeholder-img-sm border-primary text-primary"><i class="fas fa-user-md"></i></div><p class="profile-name fw-bold text-primary">Dr Amara Tabaouo Samaké</p></div>
                     </div>
                 </div>
             </div>
-            
         </div>
     </section>
 
@@ -639,10 +343,8 @@
     <section id="adhesion" class="bg-white nora-reveal">
         <div class="container">
             <h2 class="section-title text-center d-block mx-auto">Adhésion & Statuts</h2>
-            
             <div class="row g-4 mt-2">
                 
-                <!-- 1. Volets adhésion (VERT) -->
                 <div class="col-lg-6">
                     <div class="card shadow-sm border-0 mb-4 border-start border-success border-4 h-100">
                         <div class="card-header bg-success text-white fw-bold">1- Volets adhésion</div>
@@ -651,69 +353,31 @@
                                 <li class="mb-2">Tous les anciens membres doivent faire une demande d’adhésion avec un montant de 100 milles francs adressée au président de la société.</li>
                                 <li>Les nouveaux membres (à partir du 1er Aout) doivent en plus de la demande d’adhésion payer 200 milles.</li>
                             </ul>
-                            <h6 class="fw-bold">
-                                <span class="bureau-role text-success">Critères d’adhésion :</span>
-                            </h6>
-                            <ul class="mb-0">
-                                <li>Diplôme d’État en médecine</li>
-                            </ul>
+                            <h6 class="fw-bold"><span class="bureau-role text-success">Critères d’adhésion :</span></h6>
+                            <ul class="mb-0"><li>Diplôme d’État en médecine</li></ul>
                         </div>
                     </div>
                 </div>
 
-                <!-- 2. Membres de la SOGUICOT (JAUNE) -->
                 <div class="col-lg-6">
                     <div class="card shadow-sm border-0 mb-4 border-start border-warning border-4 h-100">
                         <div class="card-header bg-warning text-dark fw-bold">2- Membres de la SOGUICOT</div>
                         <div class="card-body">
                             <p class="text-muted fst-italic">Quatre catégories de membres</p>
-                            
-                            <h6 class="fw-bold text-dark">
-                                <span class="bureau-role">Membres titulaires :</span> ce sont les membres seniors qui :
-                            </h6>
-                            <ul>
-                                <li>Ont quatre années d’ancienneté ;</li>
-                                <li>Se sont acquittés de la totalité de la cotisation ;</li>
-                                <li>Ont participé effectivement aux activités de la société ;</li>
-                                <li>Peuvent être membre du bureau exécutif.</li>
-                            </ul>
-                            
-                            <h6 class="fw-bold text-dark mt-3">
-                                <span class="bureau-role">Membres seniors :</span> médecin
-                            </h6>
-                            <ul>
-                                <li>Détenteur du diplôme de spécialiste en chirurgie orthopédique et traumatologique ;</li>
-                                <li>Nationalité guinéenne ;</li>
-                                <li>Exerçant la profession.</li>
-                            </ul>
-                            
-                            <h6 class="fw-bold text-dark mt-3">
-                                <span class="bureau-role">Membres juniors :</span>
-                            </h6>
-                            <ul>
-                                <li>Médecins de nationalité guinéenne en cours de formation en chirurgie Orthopédique et traumatologique.</li>
-                            </ul>
-                            
-                            <h6 class="fw-bold text-dark mt-3">
-                                <span class="bureau-role">Membres associés :</span> Médecin
-                            </h6>
-                            <ul>
-                                <li>Médecin guinéen d’une autre spécialité (diplôme de spécialiste) ;</li>
-                                <li>Médecin Orthopédiste étranger.</li>
-                            </ul>
-                            
-                            <h6 class="fw-bold text-dark mt-3">
-                                <span class="bureau-role">Membres d’Honneur :</span>
-                            </h6>
-                            <ul class="mb-0">
-                                <li>Ancien président de la SOGUICOT ;</li>
-                                <li>Toute personne guinéenne ou étrangère ayant rendu à la société ou à la chirurgie orthopédique et traumatologique des services éminents.</li>
-                            </ul>
+                            <h6 class="fw-bold text-dark"><span class="bureau-role">Membres titulaires :</span> ce sont les membres seniors qui :</h6>
+                            <ul><li>Ont quatre années d’ancienneté ;</li><li>Se sont acquittés de la totalité de la cotisation ;</li><li>Ont participé effectivement aux activités de la société ;</li><li>Peuvent être membre du bureau exécutif.</li></ul>
+                            <h6 class="fw-bold text-dark mt-3"><span class="bureau-role">Membres seniors :</span> médecin</h6>
+                            <ul><li>Détenteur du diplôme de spécialiste en chirurgie orthopédique et traumatologique ;</li><li>Nationalité guinéenne ;</li><li>Exerçant la profession.</li></ul>
+                            <h6 class="fw-bold text-dark mt-3"><span class="bureau-role">Membres juniors :</span></h6>
+                            <ul><li>Médecins de nationalité guinéenne en cours de formation en chirurgie Orthopédique et traumatologique.</li></ul>
+                            <h6 class="fw-bold text-dark mt-3"><span class="bureau-role">Membres associés :</span> Médecin</h6>
+                            <ul><li>Médecin guinéen d’une autre spécialité (diplôme de spécialiste) ;</li><li>Médecin Orthopédiste étranger.</li></ul>
+                            <h6 class="fw-bold text-dark mt-3"><span class="bureau-role">Membres d’Honneur :</span></h6>
+                            <ul class="mb-0"><li>Ancien président de la SOGUICOT ;</li><li>Toute personne guinéenne ou étrangère ayant rendu à la société ou à la chirurgie orthopédique et traumatologique des services éminents.</li></ul>
                         </div>
                     </div>
                 </div>
 
-                <!-- 3. Obligations & 4. Critères d'exclusion (ROUGE) -->
                 <div class="col-lg-6">
                     <div class="card shadow-sm border-0 border-start border-danger border-4 h-100">
                         <div class="card-body">
@@ -722,7 +386,6 @@
                                 <li class="mb-2">Participation obligatoire aux réunions (3 absences même justifiées est passibles d’une amende de 500 milles dans un délai de 72h).</li>
                                 <li>Paiement des cotisations (Le paiement incomplet des cotisations au 31 décembre de l’année entraine une obligation du paiement du reste de la somme due plus une amende de 500 milles au plus tard le 28 février de l’année suivante).</li>
                             </ul>
-                            
                             <h5 class="fw-bold text-danger border-bottom pb-2 mt-4">4- Critères d’exclusion :</h5>
                             <ul class="mb-0">
                                 <li>3 absences successives aux réunions même justifiées ;</li>
@@ -733,7 +396,6 @@
                     </div>
                 </div>
 
-                <!-- 5. Les avantages liés à la Société (ROUGE) -->
                 <div class="col-lg-6">
                     <div class="card shadow-sm border-0 border-start border-danger border-4 h-100">
                         <div class="card-body">
@@ -748,16 +410,13 @@
                         </div>
                     </div>
                 </div>
-                
             </div>
             
             <div class="text-center mt-5 pt-3 d-print-none">
                 <button onclick="securiserInscription()" class="btn btn-primary btn-lg px-5 py-3 shadow btn-nora" style="background-color: var(--primary-color); border: none;">
                     <i class="fas fa-lock me-2"></i>Accéder au Registre d'Adhésion
                 </button>
-                <p class="small text-muted mt-2">
-                    <i class="fas fa-shield-alt me-1 text-primary"></i> Accès restreint au bureau et secrétariat informatique
-                </p>
+                <p class="small text-muted mt-2"><i class="fas fa-shield-alt me-1 text-primary"></i> Accès restreint au bureau et secrétariat informatique</p>
             </div>
         </div>
     </section>
@@ -773,26 +432,16 @@
     <!-- Script Bootstrap & Moteur Nora -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Pérennité Temporelle Automatique
         document.getElementById('current-year').textContent = new Date().getFullYear();
 
-        // Moteur Nora : Animation de Défilement (Scroll Reveal)
         document.addEventListener("DOMContentLoaded", function() {
             const reveals = document.querySelectorAll(".nora-reveal");
             const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => { 
-                    if(entry.isIntersecting) { 
-                        entry.target.classList.add("active"); 
-                    } 
-                });
+                entries.forEach(entry => { if(entry.isIntersecting) { entry.target.classList.add("active"); } });
             }, { threshold: 0.1 });
-            
-            reveals.forEach(reveal => { 
-                observer.observe(reveal); 
-            });
+            reveals.forEach(reveal => { observer.observe(reveal); });
         });
 
-        // Moteur Nora : Sas de Sécurité pour les Adhésions
         function securiserInscription() {
             const CODE_SECRET = "SOGUICOT2026"; 
             const URL_FORMULAIRE = "https://docs.google.com/forms/d/e/1FAIpQLSdC8EZa8TJsakGVjckZkpYqZsQ2tf3pUW-OGuhj9Z8cva4_kw/viewform?usp=header"; 
