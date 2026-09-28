@@ -123,10 +123,8 @@
         .btn-nora:hover { transform: scale(1.02); box-shadow: 0 10px 20px rgba(0, 51, 102, 0.2) !important; color: white;}
 
         /* Flux d'actualités et publications */
-        .flux-card { border-left: 4px solid var(--primary-color); background: #ffffff; border-radius: 8px; padding: 20px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-        .flux-card.publication { border-left-color: var(--accent-color); }
+        .flux-card { background: #ffffff; border-radius: 8px; padding: 20px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
         .flux-img { max-width: 100%; height: auto; border-radius: 8px; margin-top: 15px; }
-        .meta-text { font-size: 0.85rem; color: #6c757d; }
 
         footer { background-color: var(--primary-color); color: white; padding: 30px 0; text-align: center; }
 
@@ -332,21 +330,12 @@
         </div>
     </section>
 
-    <!-- ========================================================= -->
-    <!-- ESPACES SÉPARÉS : INFORMATIONS ET PUBLICATIONS            -->
-    <!-- ========================================================= -->
+    <!-- ESPACES SÉPARÉS : INFORMATIONS ET PUBLICATIONS -->
     <div class="bg-light py-5">
-        <div class="container nora-reveal">
-            <!-- Bouton pour publier -->
-            <div class="text-end mb-4">
-                <button class="btn btn-outline-danger fw-bold shadow-sm" data-bs-toggle="modal" data-bs-target="#adminModal">
-                    <i class="fas fa-plus me-1"></i> Publier (Espace Bureau)
-                </button>
-            </div>
-            
+        <div class="container nora-reveal" id="informations">
             <div class="row">
                 <!-- SECTION INFORMATIONS -->
-                <div class="col-lg-6 mb-5" id="informations">
+                <div class="col-lg-6 mb-5">
                     <h3 class="fw-bold text-primary mb-4 border-bottom border-primary pb-2"><i class="fas fa-bullhorn me-2"></i>Informations du Bureau</h3>
                     <div id="flux-informations" class="pe-lg-3">
                         <div class="text-muted fst-italic text-center py-4 bg-white rounded shadow-sm" id="empty-infos">
@@ -368,9 +357,7 @@
         </div>
     </div>
 
-    <!-- ========================================================= -->
-    <!-- RESTAURATION DES SECTIONS ROUGES (OBLIGATIONS/AVANTAGES)  -->
-    <!-- ========================================================= -->
+    <!-- SECTIONS ROUGES, JAUNES, VERTES (STATUTS & ADHESION) -->
     <section id="adhesion" class="bg-white nora-reveal">
         <div class="container">
             <h2 class="section-title text-center d-block mx-auto">Adhésion & Statuts</h2>
@@ -557,9 +544,12 @@
                                 <label class="fw-bold mb-1 small">Auteur :</label>
                                 <input type="text" id="pub-auteur" class="form-control mb-3" placeholder="Votre nom (Ex: Dr Diallo)">
                                 <label class="fw-bold mb-1 small">Contenu :</label>
-                                <textarea id="pub-texte" class="form-control mb-3" rows="4" placeholder="Texte ou cas clinique..."></textarea>
-                                <label class="fw-bold mb-1 small">Image d'illustration (Optionnel) :</label>
-                                <input type="file" id="pub-image" class="form-control mb-4" accept="image/*">
+                                <textarea id="pub-texte" class="form-control mb-3" rows="4" placeholder="Texte de l'actualité ou cas clinique..."></textarea>
+                                
+                                <!-- NORA ENGINE : ACCEPTATION PDF ET IMAGES -->
+                                <label class="fw-bold mb-1 small">Pièce jointe (Image ou PDF) :</label>
+                                <input type="file" id="pub-file" class="form-control mb-4" accept="image/*, application/pdf">
+                                
                                 <button class="btn btn-danger w-100 fw-bold" onclick="publierArticle()"><i class="fas fa-paper-plane me-1"></i> Publier sur le site</button>
                             </div>
                         </div>
@@ -670,33 +660,45 @@
             }
         }
 
-        /* GESTION PUBLICATIONS & INFORMATIONS SÉPARÉES */
+        /* GESTION PUBLICATIONS & INFORMATIONS (MOTEUR AMÉLIORÉ AVEC GESTION PDF) */
         function publierArticle() {
-            const type = document.getElementById('pub-type').value;
+            const typeSelect = document.getElementById('pub-type');
+            if(!typeSelect) return; 
+            
+            const type = typeSelect.value;
             const auteur = document.getElementById('pub-auteur').value;
             const texte = document.getElementById('pub-texte').value;
-            const file = document.getElementById('pub-image').files[0];
+            const fileInput = document.getElementById('pub-file');
+            const file = fileInput.files[0];
             const dateStr = new Date().toLocaleDateString('fr-FR', { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute:'2-digit' });
 
-            if(auteur && texte) {
+            if(auteur.trim() !== "" && texte.trim() !== "") {
                 if(file) {
+                    const isPdf = file.type === "application/pdf";
+                    const fileName = file.name;
                     const reader = new FileReader();
-                    reader.onload = function(e) { enregistrerPub(type, auteur, texte, dateStr, e.target.result); }
+                    reader.onload = function(e) { 
+                        enregistrerPub(type, auteur, texte, dateStr, e.target.result, isPdf, fileName); 
+                    }
                     reader.readAsDataURL(file);
-                } else { enregistrerPub(type, auteur, texte, dateStr, null); }
-            } else { alert("Nom et texte obligatoires."); }
+                } else { 
+                    enregistrerPub(type, auteur, texte, dateStr, null, false, null); 
+                }
+            } else { alert("Erreur : Le nom de l'auteur et le contenu sont obligatoires."); }
         }
 
-        function enregistrerPub(type, auteur, texte, date, image) {
+        function enregistrerPub(type, auteur, texte, date, fileData, isPdf, fileName) {
             let pubs = JSON.parse(localStorage.getItem('sog_pubs') || '[]');
-            pubs.unshift({ type, auteur, texte, date, image });
+            pubs.unshift({ type: type, auteur: auteur, texte: texte, date: date, fileData: fileData, isPdf: isPdf, fileName: fileName });
             localStorage.setItem('sog_pubs', JSON.stringify(pubs));
             
             alert("Contenu diffusé sur le site !");
             bootstrap.Modal.getInstance(adminModal).hide();
+            
             document.getElementById('pub-auteur').value = '';
             document.getElementById('pub-texte').value = '';
-            document.getElementById('pub-image').value = '';
+            document.getElementById('pub-file').value = '';
+            
             chargerPublications();
         }
 
@@ -705,11 +707,21 @@
             let conteneurInfos = document.getElementById('flux-informations');
             let conteneurPubs = document.getElementById('flux-publications');
             
-            let hasInfos = false, hasPubs = false;
-            let htmlInfos = '', htmlPubs = '';
+            let hasInfos = false;
+            let hasPubs = false;
+            let htmlInfos = '';
+            let htmlPubs = '';
 
             pubs.forEach(pub => {
-                let imgHtml = pub.image ? `<img src="${pub.image}" class="flux-img shadow-sm" style="max-width:100%; border-radius:6px; margin-top:10px;">` : '';
+                let mediaHtml = '';
+                if (pub.fileData) {
+                    if (pub.isPdf) {
+                        mediaHtml = `<div class="mt-3"><a href="${pub.fileData}" download="${pub.fileName || 'document.pdf'}" class="btn btn-sm btn-outline-danger fw-bold w-100"><i class="fas fa-file-pdf me-2"></i>Télécharger le document PDF</a></div>`;
+                    } else {
+                        mediaHtml = `<img src="${pub.fileData}" class="flux-img shadow-sm" style="max-width:100%; border-radius:6px; margin-top:10px;">`;
+                    }
+                }
+
                 let formatedText = pub.texte.replace(/\n/g, '<br>');
                 let cardClass = pub.type === 'pub' ? 'flux-card publication' : 'flux-card';
                 let iconClass = pub.type === 'pub' ? 'fa-user-md' : 'fa-info-circle';
@@ -721,16 +733,27 @@
                             <span class="text-muted small">${pub.date}</span>
                         </div>
                         <p class="mb-0 mt-2 text-dark" style="font-size:0.95rem;">${formatedText}</p>
-                        ${imgHtml}
+                        ${mediaHtml}
                     </div>
                 `;
 
-                if(pub.type === 'info') { htmlInfos += carte; hasInfos = true; }
-                else { htmlPubs += carte; hasPubs = true; }
+                if(pub.type === 'info') { 
+                    htmlInfos += carte; 
+                    hasInfos = true; 
+                } else if (pub.type === 'pub') { 
+                    htmlPubs += carte; 
+                    hasPubs = true; 
+                }
             });
 
-            if(hasInfos) { conteneurInfos.innerHTML = htmlInfos; document.getElementById('empty-infos').style.display = 'none'; }
-            if(hasPubs) { conteneurPubs.innerHTML = htmlPubs; document.getElementById('empty-pubs').style.display = 'none'; }
+            if(conteneurInfos) {
+                if(hasInfos) { conteneurInfos.innerHTML = htmlInfos; }
+                else { conteneurInfos.innerHTML = '<div class="text-muted fst-italic text-center py-4 bg-white rounded shadow-sm">Aucune information récente du bureau.</div>'; }
+            }
+            if(conteneurPubs) {
+                if(hasPubs) { conteneurPubs.innerHTML = htmlPubs; }
+                else { conteneurPubs.innerHTML = '<div class="text-muted fst-italic text-center py-4 bg-white rounded shadow-sm">Aucun cas clinique publié pour le moment.</div>'; }
+            }
         }
     </script>
 </body>
