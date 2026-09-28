@@ -33,10 +33,10 @@
         .navbar-brand, .nav-link { color: #ffffff !important; font-weight: 500; transition: color 0.3s ease; }
         .nav-link:hover { color: var(--accent-color) !important; }
 
-        .nav-admin-btn {
-            background: rgba(255,255,255,0.1); border-radius: 4px; padding: 5px 12px !important; margin-left: 10px;
+        .btn-bureau-nav {
+            background-color: rgba(255, 255, 255, 0.15); border-radius: 6px; padding: 6px 15px !important; margin-left: 15px; border: 1px solid rgba(255,255,255,0.3); transition: all 0.3s ease;
         }
-        .nav-admin-btn:hover { background: rgba(255,255,255,0.2); }
+        .btn-bureau-nav:hover { background-color: var(--accent-color); border-color: var(--accent-color); transform: translateY(-1px); }
         
         /* Hero Section */
         .hero { 
@@ -93,29 +93,34 @@
         .card-bureau:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
         .card-header-custom { background-color: var(--secondary-color); color: white; font-weight: bold; font-size: 1.1rem; }
         
+        /* Images dynamiques */
         .dynamic-img-container {
-            width: 90px; height: 90px; background-color: #f1f3f5; border: 4px solid #ffffff; 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1); border-radius: 4px; display: flex; 
-            align-items: center; justify-content: center; margin: 0 auto 10px auto; 
-            color: #ced4da; font-size: 2.2rem; transition: transform 0.2s; overflow: hidden;
+            width: 100px; height: 100px; background-color: #f1f3f5; border: 4px solid #ffffff; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1); border-radius: 50%; display: flex; 
+            align-items: center; justify-content: center; margin: 0 auto 15px auto; 
+            color: #ced4da; font-size: 2.5rem; transition: transform 0.3s ease, border-color 0.3s ease; overflow: hidden;
             background-size: cover; background-position: center; cursor: pointer;
         }
-        .dynamic-img-container:hover { transform: scale(1.05); border-color: var(--accent-color); }
+        .dynamic-img-container:hover { transform: scale(1.08); border-color: var(--accent-color); }
         .dynamic-img-container.large { width: 140px; height: 140px; font-size: 3.5rem; }
         
         .president-img { 
-            width: 250px; height: 250px; object-fit: cover; border: 8px solid #ffffff; 
-            box-shadow: 0 15px 35px rgba(0, 51, 102, 0.3); border-radius: 8px; 
+            width: 200px; height: 200px; object-fit: cover; border: 6px solid #ffffff; 
+            box-shadow: 0 15px 35px rgba(0, 51, 102, 0.3); border-radius: 50%; 
             margin-bottom: 25px; transition: transform 0.3s ease; cursor: pointer;
         }
-        .president-img:hover { transform: scale(1.03); border-color: var(--accent-color); }
+        .president-img:hover { transform: scale(1.05); border-color: var(--accent-color); }
 
         .bureau-role { font-weight: 800; color: #000000; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 0.5px; }
+        .profile-name { line-height: 1.3; font-size: 0.95rem; margin-top: 5px; font-weight: 700; color: #222; }
         
-        .profile-link { 
-            line-height: 1.3; font-size: 0.95rem; margin-top: 5px; color: #222; text-decoration: none; font-weight: 600; transition: color 0.2s ease; display: inline-block;
+        /* Boutons de profil super visibles */
+        .btn-profil-badge {
+            background-color: var(--bg-light); border: 1px solid #ddd; color: var(--primary-color);
+            font-size: 0.75rem; padding: 4px 12px; border-radius: 20px; font-weight: bold;
+            transition: all 0.2s ease; cursor: pointer; text-decoration: none; display: inline-block; margin-top: 8px;
         }
-        .profile-link:hover { color: var(--accent-color) !important; cursor: pointer; text-decoration: underline; }
+        .btn-profil-badge:hover { background-color: var(--primary-color); color: white; border-color: var(--primary-color); }
 
         .list-group-custom .list-group-item { background: transparent; border: none; padding-left: 0; padding-top: 0.8rem; padding-bottom: 0.8rem; }
 
@@ -123,13 +128,19 @@
         .btn-nora:hover { transform: scale(1.02); box-shadow: 0 10px 20px rgba(0, 51, 102, 0.2) !important; color: white;}
 
         /* Flux d'actualités et publications */
+        .action-publish-container { background: #fff; border-radius: 8px; padding: 25px; border: 2px dashed #ccc; text-align: center; margin-bottom: 30px; transition: all 0.3s; }
+        .action-publish-container:hover { border-color: var(--accent-color); background: #fff9f9; cursor: pointer; }
+        
         .flux-card { background: #ffffff; border-radius: 8px; padding: 20px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
         .flux-img { max-width: 100%; height: auto; border-radius: 8px; margin-top: 15px; }
+
+        /* Loader Cloud */
+        #cloud-sync { display: none; position: fixed; top: 10px; right: 10px; background: var(--accent-color); color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; z-index: 9999; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
 
         footer { background-color: var(--primary-color); color: white; padding: 30px 0; text-align: center; }
 
         @media print {
-            .navbar, .hero, footer, .btn-nora, .nora-reveal { display: none !important; opacity: 1 !important; transform: none !important; }
+            .navbar, .hero, footer, .btn-nora, .nora-reveal, .action-publish-container { display: none !important; opacity: 1 !important; transform: none !important; }
             body { background-color: white; color: black; }
             .card, .arrete-image-css { box-shadow: none; border: 1px solid #000; break-inside: avoid; }
             .section-title { border-bottom: 2px solid black; color: black; }
@@ -137,6 +148,9 @@
     </style>
 </head>
 <body data-bs-spy="scroll" data-bs-target="#navbarNav">
+
+    <!-- Indicateur Cloud -->
+    <div id="cloud-sync"><i class="fas fa-sync fa-spin me-2"></i>Synchronisation...</div>
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg sticky-top d-print-none">
@@ -146,13 +160,13 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto align-items-lg-center">
                     <li class="nav-item"><a class="nav-link" href="#presentation">Histoire</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#objectifs">Objectifs</a></li>
                     <li class="nav-item"><a class="nav-link" href="#bureau">Le Bureau</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#informations">Infos & Publications</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#informations">Informations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#publications">Publications</a></li>
                     <li class="nav-item"><a class="nav-link" href="#adhesion">Adhésion</a></li>
                     <li class="nav-item">
-                        <a class="nav-link nav-admin-btn" href="#" data-bs-toggle="modal" data-bs-target="#adminModal">
-                            <i class="fas fa-lock text-white-50" title="Espace Bureau"></i>
+                        <a class="nav-link btn-bureau-nav text-white fw-bold" href="#" data-bs-toggle="modal" data-bs-target="#adminModal">
+                            <i class="fas fa-cogs me-1"></i> Administration
                         </a>
                     </li>
                 </ul>
@@ -160,7 +174,7 @@
         </div>
     </nav>
 
-    <!-- Séquence Cartographique Validée -->
+    <!-- En-tête : Séquence Cartographique -->
     <header class="hero d-print-none">
         <div class="container">
             <h1 class="display-4">S.O.G.U.I.C.O.T</h1>
@@ -193,16 +207,23 @@
 
     <!-- Histoire & Objectifs -->
     <section id="presentation" class="container text-center pt-2 nora-reveal">
-        <h2 class="section-title">Notre Histoire</h2>
-        <p class="lead text-muted w-75 mx-auto">La SOGUICOT a été créée le 19 Mars 2020 grâce à la volonté et l’engagement de tous les orthopédistes guinéens. Elle est le garant de la pratique orthopédique et traumatologique en République de Guinée.</p>
-    </section>
-
-    <section id="objectifs" class="bg-white nora-reveal">
-        <div class="container">
-            <h2 class="section-title text-center d-block mx-auto">Nos Objectifs</h2>
-            <div class="row mt-4">
-                <div class="col-md-6 mb-3"><ul class="list-group list-group-flush list-group-custom"><li class="list-group-item d-flex align-items-start"><i class="fas fa-caret-right text-primary mt-1 me-3"></i><div>Promouvoir et développer la chirurgie orthopédique et traumatologique en Guinée.</div></li><li class="list-group-item d-flex align-items-start"><i class="fas fa-caret-right text-primary mt-1 me-3"></i><div>Contribuer à l’amélioration de la prise en charge des patients souffrant de lésions traumatologiques, les séquelles de traumatismes, de lésions orthopédiques, infectieuses voire tumorales de l’appareil locomoteur.</div></li><li class="list-group-item d-flex align-items-start"><i class="fas fa-caret-right text-primary mt-1 me-3"></i><div>Favoriser la formation continue et le perfectionnement des chirurgiens orthopédistes.</div></li><li class="list-group-item d-flex align-items-start"><i class="fas fa-caret-right text-primary mt-1 me-3"></i><div>Encourager la recherche scientifique et la diffusion des connaissances dans le domaine.</div></li></ul></div>
-                <div class="col-md-6 mb-3"><ul class="list-group list-group-flush list-group-custom"><li class="list-group-item d-flex align-items-start"><i class="fas fa-caret-right text-primary mt-1 me-3"></i><div>Organiser des congrès, conférences, séminaires et ateliers scientifiques.</div></li><li class="list-group-item d-flex align-items-start"><i class="fas fa-caret-right text-primary mt-1 me-3"></i><div>Faciliter les échanges professionnels avec les sociétés savantes nationales et internationales.</div></li><li class="list-group-item d-flex align-items-start"><i class="fas fa-caret-right text-primary mt-1 me-3"></i><div>Participer à l’élaboration et à la promotion de bonnes pratiques et recommandations.</div></li><li class="list-group-item d-flex align-items-start"><i class="fas fa-caret-right text-primary mt-1 me-3"></i><div>Sensibiliser aux mesures de prévention des traumatismes, notamment les accidents de la voie publique et du travail.</div></li></ul></div>
+        <h2 class="section-title">Notre Histoire & Objectifs</h2>
+        <p class="lead text-muted w-75 mx-auto mb-5">La SOGUICOT a été créée le 19 Mars 2020 grâce à la volonté et l’engagement de tous les orthopédistes guinéens. Elle est le garant de la pratique orthopédique et traumatologique en République de Guinée.</p>
+        
+        <div class="row mt-4 text-start">
+            <div class="col-md-6 mb-3">
+                <ul class="list-group list-group-flush list-group-custom">
+                    <li class="list-group-item d-flex align-items-start"><i class="fas fa-caret-right text-primary mt-1 me-3"></i><div>Promouvoir et développer la chirurgie orthopédique et traumatologique en Guinée.</div></li>
+                    <li class="list-group-item d-flex align-items-start"><i class="fas fa-caret-right text-primary mt-1 me-3"></i><div>Contribuer à l’amélioration de la prise en charge des patients souffrant de lésions traumatologiques et orthopédiques de l’appareil locomoteur.</div></li>
+                    <li class="list-group-item d-flex align-items-start"><i class="fas fa-caret-right text-primary mt-1 me-3"></i><div>Favoriser la formation continue et le perfectionnement des chirurgiens orthopédistes.</div></li>
+                </ul>
+            </div>
+            <div class="col-md-6 mb-3">
+                <ul class="list-group list-group-flush list-group-custom">
+                    <li class="list-group-item d-flex align-items-start"><i class="fas fa-caret-right text-primary mt-1 me-3"></i><div>Organiser des congrès, conférences, séminaires et ateliers scientifiques.</div></li>
+                    <li class="list-group-item d-flex align-items-start"><i class="fas fa-caret-right text-primary mt-1 me-3"></i><div>Faciliter les échanges professionnels avec les sociétés savantes nationales et internationales.</div></li>
+                    <li class="list-group-item d-flex align-items-start"><i class="fas fa-caret-right text-primary mt-1 me-3"></i><div>Sensibiliser aux mesures de prévention des traumatismes, notamment les accidents de la voie publique et du travail.</div></li>
+                </ul>
             </div>
         </div>
     </section>
@@ -210,118 +231,147 @@
     <!-- Le Bureau -->
     <section id="bureau" class="container nora-reveal">
         <h2 class="section-title text-center d-block mx-auto">Le Bureau Exécutif</h2>
-        <p class="text-center text-muted mb-4 small"><i class="fas fa-info-circle me-1"></i> Cliquez sur le nom ou la photo d'un membre pour consulter sa biographie.</p>
         
         <div class="row g-4 mt-2 justify-content-center">
+            
+            <!-- Présidence -->
             <div class="col-lg-7 col-md-12">
                 <div class="card card-bureau h-100 text-center p-5 border-0" style="background: linear-gradient(to bottom, #ffffff, #f8f9fa);">
                     <div class="card-header card-header-custom mb-4 rounded fs-5">Présidence</div>
                     <div class="card-body d-flex flex-column align-items-center justify-content-center">
-                        <img src="WhatsApp%20Image%202026-09-21%20at%2014.24.20.jpeg" id="photo-president" alt="Professeur Léopold Lamah" class="president-img" onclick="afficherBio('photo-president', 'Pr Léopold Lamah', 'Président')">
-                        <p class="mb-0 fs-4 fw-bold text-primary">
-                            <span class="bureau-role d-block mb-2 text-dark" style="font-size: 1.1rem;">Président</span>
-                            <a class="profile-link fs-4" onclick="afficherBio('photo-president', 'Pr Léopold Lamah', 'Président')">Pr Léopold Lamah</a>
-                        </p>
+                        <img src="WhatsApp%20Image%202026-09-21%20at%2014.24.20.jpeg" id="photo-president" alt="Pr Léopold Lamah" class="president-img" onclick="window.afficherBio('photo-president', 'Pr Léopold Lamah', 'Président')">
+                        <span class="bureau-role d-block mb-1 text-dark" style="font-size: 1.1rem;">Président</span>
+                        <div class="profile-name fs-4 text-primary">Pr Léopold Lamah</div>
+                        <span class="btn-profil-badge" onclick="window.afficherBio('photo-president', 'Pr Léopold Lamah', 'Président')"><i class="fas fa-search me-1"></i> Voir profil</span>
                     </div>
                 </div>
             </div>
             
+            <!-- Secrétariat Général -->
             <div class="col-lg-5 col-md-12">
                 <div class="card card-bureau h-100 text-center p-4">
                     <div class="card-header card-header-custom mb-3 rounded">Secrétariat Général</div>
                     <div class="card-body d-flex flex-column align-items-center justify-content-center">
-                        <div class="dynamic-img-container large" id="photo-sg" onclick="afficherBio('photo-sg', 'Pr Mohamed Lamine Bah (MCA)', 'Secrétaire Général')"><i class="fas fa-user-md"></i></div>
-                        <p class="mb-0 fs-5 mt-2"><span class="bureau-role d-block mb-1">Secrétaire Général</span><a class="profile-link fs-5" onclick="afficherBio('photo-sg', 'Pr Mohamed Lamine Bah (MCA)', 'Secrétaire Général')">Pr Mohamed Lamine Bah (MCA)</a></p>
+                        <div class="dynamic-img-container large" id="photo-sg" onclick="window.afficherBio('photo-sg', 'Pr Mohamed Lamine Bah (MCA)', 'Secrétaire Général')"><i class="fas fa-user-md"></i></div>
+                        <span class="bureau-role d-block mb-1 mt-2">Secrétaire Général</span>
+                        <div class="profile-name fs-5">Pr Mohamed Lamine Bah (MCA)</div>
+                        <span class="btn-profil-badge" onclick="window.afficherBio('photo-sg', 'Pr Mohamed Lamine Bah (MCA)', 'Secrétaire Général')"><i class="fas fa-search me-1"></i> Voir profil</span>
                     </div>
                 </div>
             </div>
             
-            <div class="col-lg-4 col-md-12">
+            <!-- Trésorerie -->
+            <div class="col-lg-5 col-md-12">
                 <div class="card card-bureau h-100">
                     <div class="card-header card-header-custom text-center">Trésorerie</div>
-                    <div class="card-body d-flex justify-content-evenly flex-wrap gap-3 pt-4">
-                        <div class="text-center" style="min-width: 100px;">
-                            <div class="dynamic-img-container" id="photo-tres1" onclick="afficherBio('photo-tres1', 'Dr Nouhou Mangué Camara', 'Trésorier')"><i class="fas fa-user-md"></i></div>
-                            <a class="profile-link" onclick="afficherBio('photo-tres1', 'Dr Nouhou Mangué Camara', 'Trésorier')">Dr Nouhou Mangué Camara</a>
+                    <div class="card-body d-flex justify-content-evenly flex-wrap gap-4 pt-4">
+                        <div class="text-center" style="min-width: 120px;">
+                            <div class="dynamic-img-container" id="photo-tres1" onclick="window.afficherBio('photo-tres1', 'Dr Nouhou Mangué Camara', 'Trésorier')"><i class="fas fa-user-md"></i></div>
+                            <div class="profile-name">Dr Nouhou Mangué Camara</div>
+                            <span class="btn-profil-badge" onclick="window.afficherBio('photo-tres1', 'Dr Nouhou Mangué Camara', 'Trésorier')">Voir profil</span>
                         </div>
-                        <div class="text-center" style="min-width: 100px;">
-                            <div class="dynamic-img-container" id="photo-tres2" onclick="afficherBio('photo-tres2', 'Dr Rouguiatou Diallo', 'Trésorière')"><i class="fas fa-user-md"></i></div>
-                            <a class="profile-link" onclick="afficherBio('photo-tres2', 'Dr Rouguiatou Diallo', 'Trésorière')">Dr Rouguiatou Diallo</a>
+                        <div class="text-center" style="min-width: 120px;">
+                            <div class="dynamic-img-container" id="photo-tres2" onclick="window.afficherBio('photo-tres2', 'Dr Rouguiatou Diallo', 'Trésorière')"><i class="fas fa-user-md"></i></div>
+                            <div class="profile-name">Dr Rouguiatou Diallo</div>
+                            <span class="btn-profil-badge" onclick="window.afficherBio('photo-tres2', 'Dr Rouguiatou Diallo', 'Trésorière')">Voir profil</span>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <div class="col-lg-8 col-md-12">
+            <!-- Relations Extérieures -->
+            <div class="col-lg-7 col-md-12">
                 <div class="card card-bureau h-100">
                     <div class="card-header card-header-custom text-center">Relations extérieures</div>
                     <div class="card-body d-flex justify-content-evenly flex-wrap gap-3 pt-4">
                         <div class="text-center" style="min-width: 130px;">
-                            <div class="dynamic-img-container" id="photo-rel1" onclick="afficherBio('photo-rel1', 'Dr Sory Sidimé', 'Relations Extérieures')"><i class="fas fa-user-md"></i></div>
-                            <a class="profile-link" onclick="afficherBio('photo-rel1', 'Dr Sory Sidimé', 'Relations Extérieures')">Dr Sory Sidimé</a>
+                            <div class="dynamic-img-container" id="photo-rel1" onclick="window.afficherBio('photo-rel1', 'Dr Sory Sidimé', 'Relations Extérieures')"><i class="fas fa-user-md"></i></div>
+                            <div class="profile-name">Dr Sory Sidimé</div>
+                            <span class="btn-profil-badge" onclick="window.afficherBio('photo-rel1', 'Dr Sory Sidimé', 'Relations Extérieures')">Voir profil</span>
                         </div>
                         <div class="text-center" style="min-width: 130px;">
-                            <div class="dynamic-img-container" id="photo-rel2" onclick="afficherBio('photo-rel2', 'Dr Amira P Aboud', 'Relations Extérieures')"><i class="fas fa-user-md"></i></div>
-                            <a class="profile-link" onclick="afficherBio('photo-rel2', 'Dr Amira P Aboud', 'Relations Extérieures')">Dr Amira P Aboud</a>
+                            <div class="dynamic-img-container" id="photo-rel2" onclick="window.afficherBio('photo-rel2', 'Dr Amira P Aboud', 'Relations Extérieures')"><i class="fas fa-user-md"></i></div>
+                            <div class="profile-name">Dr Amira P Aboud</div>
+                            <span class="btn-profil-badge" onclick="window.afficherBio('photo-rel2', 'Dr Amira P Aboud', 'Relations Extérieures')">Voir profil</span>
                         </div>
                         <div class="text-center" style="min-width: 130px;">
-                            <div class="dynamic-img-container" id="photo-rel3" onclick="afficherBio('photo-rel3', 'Dr Hawa Lamara Diallo', 'Relations Extérieures')"><i class="fas fa-user-md"></i></div>
-                            <a class="profile-link" onclick="afficherBio('photo-rel3', 'Dr Hawa Lamara Diallo', 'Relations Extérieures')">Dr Hawa Lamara Diallo</a>
+                            <div class="dynamic-img-container" id="photo-rel3" onclick="window.afficherBio('photo-rel3', 'Dr Hawa Lamara Diallo', 'Relations Extérieures')"><i class="fas fa-user-md"></i></div>
+                            <div class="profile-name">Dr Hawa Lamara Diallo</div>
+                            <span class="btn-profil-badge" onclick="window.afficherBio('photo-rel3', 'Dr Hawa Lamara Diallo', 'Relations Extérieures')">Voir profil</span>
                         </div>
                     </div>
                 </div>
             </div>
             
+            <!-- Formation et information -->
             <div class="col-12">
                 <div class="card card-bureau h-100">
-                    <div class="card-header card-header-custom text-center">Formation et information</div>
+                    <div class="card-header card-header-custom text-center">Formation et Information</div>
                     <div class="card-body py-4">
-                        <div class="text-center mb-3"><span class="bureau-role fs-5 text-secondary">Formation</span></div>
+                        <div class="text-center mb-4"><span class="bureau-role fs-5 text-secondary border-bottom border-secondary pb-1">Cellule Formation</span></div>
+                        
+                        <!-- NORA ENGINE : Intégration parfaite du Dr Alpha Mamadou Felah Diallo (4 membres alignés) -->
                         <div class="d-flex justify-content-center flex-wrap gap-4 mb-4">
-                            <div class="text-center" style="min-width: 130px;">
-                                <div class="dynamic-img-container" id="photo-form1" onclick="afficherBio('photo-form1', 'Dr Mamadou Moustapha Diallo', 'Formation')"><i class="fas fa-user-md"></i></div>
-                                <a class="profile-link" onclick="afficherBio('photo-form1', 'Dr Mamadou Moustapha Diallo', 'Formation')">Dr Mamadou Moustapha Diallo</a>
+                            <div class="text-center" style="min-width: 150px; max-width: 180px;">
+                                <div class="dynamic-img-container" id="photo-form1" onclick="window.afficherBio('photo-form1', 'Dr Mamadou Moustapha Diallo', 'Formation')"><i class="fas fa-user-md"></i></div>
+                                <div class="profile-name">Dr M. Moustapha Diallo</div>
+                                <span class="btn-profil-badge" onclick="window.afficherBio('photo-form1', 'Dr Mamadou Moustapha Diallo', 'Formation')">Voir profil</span>
                             </div>
-                            <div class="text-center" style="min-width: 130px;">
-                                <div class="dynamic-img-container" id="photo-form2" onclick="afficherBio('photo-form2', 'Dr Tafsir Camara', 'Formation')"><i class="fas fa-user-md"></i></div>
-                                <a class="profile-link" onclick="afficherBio('photo-form2', 'Dr Tafsir Camara', 'Formation')">Dr Tafsir Camara</a>
+                            <div class="text-center" style="min-width: 150px; max-width: 180px;">
+                                <div class="dynamic-img-container" id="photo-form2" onclick="window.afficherBio('photo-form2', 'Dr Tafsir Camara', 'Formation')"><i class="fas fa-user-md"></i></div>
+                                <div class="profile-name">Dr Tafsir Camara</div>
+                                <span class="btn-profil-badge" onclick="window.afficherBio('photo-form2', 'Dr Tafsir Camara', 'Formation')">Voir profil</span>
                             </div>
-                            <div class="text-center" style="min-width: 130px;">
-                                <div class="dynamic-img-container" id="photo-form3" onclick="afficherBio('photo-form3', 'Dr Fodé Ibrahima Kourala Keita', 'Formation')"><i class="fas fa-user-md"></i></div>
-                                <a class="profile-link" onclick="afficherBio('photo-form3', 'Dr Fodé Ibrahima Kourala Keita', 'Formation')">Dr Fodé Ibrahima Kourala Keita</a>
+                            <div class="text-center" style="min-width: 150px; max-width: 180px;">
+                                <div class="dynamic-img-container" id="photo-form3" onclick="window.afficherBio('photo-form3', 'Dr Fodé Ibrahima Kourala Keita', 'Formation')"><i class="fas fa-user-md"></i></div>
+                                <div class="profile-name">Dr Fodé I. Kourala Keita</div>
+                                <span class="btn-profil-badge" onclick="window.afficherBio('photo-form3', 'Dr Fodé Ibrahima Kourala Keita', 'Formation')">Voir profil</span>
+                            </div>
+                            <div class="text-center" style="min-width: 150px; max-width: 180px;">
+                                <div class="dynamic-img-container" id="photo-form4" onclick="window.afficherBio('photo-form4', 'Dr Alpha Mamadou Felah Diallo', 'Formation')"><i class="fas fa-user-md"></i></div>
+                                <div class="profile-name">Dr Alpha M. Felah Diallo</div>
+                                <span class="btn-profil-badge" onclick="window.afficherBio('photo-form4', 'Dr Alpha Mamadou Felah Diallo', 'Formation')">Voir profil</span>
                             </div>
                         </div>
-                        <hr class="text-muted w-25 mx-auto opacity-25">
-                        <div class="text-center mb-3 mt-4"><span class="bureau-role fs-5 text-secondary">Information</span></div>
-                        <div class="d-flex justify-content-center flex-wrap gap-4">
-                            <div class="text-center" style="min-width: 130px;">
-                                <div class="dynamic-img-container" id="photo-info1" onclick="afficherBio('photo-info1', 'Dr Abdoulaye Camara', 'Information')"><i class="fas fa-user-md"></i></div>
-                                <a class="profile-link" onclick="afficherBio('photo-info1', 'Dr Abdoulaye Camara', 'Information')">Dr Abdoulaye Camara</a>
+
+                        <hr class="text-muted w-25 mx-auto opacity-25 mt-5">
+                        
+                        <div class="text-center mb-4 mt-4"><span class="bureau-role fs-5 text-secondary border-bottom border-secondary pb-1">Cellule Information</span></div>
+                        <div class="d-flex justify-content-center flex-wrap gap-5">
+                            <div class="text-center" style="min-width: 150px;">
+                                <div class="dynamic-img-container" id="photo-info1" onclick="window.afficherBio('photo-info1', 'Dr Abdoulaye Camara', 'Information')"><i class="fas fa-user-md"></i></div>
+                                <div class="profile-name">Dr Abdoulaye Camara</div>
+                                <span class="btn-profil-badge" onclick="window.afficherBio('photo-info1', 'Dr Abdoulaye Camara', 'Information')">Voir profil</span>
                             </div>
-                            <div class="text-center" style="min-width: 130px;">
-                                <div class="dynamic-img-container" id="photo-info2" onclick="afficherBio('photo-info2', 'Dr Amadou Tanou Bah', 'Information')"><i class="fas fa-user-md"></i></div>
-                                <a class="profile-link" onclick="afficherBio('photo-info2', 'Dr Amadou Tanou Bah', 'Information')">Dr Amadou Tanou Bah</a>
+                            <div class="text-center" style="min-width: 150px;">
+                                <div class="dynamic-img-container" id="photo-info2" onclick="window.afficherBio('photo-info2', 'Dr Amadou Tanou Bah', 'Information')"><i class="fas fa-user-md"></i></div>
+                                <div class="profile-name">Dr Amadou Tanou Bah</div>
+                                <span class="btn-profil-badge" onclick="window.afficherBio('photo-info2', 'Dr Amadou Tanou Bah', 'Information')">Voir profil</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <!-- Secrétariat et informatique -->
             <div class="col-12">
-                <div class="card card-bureau h-100 border-primary">
+                <div class="card card-bureau h-100 border-primary shadow-sm">
                     <div class="card-header bg-primary text-white text-center fw-bold">Secrétariat et informatique</div>
-                    <div class="card-body d-flex justify-content-evenly flex-wrap gap-3 pt-4">
-                        <div class="text-center" style="min-width: 120px;">
-                            <div class="dynamic-img-container" id="photo-sec1" onclick="afficherBio('photo-sec1', 'Dr Abraham Gbanamou', 'Secrétariat et informatique')"><i class="fas fa-user-md"></i></div>
-                            <a class="profile-link" onclick="afficherBio('photo-sec1', 'Dr Abraham Gbanamou', 'Secrétariat et informatique')">Dr Abraham Gbanamou</a>
+                    <div class="card-body d-flex justify-content-evenly flex-wrap gap-4 pt-4">
+                        <div class="text-center" style="min-width: 140px;">
+                            <div class="dynamic-img-container" id="photo-sec1" onclick="window.afficherBio('photo-sec1', 'Dr Abraham Gbanamou', 'Secrétariat et informatique')"><i class="fas fa-user-md"></i></div>
+                            <div class="profile-name">Dr Abraham Gbanamou</div>
+                            <span class="btn-profil-badge" onclick="window.afficherBio('photo-sec1', 'Dr Abraham Gbanamou', 'Secrétariat et informatique')">Voir profil</span>
                         </div>
-                        <div class="text-center" style="min-width: 120px;">
-                            <div class="dynamic-img-container" id="photo-sec2" onclick="afficherBio('photo-sec2', 'Dr Patrick Fredy Noumahayon', 'Secrétariat et informatique')"><i class="fas fa-user-md"></i></div>
-                            <a class="profile-link" onclick="afficherBio('photo-sec2', 'Dr Patrick Fredy Noumahayon', 'Secrétariat et informatique')">Dr Patrick Fredy Noumahayon</a>
+                        <div class="text-center" style="min-width: 140px;">
+                            <div class="dynamic-img-container" id="photo-sec2" onclick="window.afficherBio('photo-sec2', 'Dr Patrick Fredy Noumahayon', 'Secrétariat et informatique')"><i class="fas fa-user-md"></i></div>
+                            <div class="profile-name">Dr P. Fredy Noumahayon</div>
+                            <span class="btn-profil-badge" onclick="window.afficherBio('photo-sec2', 'Dr Patrick Fredy Noumahayon', 'Secrétariat et informatique')">Voir profil</span>
                         </div>
-                        <div class="text-center" style="min-width: 120px;">
-                            <div class="dynamic-img-container border-primary text-primary" id="photo-sec3" onclick="afficherBio('photo-sec3', 'Dr Amara Tabaouo Samaké', 'Secrétariat et informatique')"><i class="fas fa-user-md"></i></div>
-                            <a class="profile-link text-primary" onclick="afficherBio('photo-sec3', 'Dr Amara Tabaouo Samaké', 'Secrétariat et informatique')">Dr Amara Tabaouo Samaké</a>
+                        <div class="text-center" style="min-width: 140px;">
+                            <div class="dynamic-img-container border-primary text-primary shadow" id="photo-sec3" onclick="window.afficherBio('photo-sec3', 'Dr Amara Tabaouo Samaké', 'Secrétariat et informatique')"><i class="fas fa-user-md"></i></div>
+                            <div class="profile-name text-primary">Dr Amara T. Samaké</div>
+                            <span class="btn-profil-badge" onclick="window.afficherBio('photo-sec3', 'Dr Amara Tabaouo Samaké', 'Secrétariat et informatique')">Voir profil</span>
                         </div>
                     </div>
                 </div>
@@ -331,15 +381,30 @@
     </section>
 
     <!-- ESPACES SÉPARÉS : INFORMATIONS ET PUBLICATIONS -->
-    <div class="bg-light py-5">
-        <div class="container nora-reveal" id="informations">
+    <div class="bg-light py-5 mt-5 border-top border-4 border-accent">
+        <div class="container nora-reveal">
+            
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="fw-bold text-dark mb-3">Communication Officielle</h2>
+                    <p class="text-muted mb-4">Espace réservé aux annonces du bureau et aux partages scientifiques.</p>
+                    
+                    <!-- Bouton Ultra Visible pour l'Administration -->
+                    <div class="action-publish-container d-inline-block shadow-sm" data-bs-toggle="modal" data-bs-target="#adminModal">
+                        <i class="fas fa-edit fa-2x text-accent mb-2 d-block" style="color: var(--accent-color);"></i>
+                        <h5 class="fw-bold mb-0 text-dark">Espace Bureau</h5>
+                        <span class="small text-muted">Publier une actualité ou un cas clinique</span>
+                    </div>
+                </div>
+            </div>
+
             <div class="row">
                 <!-- SECTION INFORMATIONS -->
-                <div class="col-lg-6 mb-5">
+                <div class="col-lg-6 mb-5" id="informations">
                     <h3 class="fw-bold text-primary mb-4 border-bottom border-primary pb-2"><i class="fas fa-bullhorn me-2"></i>Informations du Bureau</h3>
                     <div id="flux-informations" class="pe-lg-3">
                         <div class="text-muted fst-italic text-center py-4 bg-white rounded shadow-sm" id="empty-infos">
-                            Aucune information récente du bureau.
+                            Aucune information récente n'a été publiée.
                         </div>
                     </div>
                 </div>
@@ -349,7 +414,7 @@
                     <h3 class="fw-bold text-primary mb-4 border-bottom border-danger pb-2"><i class="fas fa-book-medical me-2"></i>Publications Scientifiques</h3>
                     <div id="flux-publications" class="ps-lg-3">
                         <div class="text-muted fst-italic text-center py-4 bg-white rounded shadow-sm" id="empty-pubs">
-                            Aucun cas clinique publié pour le moment.
+                            Aucun cas clinique n'a été publié pour le moment.
                         </div>
                     </div>
                 </div>
@@ -449,9 +514,9 @@
                 </div>
             </div>
             
-            <div class="text-center mt-5 pt-3 d-print-none">
-                <button onclick="securiserInscription()" class="btn btn-nora btn-lg px-5 py-3 shadow">
-                    <i class="fas fa-lock me-2"></i>Accéder au Registre d'Adhésion
+            <div class="text-center mt-5 pt-4 d-print-none">
+                <button onclick="window.securiserInscription()" class="btn btn-nora btn-lg px-5 py-3 shadow-lg fw-bold rounded-pill">
+                    <i class="fas fa-user-plus me-2"></i>Inscrire un nouveau membre (Secrétariat)
                 </button>
             </div>
         </div>
@@ -485,31 +550,31 @@
         </div>
     </div>
 
-    <!-- MODAL INVISIBLE POUR L'ADMINISTRATION -->
+    <!-- MODAL ADMIN SÉCURISÉ -->
     <div class="modal fade" id="adminModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content border-0 shadow-lg">
                 <div class="modal-header bg-primary text-white">
-                    <h5 class="modal-title fw-bold"><i class="fas fa-cogs me-2"></i>Espace Bureau (Mises à jour)</h5>
+                    <h5 class="modal-title fw-bold"><i class="fas fa-cogs me-2"></i>Espace Bureau (Administration)</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body p-4">
                     <div id="step-password">
-                        <p class="text-muted mb-3">Saisissez le code SOGUICOT pour accéder aux modifications.</p>
-                        <input type="password" id="admin-code" class="form-control mb-3" placeholder="Code d'accès...">
-                        <button class="btn btn-danger w-100 fw-bold" onclick="verifierCode()"><i class="fas fa-sign-in-alt me-2"></i>Valider</button>
+                        <p class="text-muted mb-3">Veuillez saisir le code confidentiel SOGUICOT pour accéder aux modifications.</p>
+                        <input type="password" id="admin-code" class="form-control mb-3" placeholder="Code secret SOGUICOT...">
+                        <button class="btn btn-danger w-100 fw-bold" onclick="window.verifierCode()"><i class="fas fa-sign-in-alt me-2"></i>Déverrouiller l'accès</button>
                     </div>
 
                     <div id="step-dashboard" style="display: none;">
                         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                            <li class="nav-item flex-fill text-center" role="presentation"><button class="nav-link active w-100 fw-bold" data-bs-toggle="pill" data-bs-target="#tab-photo">Profil & Bio</button></li>
-                            <li class="nav-item flex-fill text-center ms-2" role="presentation"><button class="nav-link w-100 fw-bold" data-bs-toggle="pill" data-bs-target="#tab-pub">Publier</button></li>
+                            <li class="nav-item flex-fill text-center" role="presentation"><button class="nav-link active w-100 fw-bold" data-bs-toggle="pill" data-bs-target="#tab-photo">Gérer Profil</button></li>
+                            <li class="nav-item flex-fill text-center ms-2" role="presentation"><button class="nav-link w-100 fw-bold bg-danger text-white" data-bs-toggle="pill" data-bs-target="#tab-pub"><i class="fas fa-plus me-1"></i> Publier</button></li>
                         </ul>
                         
                         <div class="tab-content border top-0 p-3 rounded bg-light">
                             <!-- Profil & Bio -->
                             <div class="tab-pane fade show active" id="tab-photo">
-                                <label class="fw-bold mb-1 small">Votre poste :</label>
+                                <label class="fw-bold mb-1 small text-primary">1. Sélectionnez le profil à modifier :</label>
                                 <select id="upload-role" class="form-select mb-3">
                                     <option value="photo-president">Président (Pr Lamah)</option>
                                     <option value="photo-sg">Secrétaire Général</option>
@@ -521,36 +586,34 @@
                                     <option value="photo-form1">Formation (Dr Moustapha)</option>
                                     <option value="photo-form2">Formation (Dr Tafsir)</option>
                                     <option value="photo-form3">Formation (Dr Fodé)</option>
+                                    <option value="photo-form4">Formation (Dr Felah Diallo)</option>
                                     <option value="photo-info1">Information (Dr Abdoulaye)</option>
                                     <option value="photo-info2">Information (Dr Amadou)</option>
                                     <option value="photo-sec1">Secrétariat (Dr Abraham)</option>
                                     <option value="photo-sec2">Secrétariat (Dr Fredy)</option>
                                     <option value="photo-sec3">Secrétariat (Dr Samaké)</option>
                                 </select>
-                                <label class="fw-bold mb-1 small">Votre Photo (Optionnel) :</label>
+                                <label class="fw-bold mb-1 small text-primary">2. Charger une nouvelle Photo (Optionnel) :</label>
                                 <input type="file" id="upload-file" class="form-control mb-3" accept="image/*">
-                                <label class="fw-bold mb-1 small">Votre Biographie :</label>
-                                <textarea id="upload-bio" class="form-control mb-3" rows="3" placeholder="Saisissez votre parcours..."></textarea>
-                                <button class="btn btn-primary w-100 fw-bold" onclick="sauvegarderProfil()"><i class="fas fa-save me-1"></i> Mettre à jour</button>
+                                <label class="fw-bold mb-1 small text-primary">3. Rédiger la Biographie :</label>
+                                <textarea id="upload-bio" class="form-control mb-3" rows="3" placeholder="Saisissez le parcours, les diplômes..."></textarea>
+                                <button class="btn btn-primary w-100 fw-bold" id="btn-save-profil"><i class="fas fa-save me-1"></i> Enregistrer le profil</button>
                             </div>
                             
                             <!-- Publication -->
                             <div class="tab-pane fade" id="tab-pub">
-                                <label class="fw-bold mb-1 small">Où publier ?</label>
+                                <label class="fw-bold mb-1 small text-danger">Nature de la publication :</label>
                                 <select id="pub-type" class="form-select mb-3">
-                                    <option value="info">Information du Bureau</option>
-                                    <option value="pub">Publication Scientifique / Cas Clinique</option>
+                                    <option value="info">Annonce / Information du Bureau</option>
+                                    <option value="pub">Cas Clinique / Article Scientifique</option>
                                 </select>
                                 <label class="fw-bold mb-1 small">Auteur :</label>
-                                <input type="text" id="pub-auteur" class="form-control mb-3" placeholder="Votre nom (Ex: Dr Diallo)">
-                                <label class="fw-bold mb-1 small">Contenu :</label>
-                                <textarea id="pub-texte" class="form-control mb-3" rows="4" placeholder="Texte de l'actualité ou cas clinique..."></textarea>
-                                
-                                <!-- NORA ENGINE : ACCEPTATION PDF ET IMAGES -->
-                                <label class="fw-bold mb-1 small">Pièce jointe (Image ou PDF) :</label>
+                                <input type="text" id="pub-auteur" class="form-control mb-3" placeholder="Ex: Dr Amara Samaké">
+                                <label class="fw-bold mb-1 small">Contenu détaillé :</label>
+                                <textarea id="pub-texte" class="form-control mb-3" rows="5" placeholder="Décrivez le cas ou l'information à partager..."></textarea>
+                                <label class="fw-bold mb-1 small text-primary"><i class="fas fa-paperclip me-1"></i> Pièce jointe (Image ou document PDF) :</label>
                                 <input type="file" id="pub-file" class="form-control mb-4" accept="image/*, application/pdf">
-                                
-                                <button class="btn btn-danger w-100 fw-bold" onclick="publierArticle()"><i class="fas fa-paper-plane me-1"></i> Publier sur le site</button>
+                                <button class="btn btn-danger w-100 fw-bold shadow" id="btn-publish"><i class="fas fa-paper-plane me-1"></i> Diffuser instantanément</button>
                             </div>
                         </div>
                     </div>
@@ -559,164 +622,153 @@
         </div>
     </div>
 
-    <!-- Scripts -->
+    <!-- Scripts Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
+
+    <!-- NORA ENGINE : MOTEUR HYBRIDE CLOUD/LOCAL -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+        import { getFirestore, collection, addDoc, onSnapshot, query, orderBy, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
+
         document.getElementById('current-year').textContent = new Date().getFullYear();
 
-        document.addEventListener("DOMContentLoaded", function() {
-            const reveals = document.querySelectorAll(".nora-reveal");
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => { if(entry.isIntersecting) { entry.target.classList.add("active"); } });
-            }, { threshold: 0.1 });
-            reveals.forEach(reveal => { observer.observe(reveal); });
+        // Afficher/Cacher l'indicateur Cloud
+        function toggleSync(show) { document.getElementById('cloud-sync').style.display = show ? 'block' : 'none'; }
 
-            chargerDonneesProfils();
-            chargerPublications();
-        });
+        // Moteur de secours (Local Storage) si Firebase n'est pas configuré
+        let useCloud = false;
+        let db;
 
-        function securiserInscription() {
-            if(prompt("Code Secrétariat (SOGUICOT) :") === "SOGUICOT2026") {
-                window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLSdC8EZa8TJsakGVjckZkpYqZsQ2tf3pUW-OGuhj9Z8cva4_kw/viewform?usp=header"; 
-            } else { alert("Accès refusé."); }
-        }
-
-        /* GESTION BIOGRAPHIES */
-        function afficherBio(roleId, nom, titre) {
-            let photos = JSON.parse(localStorage.getItem('sog_photos') || '{}');
-            let bios = JSON.parse(localStorage.getItem('sog_bios') || '{}');
-            
-            document.getElementById('bio-name').textContent = nom;
-            document.getElementById('bio-role').textContent = titre;
-            document.getElementById('bio-text').textContent = bios[roleId] || "Biographie et informations détaillées en cours de rédaction par le membre.";
-            
-            let imgContainer = document.getElementById('bio-img-container');
-            if(photos[roleId]) {
-                imgContainer.innerHTML = '';
-                imgContainer.style.backgroundImage = `url(${photos[roleId]})`;
-            } else if (roleId === 'photo-president') {
-                imgContainer.innerHTML = '';
-                imgContainer.style.backgroundImage = `url('WhatsApp%20Image%202026-09-21%20at%2014.24.20.jpeg')`;
-            } else {
-                imgContainer.innerHTML = '<i class="fas fa-user-md"></i>';
-                imgContainer.style.backgroundImage = 'none';
+        try {
+            const firebaseConfig = { apiKey: "VOTRE_API_KEY_ICI", authDomain: "VOTRE_PROJET.firebaseapp.com", projectId: "VOTRE_PROJET", storageBucket: "VOTRE_PROJET.appspot.com", messagingSenderId: "VOTRE_SENDER_ID", appId: "VOTRE_APP_ID" };
+            if (firebaseConfig.apiKey !== "VOTRE_API_KEY_ICI") {
+                const app = initializeApp(firebaseConfig);
+                db = getFirestore(app);
+                useCloud = true;
             }
-            new bootstrap.Modal(document.getElementById('bioModal')).show();
+        } catch(e) { console.log("Mode Local Activé."); }
+
+        if (useCloud) {
+            // LECTURE CLOUD
+            onSnapshot(collection(db, "profils"), (snapshot) => {
+                let localCachePhotos = {}; let localCacheBios = {};
+                snapshot.forEach((document) => {
+                    const data = document.data();
+                    localCachePhotos[document.id] = data.photoBase64;
+                    localCacheBios[document.id] = data.bioText;
+                    let div = window.document.getElementById(document.id);
+                    if(div && data.photoBase64) {
+                        if (document.id === 'photo-president') { div.src = data.photoBase64; } 
+                        else { div.innerHTML = ''; div.style.backgroundImage = `url(${data.photoBase64})`; }
+                    }
+                });
+                localStorage.setItem('sog_photos', JSON.stringify(localCachePhotos));
+                localStorage.setItem('sog_bios', JSON.stringify(localCacheBios));
+            });
+
+            const q = query(collection(db, "publications"), orderBy("timestamp", "desc"));
+            onSnapshot(q, (snapshot) => {
+                let pubs = [];
+                snapshot.forEach((doc) => pubs.push(doc.data()));
+                localStorage.setItem('sog_pubs', JSON.stringify(pubs));
+                window.renderPublications(pubs);
+            });
+        } else {
+            // LECTURE LOCALE
+            window.chargerDonneesLocales();
         }
 
-        /* GESTION ADMIN (LOCAL) */
-        function verifierCode() {
-            if(document.getElementById('admin-code').value === "SOGUICOT2026") {
-                document.getElementById('step-password').style.display = 'none';
-                document.getElementById('step-dashboard').style.display = 'block';
-            } else { alert("Code incorrect."); }
-        }
-
-        var adminModal = document.getElementById('adminModal');
-        adminModal.addEventListener('hidden.bs.modal', function () {
-            document.getElementById('admin-code').value = '';
-            document.getElementById('step-password').style.display = 'block';
-            document.getElementById('step-dashboard').style.display = 'none';
-        });
-
-        function sauvegarderProfil() {
+        // ==========================================
+        // ACTIONS DU BUREAU (SAUVEGARDE & PUBLICATION)
+        // ==========================================
+        document.getElementById('btn-save-profil').addEventListener('click', async () => {
             const role = document.getElementById('upload-role').value;
             const bioText = document.getElementById('upload-bio').value;
             const file = document.getElementById('upload-file').files[0];
             
-            if(bioText.trim() !== "") {
-                let bios = JSON.parse(localStorage.getItem('sog_bios') || '{}');
-                bios[role] = bioText;
-                localStorage.setItem('sog_bios', JSON.stringify(bios));
-            }
+            toggleSync(true);
+            let payload = {};
+            if(bioText.trim() !== "") payload.bioText = bioText;
+
+            const finaliserAction = async (payload) => {
+                if(useCloud) {
+                    try { await setDoc(doc(db, "profils", role), payload, { merge: true }); } 
+                    catch(e) { alert("Erreur de connexion au Cloud."); }
+                } else {
+                    let bios = JSON.parse(localStorage.getItem('sog_bios') || '{}');
+                    if(payload.bioText) bios[role] = payload.bioText;
+                    localStorage.setItem('sog_bios', JSON.stringify(bios));
+                    
+                    if(payload.photoBase64) {
+                        let photos = JSON.parse(localStorage.getItem('sog_photos') || '{}');
+                        photos[role] = payload.photoBase64;
+                        localStorage.setItem('sog_photos', JSON.stringify(photos));
+                    }
+                    window.chargerDonneesLocales();
+                }
+                toggleSync(false);
+                alert("Profil mis à jour !");
+                bootstrap.Modal.getInstance(document.getElementById('adminModal')).hide();
+            };
+
             if(file) {
                 const reader = new FileReader();
-                reader.onload = function(e) {
-                    let photos = JSON.parse(localStorage.getItem('sog_photos') || '{}');
-                    photos[role] = e.target.result;
-                    localStorage.setItem('sog_photos', JSON.stringify(photos));
-                    finaliserSauvegardeProfil();
-                }
+                reader.onload = function(e) { payload.photoBase64 = e.target.result; finaliserAction(payload); }
                 reader.readAsDataURL(file);
-            } else { finaliserSauvegardeProfil(); }
-        }
+            } else { finaliserAction(payload); }
+        });
 
-        function finaliserSauvegardeProfil() {
-            alert("Profil mis à jour !");
-            bootstrap.Modal.getInstance(adminModal).hide();
-            document.getElementById('upload-bio').value = '';
-            document.getElementById('upload-file').value = '';
-            chargerDonneesProfils();
-        }
-
-        function chargerDonneesProfils() {
-            let photos = JSON.parse(localStorage.getItem('sog_photos') || '{}');
-            for (const [role, imgUrl] of Object.entries(photos)) {
-                let div = document.getElementById(role);
-                if(div) {
-                    if (role === 'photo-president') { div.src = imgUrl; } 
-                    else { div.innerHTML = ''; div.style.backgroundImage = `url(${imgUrl})`; }
-                }
-            }
-        }
-
-        /* GESTION PUBLICATIONS & INFORMATIONS (MOTEUR AMÉLIORÉ AVEC GESTION PDF) */
-        function publierArticle() {
-            const typeSelect = document.getElementById('pub-type');
-            if(!typeSelect) return; 
-            
-            const type = typeSelect.value;
+        document.getElementById('btn-publish').addEventListener('click', async () => {
+            const type = document.getElementById('pub-type').value;
             const auteur = document.getElementById('pub-auteur').value;
             const texte = document.getElementById('pub-texte').value;
-            const fileInput = document.getElementById('pub-file');
-            const file = fileInput.files[0];
-            const dateStr = new Date().toLocaleDateString('fr-FR', { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute:'2-digit' });
+            const file = document.getElementById('pub-file').files[0];
+            const dateStr = new Date().toLocaleDateString('fr-FR', { day: '2-digit', month: 'long', year: 'numeric', hour: '2-digit', minute:'2-digit' });
 
             if(auteur.trim() !== "" && texte.trim() !== "") {
-                if(file) {
-                    const isPdf = file.type === "application/pdf";
-                    const fileName = file.name;
-                    const reader = new FileReader();
-                    reader.onload = function(e) { 
-                        enregistrerPub(type, auteur, texte, dateStr, e.target.result, isPdf, fileName); 
+                toggleSync(true);
+                let payload = { type: type, auteur: auteur, texte: texte, date: dateStr, timestamp: Date.now() };
+
+                const finaliserPub = async (payload) => {
+                    if(useCloud) {
+                        try { await addDoc(collection(db, "publications"), payload); } 
+                        catch(e) { alert("Erreur de connexion au Cloud."); }
+                    } else {
+                        let pubs = JSON.parse(localStorage.getItem('sog_pubs') || '[]');
+                        pubs.unshift(payload);
+                        localStorage.setItem('sog_pubs', JSON.stringify(pubs));
+                        window.renderPublications(pubs);
                     }
+                    toggleSync(false);
+                    alert("Document publié !");
+                    bootstrap.Modal.getInstance(document.getElementById('adminModal')).hide();
+                    document.getElementById('pub-auteur').value = ''; document.getElementById('pub-texte').value = ''; document.getElementById('pub-file').value = '';
+                };
+
+                if(file) {
+                    payload.isPdf = file.type === "application/pdf";
+                    payload.fileName = file.name;
+                    const reader = new FileReader();
+                    reader.onload = function(e) { payload.fileData = e.target.result; finaliserPub(payload); }
                     reader.readAsDataURL(file);
-                } else { 
-                    enregistrerPub(type, auteur, texte, dateStr, null, false, null); 
-                }
-            } else { alert("Erreur : Le nom de l'auteur et le contenu sont obligatoires."); }
-        }
+                } else { finaliserPub(payload); }
+            } else { alert("Auteur et Contenu sont obligatoires."); }
+        });
 
-        function enregistrerPub(type, auteur, texte, date, fileData, isPdf, fileName) {
-            let pubs = JSON.parse(localStorage.getItem('sog_pubs') || '[]');
-            pubs.unshift({ type: type, auteur: auteur, texte: texte, date: date, fileData: fileData, isPdf: isPdf, fileName: fileName });
-            localStorage.setItem('sog_pubs', JSON.stringify(pubs));
-            
-            alert("Contenu diffusé sur le site !");
-            bootstrap.Modal.getInstance(adminModal).hide();
-            
-            document.getElementById('pub-auteur').value = '';
-            document.getElementById('pub-texte').value = '';
-            document.getElementById('pub-file').value = '';
-            
-            chargerPublications();
-        }
-
-        function chargerPublications() {
-            let pubs = JSON.parse(localStorage.getItem('sog_pubs') || '[]');
+        // ==========================================
+        // MOTEUR D'AFFICHAGE ET D'INTERACTION
+        // ==========================================
+        window.renderPublications = function(pubs) {
             let conteneurInfos = document.getElementById('flux-informations');
             let conteneurPubs = document.getElementById('flux-publications');
-            
-            let hasInfos = false;
-            let hasPubs = false;
-            let htmlInfos = '';
-            let htmlPubs = '';
+            let htmlInfos = '', htmlPubs = '';
+            let hasInfos = false, hasPubs = false;
 
-            pubs.forEach(pub => {
+            pubs.forEach((pub) => {
                 let mediaHtml = '';
                 if (pub.fileData) {
                     if (pub.isPdf) {
-                        mediaHtml = `<div class="mt-3"><a href="${pub.fileData}" download="${pub.fileName || 'document.pdf'}" class="btn btn-sm btn-outline-danger fw-bold w-100"><i class="fas fa-file-pdf me-2"></i>Télécharger le document PDF</a></div>`;
+                        mediaHtml = `<div class="mt-3"><a href="${pub.fileData}" download="${pub.fileName || 'document.pdf'}" class="btn btn-sm btn-outline-danger fw-bold w-100"><i class="fas fa-file-pdf me-2"></i>Télécharger le PDF joint</a></div>`;
                     } else {
                         mediaHtml = `<img src="${pub.fileData}" class="flux-img shadow-sm" style="max-width:100%; border-radius:6px; margin-top:10px;">`;
                     }
@@ -727,34 +779,82 @@
                 let iconClass = pub.type === 'pub' ? 'fa-user-md' : 'fa-info-circle';
 
                 let carte = `
-                    <div class="${cardClass} bg-white p-3 rounded shadow-sm mb-3 border-start border-4 ${pub.type === 'pub' ? 'border-danger' : 'border-primary'}">
-                        <div class="d-flex justify-content-between border-bottom pb-2 mb-2">
-                            <span class="fw-bold text-dark"><i class="fas ${iconClass} me-2 ${pub.type === 'pub' ? 'text-danger' : 'text-primary'}"></i>${pub.auteur}</span>
-                            <span class="text-muted small">${pub.date}</span>
+                    <div class="${cardClass} bg-white p-4 rounded shadow-sm mb-4 border-start border-4 ${pub.type === 'pub' ? 'border-danger' : 'border-primary'}">
+                        <div class="d-flex justify-content-between border-bottom pb-2 mb-3">
+                            <span class="fw-bold text-dark fs-5"><i class="fas ${iconClass} me-2 ${pub.type === 'pub' ? 'text-danger' : 'text-primary'}"></i>${pub.auteur}</span>
+                            <span class="text-muted small mt-1"><i class="far fa-clock me-1"></i>${pub.date}</span>
                         </div>
-                        <p class="mb-0 mt-2 text-dark" style="font-size:0.95rem;">${formatedText}</p>
+                        <p class="mb-0 mt-2 text-dark" style="font-size:1.05rem; line-height: 1.6;">${formatedText}</p>
                         ${mediaHtml}
                     </div>
                 `;
 
-                if(pub.type === 'info') { 
-                    htmlInfos += carte; 
-                    hasInfos = true; 
-                } else if (pub.type === 'pub') { 
-                    htmlPubs += carte; 
-                    hasPubs = true; 
-                }
+                if(pub.type === 'info') { htmlInfos += carte; hasInfos = true; }
+                else if (pub.type === 'pub') { htmlPubs += carte; hasPubs = true; }
             });
 
-            if(conteneurInfos) {
-                if(hasInfos) { conteneurInfos.innerHTML = htmlInfos; }
-                else { conteneurInfos.innerHTML = '<div class="text-muted fst-italic text-center py-4 bg-white rounded shadow-sm">Aucune information récente du bureau.</div>'; }
+            if(conteneurInfos) conteneurInfos.innerHTML = hasInfos ? htmlInfos : '<div class="text-muted fst-italic text-center py-4 bg-white rounded shadow-sm">Aucune information récente du bureau.</div>';
+            if(conteneurPubs) conteneurPubs.innerHTML = hasPubs ? htmlPubs : '<div class="text-muted fst-italic text-center py-4 bg-white rounded shadow-sm">Aucun cas clinique publié pour le moment.</div>';
+        };
+
+        window.chargerDonneesLocales = function() {
+            let photos = JSON.parse(localStorage.getItem('sog_photos') || '{}');
+            for (const [role, imgUrl] of Object.entries(photos)) {
+                let div = window.document.getElementById(role);
+                if(div) {
+                    if (role === 'photo-president') { div.src = imgUrl; } 
+                    else { div.innerHTML = ''; div.style.backgroundImage = `url(${imgUrl})`; }
+                }
             }
-            if(conteneurPubs) {
-                if(hasPubs) { conteneurPubs.innerHTML = htmlPubs; }
-                else { conteneurPubs.innerHTML = '<div class="text-muted fst-italic text-center py-4 bg-white rounded shadow-sm">Aucun cas clinique publié pour le moment.</div>'; }
+            let pubs = JSON.parse(localStorage.getItem('sog_pubs') || '[]');
+            window.renderPublications(pubs);
+        };
+
+        window.afficherBio = function(roleId, nom, titre) {
+            let photos = JSON.parse(localStorage.getItem('sog_photos') || '{}');
+            let bios = JSON.parse(localStorage.getItem('sog_bios') || '{}');
+            
+            document.getElementById('bio-name').textContent = nom;
+            document.getElementById('bio-role').textContent = titre;
+            document.getElementById('bio-text').textContent = bios[roleId] || "Biographie et informations détaillées en cours de rédaction par le membre. Ce profil sera mis à jour prochainement.";
+            
+            let imgContainer = document.getElementById('bio-img-container');
+            if(photos[roleId]) {
+                imgContainer.innerHTML = ''; imgContainer.style.backgroundImage = `url(${photos[roleId]})`;
+            } else if (roleId === 'photo-president') {
+                imgContainer.innerHTML = ''; imgContainer.style.backgroundImage = `url('WhatsApp%20Image%202026-09-21%20at%2014.24.20.jpeg')`;
+            } else {
+                imgContainer.innerHTML = '<i class="fas fa-user-md"></i>'; imgContainer.style.backgroundImage = 'none';
             }
-        }
+            new bootstrap.Modal(document.getElementById('bioModal')).show();
+        };
+
+        window.verifierCode = function() {
+            if(document.getElementById('admin-code').value === "SOGUICOT2026") {
+                document.getElementById('step-password').style.display = 'none';
+                document.getElementById('step-dashboard').style.display = 'block';
+            } else { alert("Code de sécurité incorrect."); }
+        };
+
+        window.securiserInscription = function() {
+            if(prompt("Code Secrétariat (SOGUICOT) :") === "SOGUICOT2026") {
+                window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLSdC8EZa8TJsakGVjckZkpYqZsQ2tf3pUW-OGuhj9Z8cva4_kw/viewform?usp=header"; 
+            } else { alert("Accès refusé."); }
+        };
+
+        var adminModal = document.getElementById('adminModal');
+        adminModal.addEventListener('hidden.bs.modal', function () {
+            document.getElementById('admin-code').value = '';
+            document.getElementById('step-password').style.display = 'block';
+            document.getElementById('step-dashboard').style.display = 'none';
+        });
+
+        // Animations Scroll
+        const reveals = document.querySelectorAll(".nora-reveal");
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if(entry.isIntersecting) { entry.target.classList.add("active"); } });
+        }, { threshold: 0.1 });
+        reveals.forEach(reveal => { observer.observe(reveal); });
     </script>
 </body>
 </html>
