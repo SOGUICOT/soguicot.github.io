@@ -105,7 +105,7 @@
         .dynamic-img-container:hover { transform: scale(1.05); border-color: var(--accent-color); }
         .dynamic-img-container.large { width: 140px; height: 140px; font-size: 3.5rem; border-radius: 6px; }
         
-        /* CADRAGE CHIRURGICAL DU PROFESSEUR (Centré sur le visage, adieu le front) */
+        /* Stature Majestueuse et Cadrage Impeccable du Professeur */
         .president-img { 
             width: 250px; height: 250px; object-fit: cover; object-position: center 25%; border: 8px solid #ffffff; 
             box-shadow: 0 15px 35px rgba(0, 51, 102, 0.3); border-radius: 8px; 
@@ -133,8 +133,6 @@
         .flux-card { background: #ffffff; border-radius: 8px; padding: 20px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
         .flux-img { max-width: 100%; height: auto; border-radius: 6px; margin-top: 15px; }
 
-        #cloud-sync { display: none; position: fixed; top: 10px; right: 10px; background: var(--accent-color); color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; z-index: 9999; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
-
         footer { background-color: var(--primary-color); color: white; padding: 30px 0; text-align: center; }
 
         @media print {
@@ -146,8 +144,6 @@
     </style>
 </head>
 <body data-bs-spy="scroll" data-bs-target="#navbarNav">
-
-    <div id="cloud-sync"><i class="fas fa-cloud-upload-alt me-2"></i>Synchronisation Cloud universelle...</div>
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg sticky-top d-print-none">
@@ -333,7 +329,7 @@
                                 <span class="btn-profil-badge" onclick="window.afficherBio('photo-form3', 'Dr Fodé Ibrahima Kourala Keita', 'Formation')"><i class="fas fa-search me-1"></i> Profil</span>
                             </div>
                             <div class="text-center" style="min-width: 150px; max-width: 180px;">
-                                <div class="dynamic-img-container" id="photo-form4" onclick="window.afficherBio('photo-form4', 'Dr Alpha Mamadou Felah Diallo', 'Formation')"><i class="fas fa-user-md"></i></div>
+                                <div class="dynamic-img-container" id="photo-form4" style="background-image: url('moustapha.jpg');" onclick="window.afficherBio('photo-form4', 'Dr Alpha Mamadou Felah Diallo', 'Formation')"></div>
                                 <div class="profile-name">Dr Alpha M. Felah Diallo</div>
                                 <span class="btn-profil-badge" onclick="window.afficherBio('photo-form4', 'Dr Alpha Mamadou Felah Diallo', 'Formation')"><i class="fas fa-search me-1"></i> Profil</span>
                             </div>
