@@ -46,7 +46,7 @@
         .hero h1 { font-weight: 800; letter-spacing: 3px; text-shadow: 0 4px 10px rgba(0,0,0,0.2); }
         .hero-subtitle { font-size: 1.3rem; font-style: italic; opacity: 0.95; }
         
-        /* Séquence Cartographique Validée */
+        /* Séquence Cartographique */
         .map-focus-container { 
             position: relative; height: 180px; width: 180px; margin: 20px auto 10px auto; 
             display: flex; justify-content: center; align-items: center; 
@@ -108,15 +108,11 @@
         /* NORA ENGINE : LE PROFESSEUR - MAJESTUEUX ET ADAPTATIF */
         .president-card-special { background: linear-gradient(to bottom, #ffffff, #f0f4f8); border-top: 5px solid var(--accent-color); }
         .president-img { 
-            width: 280px; height: 280px; max-width: 100%; object-fit: cover; object-position: center 20%; 
-            border: 10px solid #ffffff; box-shadow: 0 20px 50px rgba(0, 51, 102, 0.4); border-radius: 12px; 
+            width: 100%; max-width: 290px; height: auto; object-fit: cover; object-position: center 20%; 
+            border: 8px solid #ffffff; box-shadow: 0 20px 50px rgba(0, 51, 102, 0.4); border-radius: 12px; 
             margin-bottom: 25px; transition: transform 0.3s ease; cursor: pointer;
         }
         .president-img:hover { transform: scale(1.03); border-color: var(--accent-color); }
-        
-        @media (max-width: 576px) {
-            .president-img { width: 220px; height: 220px; border-width: 6px; } /* Adaptation mobile parfaite */
-        }
 
         .bureau-role { font-weight: 800; color: #000000; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 0.5px; }
         .profile-name { line-height: 1.3; font-size: 0.95rem; margin-top: 5px; font-weight: 700; color: #222; }
@@ -138,8 +134,6 @@
         .flux-card { background: #ffffff; border-radius: 8px; padding: 20px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
         .flux-img { max-width: 100%; height: auto; border-radius: 6px; margin-top: 15px; }
 
-        #cloud-sync { display: none; position: fixed; top: 10px; right: 10px; background: var(--accent-color); color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; z-index: 9999; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
-
         footer { background-color: var(--primary-color); color: white; padding: 30px 0; text-align: center; }
 
         @media print {
@@ -151,8 +145,6 @@
     </style>
 </head>
 <body data-bs-spy="scroll" data-bs-target="#navbarNav">
-
-    <div id="cloud-sync"><i class="fas fa-cloud-upload-alt me-2"></i>Synchronisation Cloud universelle...</div>
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg sticky-top d-print-none">
@@ -176,7 +168,7 @@
         </div>
     </nav>
 
-    <!-- En-tête : Séquence Cartographique Validée -->
+    <!-- En-tête : Séquence Cartographique -->
     <header class="hero d-print-none">
         <div class="container">
             <h1 class="display-4">S.O.G.U.I.C.O.T</h1>
@@ -335,6 +327,7 @@
                                 <div class="profile-name">Dr Fodé I. Kourala Keita</div>
                                 <span class="btn-profil-badge" onclick="window.afficherBio('photo-form3', 'Dr Fodé Ibrahima Kourala Keita', 'Formation')"><i class="fas fa-search me-1"></i> Profil</span>
                             </div>
+                            <!-- La photo du Dr Moustapha est intégrée en dur dans GitHub via l'URL ci-dessous -->
                             <div class="text-center" style="min-width: 150px; max-width: 180px;">
                                 <div class="dynamic-img-container" id="photo-form4" style="background-image: url('moustapha.jpg');" onclick="window.afficherBio('photo-form4', 'Dr Alpha Mamadou Felah Diallo', 'Formation')"></div>
                                 <div class="profile-name">Dr Alpha M. Felah Diallo</div>
@@ -590,7 +583,7 @@
                                     <option value="photo-sec2">Secrétariat (Dr Fredy)</option>
                                     <option value="photo-sec3">Secrétariat (Dr Samaké)</option>
                                 </select>
-                                <label class="fw-bold mb-1 small text-primary">2. Charger une nouvelle Photo (Optionnel, Max 2.5Mo) :</label>
+                                <label class="fw-bold mb-1 small text-primary">2. Charger une nouvelle Photo (Max 2.5Mo) :</label>
                                 <input type="file" id="upload-file" class="form-control mb-3" accept="image/*">
                                 <label class="fw-bold mb-1 small text-primary">3. Rédiger la Biographie :</label>
                                 <textarea id="upload-bio" class="form-control mb-3" rows="4" placeholder="Saisissez le parcours, les diplômes..."></textarea>
@@ -622,67 +615,25 @@
     <!-- Scripts Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- NORA ENGINE : MOTEUR CLOUD HYBRIDE SÉCURISÉ -->
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
-        import { getFirestore, collection, addDoc, onSnapshot, query, orderBy, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
-
-        // ==============================================================================
-        // CONFIGURATION CLOUD (Remplacez par vos clés Firebase)
-        // ==============================================================================
-        const firebaseConfig = {
-            apiKey: "VOTRE_API_KEY_ICI",
-            authDomain: "VOTRE_PROJET.firebaseapp.com",
-            projectId: "VOTRE_PROJET",
-            storageBucket: "VOTRE_PROJET.appspot.com",
-            messagingSenderId: "VOTRE_SENDER_ID",
-            appId: "VOTRE_APP_ID"
-        };
-
-        let db;
-        let useCloud = false;
-        // Poids maximum autorisé pour éviter les crashs locaux ou Cloud (2.5 Mo)
-        const MAX_FILE_SIZE = 2.5 * 1024 * 1024;
-
-        try {
-            if (firebaseConfig.apiKey !== "VOTRE_API_KEY_ICI") {
-                const app = initializeApp(firebaseConfig);
-                db = getFirestore(app);
-                useCloud = true;
-            }
-        } catch(e) { console.log("Mode hybride local actif."); }
-
+    <!-- NORA ENGINE : MOTEUR JS PUR ET AUTONOME -->
+    <script>
         document.getElementById('current-year').textContent = new Date().getFullYear();
+        const MAX_FILE_SIZE = 2.5 * 1024 * 1024; // Verrou de sécurité 2.5 Mo
 
-        function toggleSync(show) { 
-            const syncEl = document.getElementById('cloud-sync');
-            if(syncEl) syncEl.style.display = show ? 'block' : 'none'; 
+        // INJECTION DES DONNÉES DE BASE (Pour éviter les sections vides)
+        function initialiserDonneesParDefaut() {
+            if(!localStorage.getItem('sog_pubs')) {
+                let defaultPubs = [
+                    { type: 'info', auteur: 'Le Bureau Exécutif', texte: 'Bienvenue sur le nouveau portail officiel de la SOGUICOT. Cette plateforme est dédiée à la publication de nos travaux scientifiques et à l\'organisation de notre société.', date: new Date().toLocaleDateString('fr-FR'), fileData: null },
+                    { type: 'pub', auteur: 'SOGUICOT', texte: 'Lancement du nouveau registre des membres et du système de partage de cas cliniques.', date: new Date().toLocaleDateString('fr-FR'), fileData: null }
+                ];
+                localStorage.setItem('sog_pubs', JSON.stringify(defaultPubs));
+            }
         }
 
         document.addEventListener("DOMContentLoaded", function() {
-            if (useCloud) {
-                onSnapshot(collection(db, "profils"), (snapshot) => {
-                    let localCachePhotos = {}; let localCacheBios = {};
-                    snapshot.forEach((document) => {
-                        const data = document.data();
-                        localCachePhotos[document.id] = data.photoBase64;
-                        localCacheBios[document.id] = data.bioText;
-                    });
-                    localStorage.setItem('sog_photos', JSON.stringify(localCachePhotos));
-                    localStorage.setItem('sog_bios', JSON.stringify(localCacheBios));
-                    window.chargerDonneesLocales();
-                });
-
-                const q = query(collection(db, "publications"), orderBy("timestamp", "desc"));
-                onSnapshot(q, (snapshot) => {
-                    let pubs = [];
-                    snapshot.forEach((doc) => pubs.push(doc.data()));
-                    localStorage.setItem('sog_pubs', JSON.stringify(pubs));
-                    window.renderPublications(pubs);
-                });
-            } else {
-                window.chargerDonneesLocales();
-            }
+            initialiserDonneesParDefaut();
+            window.chargerDonneesLocales();
             
             setTimeout(() => {
                 const reveals = document.querySelectorAll(".nora-reveal");
@@ -709,7 +660,6 @@
             
             let imgContainer = document.getElementById('bio-img-container');
             
-            // NORA ENGINE : SÉCURITÉ D'AFFICHAGE MODAL (Moustapha GitHub Fallback)
             if(photos[roleId]) {
                 imgContainer.innerHTML = ''; 
                 imgContainer.style.backgroundImage = `url(${photos[roleId]})`;
@@ -717,6 +667,7 @@
                 imgContainer.innerHTML = ''; 
                 imgContainer.style.backgroundImage = `url('WhatsApp%20Image%202026-09-21%20at%2014.24.20.jpeg')`;
             } else if (roleId === 'photo-form4') {
+                // Règle absolue pour Moustapha dans la fenêtre modale
                 imgContainer.innerHTML = ''; 
                 imgContainer.style.backgroundImage = `url('moustapha.jpg')`;
             } else {
@@ -740,50 +691,43 @@
             document.getElementById('step-dashboard').style.display = 'none';
         });
 
-        window.sauvegarderProfil = async function() {
+        window.sauvegarderProfil = function() {
             const role = document.getElementById('upload-role').value;
             const bioText = document.getElementById('upload-bio').value;
             const file = document.getElementById('upload-file').files[0];
             
             if (file && file.size > MAX_FILE_SIZE) {
-                alert("Erreur : La photo dépasse la limite autorisée de 2.5 Mo. Veuillez choisir une image plus légère.");
+                alert("Erreur : La photo dépasse la limite autorisée de 2.5 Mo.");
                 return;
             }
 
-            toggleSync(true);
-            let payload = {};
-            if(bioText.trim() !== "") payload.bioText = bioText;
-
-            const finaliserAction = async (payloadData) => {
-                if (useCloud) {
-                    try { await setDoc(doc(db, "profils", role), payloadData, { merge: true }); }
-                    catch(e) { console.log("Erreur cloud, sauvegarde locale."); }
-                }
+            if(bioText.trim() !== "") {
                 let bios = JSON.parse(localStorage.getItem('sog_bios') || '{}');
-                if(payloadData.bioText) bios[role] = payloadData.bioText;
+                bios[role] = bioText;
                 localStorage.setItem('sog_bios', JSON.stringify(bios));
-
-                if(payloadData.photoBase64) {
-                    let photos = JSON.parse(localStorage.getItem('sog_photos') || '{}');
-                    photos[role] = payloadData.photoBase64;
-                    localStorage.setItem('sog_photos', JSON.stringify(photos));
-                }
-                toggleSync(false);
-                alert("Profil mis à jour avec succès !");
-                bootstrap.Modal.getInstance(adminModal).hide();
-                document.getElementById('upload-bio').value = '';
-                document.getElementById('upload-file').value = '';
-                window.chargerDonneesLocales();
-            };
+            }
 
             if(file) {
                 const reader = new FileReader();
-                reader.onload = function(e) { payload.photoBase64 = e.target.result; finaliserAction(payload); }
+                reader.onload = function(e) {
+                    let photos = JSON.parse(localStorage.getItem('sog_photos') || '{}');
+                    photos[role] = e.target.result;
+                    localStorage.setItem('sog_photos', JSON.stringify(photos));
+                    finaliserSauvegardeProfil();
+                }
                 reader.readAsDataURL(file);
-            } else { finaliserAction(payload); }
+            } else { finaliserSauvegardeProfil(); }
         };
 
-        window.publierArticle = async function() {
+        function finaliserSauvegardeProfil() {
+            alert("Profil mis à jour avec succès !");
+            bootstrap.Modal.getInstance(adminModal).hide();
+            document.getElementById('upload-bio').value = '';
+            document.getElementById('upload-file').value = '';
+            window.chargerDonneesLocales();
+        }
+
+        window.publierArticle = function() {
             const type = document.getElementById('pub-type').value;
             const auteur = document.getElementById('pub-auteur').value;
             const texte = document.getElementById('pub-texte').value;
@@ -791,41 +735,37 @@
             const dateStr = new Date().toLocaleDateString('fr-FR', { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute:'2-digit' });
 
             if (file && file.size > MAX_FILE_SIZE) {
-                alert("Erreur : Le fichier (PDF ou Image) dépasse la limite autorisée de 2.5 Mo.");
+                alert("Erreur : Le fichier dépasse la limite autorisée de 2.5 Mo.");
                 return;
             }
 
             if(auteur.trim() !== "" && texte.trim() !== "") {
-                toggleSync(true);
                 let payload = { type: type, auteur: auteur, texte: texte, date: dateStr, timestamp: Date.now() };
-
-                const finaliserPub = async (payloadData) => {
-                    if (useCloud) {
-                        try { await addDoc(collection(db, "publications"), payloadData); }
-                        catch(e) { console.log("Erreur cloud, publication locale."); }
-                    }
-                    let pubs = JSON.parse(localStorage.getItem('sog_pubs') || '[]');
-                    pubs.unshift(payloadData);
-                    localStorage.setItem('sog_pubs', JSON.stringify(pubs));
-
-                    toggleSync(false);
-                    alert("Contenu diffusé sur le site !");
-                    bootstrap.Modal.getInstance(adminModal).hide();
-                    document.getElementById('pub-auteur').value = ''; 
-                    document.getElementById('pub-texte').value = ''; 
-                    document.getElementById('pub-file').value = '';
-                    window.chargerDonneesLocales();
-                };
 
                 if(file) {
                     payload.isPdf = file.type === "application/pdf";
                     payload.fileName = file.name;
                     const reader = new FileReader();
-                    reader.onload = function(e) { payload.fileData = e.target.result; finaliserPub(payload); }
+                    reader.onload = function(e) { 
+                        payload.fileData = e.target.result; 
+                        enregistrerPubLocales(payload);
+                    }
                     reader.readAsDataURL(file);
-                } else { finaliserPub(payload); }
+                } else { enregistrerPubLocales(payload); }
             } else { alert("Auteur et Contenu sont obligatoires."); }
         };
+
+        function enregistrerPubLocales(payloadData) {
+            let pubs = JSON.parse(localStorage.getItem('sog_pubs') || '[]');
+            pubs.unshift(payloadData);
+            localStorage.setItem('sog_pubs', JSON.stringify(pubs));
+            alert("Contenu diffusé sur le site !");
+            bootstrap.Modal.getInstance(adminModal).hide();
+            document.getElementById('pub-auteur').value = ''; 
+            document.getElementById('pub-texte').value = ''; 
+            document.getElementById('pub-file').value = '';
+            window.chargerDonneesLocales();
+        }
 
         window.renderPublications = function(pubs) {
             let conteneurInfos = document.getElementById('flux-informations');
@@ -866,7 +806,7 @@
         window.chargerDonneesLocales = function() {
             let photos = JSON.parse(localStorage.getItem('sog_photos') || '{}');
             
-            // Sécurité anti-écrasement NORA ENGINE (Moustapha GitHub Override)
+            // Protection de l'affichage de Moustapha
             for (const [role, imgUrl] of Object.entries(photos)) {
                 let div = document.getElementById(role);
                 if(div && imgUrl) {
@@ -879,7 +819,7 @@
                 }
             }
             
-            // Garantie d'affichage de Moustapha si aucune photo n'a été ajoutée par l'admin
+            // Garantie absolue d'affichage de Moustapha (si l'URL n'a pas été écrasée localement)
             let moustaphaDiv = document.getElementById('photo-form4');
             if (moustaphaDiv && !photos['photo-form4']) {
                 moustaphaDiv.innerHTML = '';
