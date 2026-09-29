@@ -84,7 +84,7 @@
         .arrete-logo-container { text-align: center; margin-bottom: 25px; position: relative; z-index: 2;}
         .arrete-logo-img { max-width: 100px; height: auto; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
         
-        /* Sections & NORA REVEAL ANIMATION (Restaurée et sublimée) */
+        /* Sections & NORA REVEAL ANIMATION */
         section { padding: 60px 0; scroll-margin-top: 70px; }
         .nora-reveal { opacity: 0; transform: translateY(40px); transition: all 0.9s cubic-bezier(0.25, 0.8, 0.25, 1); }
         .nora-reveal.active { opacity: 1; transform: translateY(0); }
@@ -108,23 +108,13 @@
         /* LE PROFESSEUR - AFFICHAGE INTÉGRAL, CENTRÉ VISAGE ET MAJESTUEUX */
         .president-card-special { background: linear-gradient(to bottom, #ffffff, #f0f4f8); border-top: 5px solid var(--accent-color); }
         .president-img { 
-            width: 100%; 
-            max-width: 290px; 
-            height: auto; 
-            object-fit: cover; 
-            object-position: center 20%; 
-            border: 8px solid #ffffff; 
-            box-shadow: 0 20px 50px rgba(0, 51, 102, 0.4); 
-            border-radius: 12px; 
-            margin-bottom: 25px; 
-            transition: transform 0.3s ease; 
-            cursor: pointer;
+            width: 100%; max-width: 290px; height: auto; object-fit: cover; object-position: center 20%; 
+            border: 8px solid #ffffff; box-shadow: 0 20px 50px rgba(0, 51, 102, 0.4); border-radius: 12px; 
+            margin-bottom: 25px; transition: transform 0.3s ease; cursor: pointer;
         }
         .president-img:hover { transform: scale(1.02); border-color: var(--accent-color); }
         
-        @media (max-width: 576px) {
-            .president-img { max-width: 220px; border-width: 6px; } 
-        }
+        @media (max-width: 576px) { .president-img { max-width: 220px; border-width: 6px; } }
 
         .bureau-role { font-weight: 800; color: #000000; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 0.5px; }
         .profile-name { line-height: 1.3; font-size: 0.95rem; margin-top: 5px; font-weight: 700; color: #222; }
@@ -203,11 +193,9 @@
     <div class="container mt-4 nora-reveal">
         <div class="arrete-image-css">
             <i class="fas fa-balance-scale arrete-watermark"></i>
-            
             <div class="arrete-logo-container">
                 <img src="logo_soguicot.png" alt="SOGUICOT" class="arrete-logo-img" onerror="this.outerHTML='<i class=\'fas fa-shield-alt fa-3x text-primary\'></i>'">
             </div>
-
             <div class="arrete-content row text-center text-uppercase fw-bold" style="font-size: 0.85rem;">
                 <div class="col-md-5 mb-3 mb-md-0"><p class="mb-1">MINISTERE DE L'ADMINISTRATION DU TERRITOIRE ET DE LA DECENTRALISATION</p><div class="doc-header-line"></div><p class="mb-0 mt-1">SERVICE NATIONAL DE REGLEMENTATION DE PROMOTION DES ORGANISATIONS NON GOUVERNEMENTALES ET MOUVEMENTS ASSOCIATIFS «SERPROMA».</p></div>
                 <div class="col-md-2 d-none d-md-flex align-items-center justify-content-center"></div>
@@ -330,9 +318,9 @@
                         <div class="text-center mb-4"><span class="bureau-role fs-5 text-secondary border-bottom border-secondary pb-1">Cellule Formation</span></div>
                         
                         <div class="d-flex justify-content-center flex-wrap gap-4 mb-4">
-                            <!-- NORA ENGINE: Photo fixe pour le Dr Moustapha (Directement sur GitHub) -->
+                            <!-- NORA ENGINE: Photo fixe pour le Dr Moustapha (Appel forcé vers moustapha.jpg) -->
                             <div class="text-center" style="min-width: 150px; max-width: 180px;">
-                                <div class="dynamic-img-container" id="photo-form1" style="background-image: url('moustapha.jpg');" onclick="window.afficherBio('photo-form1', 'Dr Mamadou Moustapha Diallo', 'Formation')"></div>
+                                <div class="dynamic-img-container" id="photo-form1" style="background-image: url('moustapha.jpg'); background-size: cover;" onclick="window.afficherBio('photo-form1', 'Dr Mamadou Moustapha Diallo', 'Formation')"></div>
                                 <div class="profile-name">Dr M. Moustapha Diallo</div>
                                 <span class="btn-profil-badge" onclick="window.afficherBio('photo-form1', 'Dr Mamadou Moustapha Diallo', 'Formation')"><i class="fas fa-search me-1"></i> Profil</span>
                             </div>
@@ -601,7 +589,7 @@
                                     <option value="photo-sec2">Secrétariat (Dr Fredy)</option>
                                     <option value="photo-sec3">Secrétariat (Dr Samaké)</option>
                                 </select>
-                                <label class="fw-bold mb-1 small text-primary">2. Charger une nouvelle Photo (Optionnel, Max 2.5Mo) :</label>
+                                <label class="fw-bold mb-1 small text-primary">2. Charger une nouvelle Photo (Max 2.5Mo) :</label>
                                 <input type="file" id="upload-file" class="form-control mb-3" accept="image/*">
                                 <label class="fw-bold mb-1 small text-primary">3. Rédiger la Biographie :</label>
                                 <textarea id="upload-bio" class="form-control mb-3" rows="4" placeholder="Saisissez le parcours, les diplômes..."></textarea>
@@ -633,7 +621,7 @@
     <!-- Scripts Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- NORA ENGINE : JS PUR ET AUTONOME (AVEC ANIMATION RESTAURÉE) -->
+    <!-- NORA ENGINE : JS PUR ET AUTONOME (SÉCURISÉ) -->
     <script>
         document.getElementById('current-year').textContent = new Date().getFullYear();
         const MAX_FILE_SIZE = 2.5 * 1024 * 1024; // Verrou de sécurité 2.5 Mo
@@ -688,16 +676,16 @@
             
             let imgContainer = document.getElementById('bio-img-container');
             
-            if(photos[roleId]) {
+            if (roleId === 'photo-form1') {
+                // FORÇAGE ABSOLU DE LA PHOTO DE MOUSTAPHA DANS LA BIO
                 imgContainer.innerHTML = ''; 
-                imgContainer.style.backgroundImage = `url(${photos[roleId]})`;
+                imgContainer.style.backgroundImage = `url('moustapha.jpg')`;
             } else if (roleId === 'photo-president') {
                 imgContainer.innerHTML = ''; 
                 imgContainer.style.backgroundImage = `url('WhatsApp%20Image%202026-09-21%20at%2014.24.20.jpeg')`;
-            } else if (roleId === 'photo-form1') {
-                // Règle absolue pour Moustapha dans la fenêtre modale
+            } else if(photos[roleId]) {
                 imgContainer.innerHTML = ''; 
-                imgContainer.style.backgroundImage = `url('moustapha.jpg')`;
+                imgContainer.style.backgroundImage = `url(${photos[roleId]})`;
             } else {
                 imgContainer.innerHTML = '<i class="fas fa-user-md"></i>'; 
                 imgContainer.style.backgroundImage = 'none';
@@ -834,10 +822,10 @@
         window.chargerDonneesLocales = function() {
             let photos = JSON.parse(localStorage.getItem('sog_photos') || '{}');
             
-            // Protection de l'affichage
             for (const [role, imgUrl] of Object.entries(photos)) {
                 let div = document.getElementById(role);
-                if(div && imgUrl) {
+                // Le forçage de Moustapha empêche la mémoire locale de l'écraser avec une erreur
+                if(div && imgUrl && imgUrl.trim() !== '' && role !== 'photo-form1') {
                     if (role === 'photo-president') { 
                         div.src = imgUrl; 
                     } else { 
@@ -847,9 +835,9 @@
                 }
             }
             
-            // Garantie absolue d'affichage de Moustapha (Dr Mamadou Moustapha Diallo -> photo-form1)
+            // FORÇAGE ABSOLU DE LA PHOTO DE MOUSTAPHA
             let moustaphaDiv = document.getElementById('photo-form1');
-            if (moustaphaDiv && !photos['photo-form1']) {
+            if (moustaphaDiv && (!photos['photo-form1'] || photos['photo-form1'].trim() === '')) {
                 moustaphaDiv.innerHTML = '';
                 moustaphaDiv.style.backgroundImage = "url('moustapha.jpg')";
             }
