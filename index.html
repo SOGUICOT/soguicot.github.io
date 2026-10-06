@@ -25,7 +25,6 @@
             --gold-accent: #D4AF37;
             --bg-light: #F4F7FA;
             --text-dark: #111827;
-            --text-muted: #6B7280;
             --glass-bg: rgba(0, 34, 68, 0.85);
             --glass-border: rgba(255, 255, 255, 0.1);
         }
@@ -55,7 +54,6 @@
         .navbar-brand { font-size: 1.5rem; letter-spacing: 1px; color: #fff !important; font-weight: 700;}
         .nav-link { color: rgba(255,255,255,0.9) !important; font-weight: 500; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s; }
         .nav-link:hover { color: var(--gold-accent) !important; }
-
         .btn-bureau-nav {
             background-color: var(--accent-color); color: white !important; border-radius: 50px; padding: 8px 24px !important; margin-left: 15px; font-weight: 700; box-shadow: 0 4px 15px rgba(230, 57, 70, 0.3); border: 1px solid transparent; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
@@ -74,7 +72,7 @@
         .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); letter-spacing: 4px; text-shadow: 0 15px 30px rgba(0,0,0,0.5); position: relative; z-index: 2;}
         .hero-subtitle { font-size: clamp(1.1rem, 2.5vw, 1.5rem); font-weight: 300; opacity: 0.95; position: relative; z-index: 2; margin-top: 15px;}
         
-        /* ANIMATION CARTOGRAPHIQUE FLUIDE */
+        /* ANIMATION CARTOGRAPHIQUE */
         .map-focus-container { position: relative; height: 180px; width: 180px; margin: 40px auto 0 auto; display: flex; justify-content: center; align-items: center; z-index: 2; }
         .map-layer { position: absolute; opacity: 0; color: #ffffff; animation: sequenceReveal 10s infinite cubic-bezier(0.4, 0, 0.2, 1); }
         .layer-world { animation-delay: 0s; font-size: 6rem; filter: drop-shadow(0 0 20px rgba(255,255,255,0.3));}
@@ -90,7 +88,7 @@
             100% { opacity: 0; }
         }
 
-        /* L'ARRETÉ - DESIGN INSTITUTIONNEL */
+        /* L'ARRETÉ */
         .arrete-image-css {
             background-color: #ffffff; border: 1px solid #e5e7eb; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.1); 
             margin: -80px auto 80px auto; position: relative; z-index: 10; font-family: 'Times New Roman', Times, serif; 
@@ -103,9 +101,8 @@
         .doc-number { color: var(--accent-color); font-size: clamp(1.8rem, 4vw, 2.8rem); font-style: italic; font-weight: bold; padding: 0 10px; }
         .arrete-logo-img { max-width: 110px; height: auto; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); margin-bottom: 35px; position: relative; z-index: 2;}
         
-        /* SECTIONS & NORA REVEAL ENGINE */
+        /* SECTIONS & NORA REVEAL */
         section { padding: 90px 0; scroll-margin-top: 80px; }
-        
         html.js .nora-reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); will-change: opacity, transform; }
         html.js .nora-reveal.active { opacity: 1; transform: translateY(0); }
         
@@ -120,55 +117,41 @@
         }
         .card-bureau::after { content: ''; position: absolute; inset: 0; border-radius: 16px; border: 1px solid rgba(0,0,0,0.05); pointer-events: none; }
         .card-bureau:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0, 51, 102, 0.08); }
+        .card-header-custom { background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); color: white; font-weight: 700; font-size: 1.2rem; padding: 20px 0; letter-spacing: 1px; border-bottom: none; text-transform: uppercase; }
         
-        .card-header-custom { 
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); 
-            color: white; font-weight: 700; font-size: 1.2rem; padding: 20px 0; letter-spacing: 1px; border-bottom: none; text-transform: uppercase;
-        }
-        
+        /* CADRES PHOTOS STRICTEMENT CARRÉS (CORRECTION A) */
         .dynamic-img-container {
             width: 120px; height: 120px; background-color: #f3f4f6; border: 4px solid #ffffff; 
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1); border-radius: 50%; display: flex; 
-            align-items: center; justify-content: center; margin: 0 auto 20px auto; 
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1); 
+            border-radius: 12px; /* Cadre carré arrondi institutionnel unifié */
+            aspect-ratio: 1 / 1; /* Force le carré parfait */
+            display: flex; align-items: center; justify-content: center; margin: 0 auto 20px auto; 
             color: #d1d5db; font-size: 3rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); overflow: hidden;
             background-size: cover; background-position: center; cursor: pointer; position: relative;
         }
         .dynamic-img-container::before { content: "\f0f1"; font-family: "Font Awesome 6 Free"; font-weight: 900; position: absolute; color: rgba(0,0,0,0.04); font-size: 4rem; z-index: 0; }
         .dynamic-img-container:hover { transform: scale(1.06); border-color: var(--accent-color); box-shadow: 0 15px 35px rgba(230, 57, 70, 0.25); z-index: 2;}
-        .dynamic-img-container.large { width: 150px; height: 150px; font-size: 4rem; border-radius: 16px; } /* Coins arrondis pour les hauts responsables */
+        .dynamic-img-container.large { width: 160px; height: 160px; font-size: 4rem; } 
         
-        /* LE PROFESSEUR - MONUMENTAL */
         .president-card-special { background: linear-gradient(180deg, #ffffff, #f8fafc); border-top: 6px solid var(--gold-accent); }
         .president-img { 
             width: 100%; max-width: 320px; aspect-ratio: 1 / 1; object-fit: cover; object-position: center 15%; 
-            border: 8px solid #ffffff; box-shadow: 0 25px 50px rgba(0, 34, 68, 0.15); border-radius: 20px; 
+            border: 8px solid #ffffff; box-shadow: 0 25px 50px rgba(0, 34, 68, 0.15); 
+            border-radius: 12px; /* Uniformisé avec les autres cadres */
             margin: 0 auto 30px auto; transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; display: block;
         }
         .president-img:hover { transform: scale(1.03) translateY(-5px); border-color: var(--gold-accent); box-shadow: 0 35px 60px rgba(212, 175, 55, 0.25); }
 
         .bureau-role { font-weight: 900; color: var(--accent-color); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1.5px; }
         .profile-name { line-height: 1.2; font-size: 1.15rem; margin-top: 8px; font-weight: 800; color: var(--primary-dark); z-index: 2; position: relative; }
-        
-        .btn-profil-badge {
-            background-color: transparent; border: 2px solid var(--primary-color); color: var(--primary-color);
-            font-size: 0.75rem; padding: 6px 16px; border-radius: 50px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;
-            transition: all 0.3s ease; cursor: pointer; display: inline-block; margin-top: 15px;
-        }
+        .btn-profil-badge { background-color: transparent; border: 2px solid var(--primary-color); color: var(--primary-color); font-size: 0.75rem; padding: 6px 16px; border-radius: 50px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; transition: all 0.3s ease; cursor: pointer; display: inline-block; margin-top: 15px; }
         .btn-profil-badge:hover { background-color: var(--primary-color); color: white; box-shadow: 0 8px 20px rgba(0, 51, 102, 0.2); transform: translateY(-2px);}
 
         /* PANNEAUX D'INFORMATIONS */
         .bg-gradient-pro { background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%); border-top: 5px solid var(--accent-color); }
-        .action-publish-container { 
-            background: #ffffff; border-radius: 20px; padding: 40px 30px; 
-            border: 2px dashed #cbd5e1; text-align: center; margin-bottom: 50px; transition: all 0.4s ease; cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-        }
+        .action-publish-container { background: #ffffff; border-radius: 20px; padding: 40px 30px; border: 2px dashed #cbd5e1; text-align: center; margin-bottom: 50px; transition: all 0.4s ease; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
         .action-publish-container:hover { border-color: var(--accent-color); border-style: solid; transform: translateY(-5px); box-shadow: 0 20px 40px rgba(230, 57, 70, 0.1); }
-        
-        .flux-card { 
-            background: #ffffff; border-radius: 16px; padding: 30px; margin-bottom: 25px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.04); border: 1px solid rgba(0,0,0,0.02); transition: transform 0.3s ease; 
-        }
+        .flux-card { background: #ffffff; border-radius: 16px; padding: 30px; margin-bottom: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.04); border: 1px solid rgba(0,0,0,0.02); transition: transform 0.3s ease; }
         .flux-card:hover { transform: translateX(8px); }
         .flux-img { max-width: 100%; height: auto; border-radius: 12px; margin-top: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
 
@@ -177,9 +160,12 @@
         .modal-header { background: var(--primary-dark); border-bottom: none; padding: 25px 30px; }
         .modal-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; letter-spacing: 0.5px; }
         
+        /* ADHÉSION & STATUTS - REFORMATAGE EXHAUSTIF */
+        .statut-item-title { font-size: 1.1rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 10px; display: inline-block;}
+        .statut-list li { margin-bottom: 12px; line-height: 1.6; }
+        
         footer { background-color: var(--primary-dark); color: #9ca3af; padding: 60px 0; text-align: center; border-top: 4px solid var(--accent-color);}
 
-        /* STATUS CLOUD */
         #cloud-status { display: none; position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: rgba(25, 135, 84, 0.95); backdrop-filter: blur(8px); color: white; padding: 10px 24px; border-radius: 50px; font-weight: 600; z-index: 9999; box-shadow: 0 10px 25px rgba(0,0,0,0.15); font-size: 0.9rem; letter-spacing: 0.5px; transition: all 0.3s ease;}
         #cloud-status.offline { background: rgba(220, 53, 69, 0.95); }
 
@@ -195,7 +181,7 @@
 
     <div id="cloud-status"><i class="fas fa-satellite-dish me-2"></i>Serveur Mondial Connecté</div>
 
-    <!-- Navigation Pro -->
+    <!-- Navigation -->
     <nav class="navbar navbar-expand-lg sticky-top d-print-none">
         <div class="container">
             <a class="navbar-brand" href="#"><i class="fas fa-shield-alt me-2 text-white"></i>SOGUICOT</a>
@@ -232,8 +218,8 @@
         </div>
     </header>
 
-    <!-- Arrêté -->
     <main>
+        <!-- Arrêté -->
         <div class="container nora-reveal">
             <div class="arrete-image-css text-center">
                 <i class="fas fa-balance-scale arrete-watermark"></i>
@@ -259,7 +245,6 @@
             <div class="container text-center">
                 <h2 class="section-title">Histoire & Vision</h2>
                 <p class="lead text-muted w-75 mx-auto mb-5" style="font-size: 1.15rem; line-height: 1.8;">Fondée le 19 Mars 2020, la SOGUICOT est le fruit de l'engagement des orthopédistes guinéens. Elle s'érige en garante absolue de l'excellence de la pratique orthopédique et traumatologique en République de Guinée.</p>
-                
                 <div class="row g-5 text-start">
                     <div class="col-lg-6">
                         <div class="p-5 bg-white rounded-4 shadow-sm h-100 border border-light">
@@ -290,7 +275,6 @@
             <h2 class="section-title text-center d-block mx-auto">Le Bureau Exécutif</h2>
             
             <div class="row g-4 mt-4 justify-content-center">
-                <!-- Présidence -->
                 <div class="col-xl-7 col-lg-6 col-md-12">
                     <div class="card card-bureau h-100 text-center president-card-special">
                         <div class="card-header card-header-custom" style="background: var(--primary-dark);">Présidence</div>
@@ -303,7 +287,6 @@
                     </div>
                 </div>
                 
-                <!-- Secrétariat Général -->
                 <div class="col-xl-5 col-lg-6 col-md-12">
                     <div class="card card-bureau h-100 text-center">
                         <div class="card-header card-header-custom">Secrétariat Général</div>
@@ -316,7 +299,6 @@
                     </div>
                 </div>
                 
-                <!-- Trésorerie -->
                 <div class="col-xl-5 col-lg-12">
                     <div class="card card-bureau h-100">
                         <div class="card-header card-header-custom text-center">Trésorerie</div>
@@ -339,7 +321,6 @@
                     </div>
                 </div>
                 
-                <!-- Relations Extérieures (Inclusion du Dr Hawa) -->
                 <div class="col-xl-7 col-lg-12">
                     <div class="card card-bureau h-100">
                         <div class="card-header card-header-custom text-center">Relations extérieures</div>
@@ -415,7 +396,7 @@
                     </div>
                 </div>
 
-                <!-- Secrétariat et informatique -->
+                <!-- Secrétariat -->
                 <div class="col-12">
                     <div class="card card-bureau h-100 border" style="border-color: var(--primary-color) !important;">
                         <div class="card-header card-header-custom text-center" style="background: var(--primary-dark);">Secrétariat et informatique</div>
@@ -439,11 +420,10 @@
                         </div>
                     </div>
                 </div>
-                
             </div>
         </section>
 
-        <!-- PUBLICATIONS ET INFORMATIONS CENTRALISÉES -->
+        <!-- PUBLICATIONS CENTRALISÉES -->
         <div class="bg-gradient-pro py-5 mt-5">
             <div class="container nora-reveal">
                 
@@ -451,7 +431,6 @@
                     <div class="col-12 text-center">
                         <h2 class="section-title">Communication Scientifique</h2>
                         <p class="text-muted mb-4 fs-5">Plateforme de partage et registre des cas cliniques de la SOGUICOT.</p>
-                        
                         <div class="action-publish-container d-inline-block mx-auto" data-bs-toggle="modal" data-bs-target="#adminModal">
                             <div class="bg-light rounded-circle d-inline-flex align-items-center justify-content-center mb-4" style="width:90px; height:90px; box-shadow: 0 8px 20px rgba(0,0,0,0.05);">
                                 <i class="fas fa-globe fa-2x" style="color: var(--accent-color);"></i>
@@ -465,53 +444,105 @@
                 <div class="row g-5">
                     <div class="col-xl-6 col-lg-6">
                         <h3 class="fw-bold text-primary mb-4 pb-3 font-serif" style="border-bottom: 3px solid var(--primary-color);"><i class="fas fa-bullhorn me-3"></i>Informations Officielles</h3>
-                        <div id="flux-informations">
-                            <div class="text-muted fst-italic text-center py-5 bg-white rounded-4 shadow-sm border border-light">Initialisation du module...</div>
-                        </div>
+                        <div id="flux-informations"><div class="text-muted fst-italic text-center py-5 bg-white rounded-4 shadow-sm border border-light">Initialisation du module...</div></div>
                     </div>
-
                     <div class="col-xl-6 col-lg-6">
                         <h3 class="fw-bold text-danger mb-4 pb-3 font-serif" style="border-bottom: 3px solid var(--accent-color);"><i class="fas fa-book-medical me-3"></i>Cas Cliniques</h3>
-                        <div id="flux-publications">
-                            <div class="text-muted fst-italic text-center py-5 bg-white rounded-4 shadow-sm border border-light">Initialisation du module...</div>
-                        </div>
+                        <div id="flux-publications"><div class="text-muted fst-italic text-center py-5 bg-white rounded-4 shadow-sm border border-light">Initialisation du module...</div></div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- STATUTS ET ADHÉSION -->
+        <!-- STATUTS ET ADHÉSION - INTÉGRALITÉ RESTAURÉE (CORRECTION B) -->
         <section id="adhesion" class="nora-reveal">
             <div class="container">
                 <h2 class="section-title text-center d-block mx-auto">Adhésion & Statuts</h2>
-                <div class="row g-5 mt-4">
+                
+                <div class="row g-4 mt-3">
+                    
+                    <!-- Article 1 -->
                     <div class="col-lg-6">
                         <div class="card border-0 shadow-sm h-100" style="border-radius: 16px; border-left: 6px solid #10b981 !important;">
-                            <div class="card-header bg-transparent fw-bold py-4 fs-4 border-bottom text-dark font-serif">Critères d'Adhésion</div>
-                            <div class="card-body p-4 p-md-5" style="font-size: 1.05rem; line-height: 1.8;">
-                                <ul class="mb-5 list-unstyled">
-                                    <li class="mb-4 d-flex"><i class="fas fa-money-bill-wave text-success mt-1 me-3"></i><span>Anciens membres : Demande d’adhésion + 100 000 GNF.</span></li>
-                                    <li class="d-flex"><i class="fas fa-user-plus text-success mt-1 me-3"></i><span>Nouveaux membres (dès le 1er Août) : Demande + 200 000 GNF.</span></li>
+                            <div class="card-body p-4 p-md-5">
+                                <h4 class="fw-bold text-success border-bottom pb-3 mb-4 font-serif">1- Volets d'Adhésion</h4>
+                                <ul class="statut-list list-unstyled">
+                                    <li class="d-flex"><i class="fas fa-check text-success mt-1 me-3"></i><span>Tous les anciens membres doivent faire une demande d’adhésion avec un montant de 100 000 GNF adressée au président de la société.</span></li>
+                                    <li class="d-flex"><i class="fas fa-check text-success mt-1 me-3"></i><span>Les nouveaux membres (à partir du 1er Août) doivent en plus de la demande d’adhésion payer 200 000 GNF.</span></li>
                                 </ul>
-                                <h5 class="fw-bold text-success mb-3">Prérequis Obligatoire :</h5>
-                                <div class="p-3 bg-light rounded text-dark fw-bold border-start border-4 border-success">Diplôme d’État en Médecine</div>
+                                <span class="statut-item-title text-success mt-3">Critère fondamental d’adhésion :</span>
+                                <p class="mb-0 fw-bold bg-light p-2 rounded">Diplôme d’État en médecine.</p>
                             </div>
                         </div>
                     </div>
+
+                    <!-- Article 2 -->
+                    <div class="col-lg-6">
+                        <div class="card border-0 shadow-sm h-100" style="border-radius: 16px; border-left: 6px solid #3b82f6 !important;">
+                            <div class="card-body p-4 p-md-5">
+                                <h4 class="fw-bold text-primary border-bottom pb-3 mb-4 font-serif">2- Membres de la SOGUICOT</h4>
+                                <p class="text-muted fst-italic mb-3">La Société reconnaît quatre catégories de membres :</p>
+                                
+                                <span class="statut-item-title text-primary">Membres titulaires (Seniors) :</span>
+                                <ul class="statut-list ps-3 text-muted" style="font-size: 0.95rem;">
+                                    <li>Ont quatre années d’ancienneté ;</li>
+                                    <li>Se sont acquittés de la totalité de la cotisation ;</li>
+                                    <li>Ont participé effectivement aux activités de la société ;</li>
+                                    <li>Peuvent être membre du bureau exécutif.</li>
+                                </ul>
+
+                                <span class="statut-item-title text-primary mt-2">Membres seniors :</span>
+                                <ul class="statut-list ps-3 text-muted" style="font-size: 0.95rem;">
+                                    <li>Détenteur du diplôme de spécialiste en orthopédie/traumatologie ;</li>
+                                    <li>Nationalité guinéenne exerçant la profession.</li>
+                                </ul>
+
+                                <span class="statut-item-title text-primary mt-2">Membres juniors :</span>
+                                <p class="text-muted ps-3 mb-2" style="font-size: 0.95rem;">Médecins de nationalité guinéenne en cours de formation en chirurgie orthopédique et traumatologique.</p>
+
+                                <span class="statut-item-title text-primary mt-2">Membres associés & d'Honneur :</span>
+                                <p class="text-muted ps-3 mb-0" style="font-size: 0.95rem;">Médecins guinéens d'une autre spécialité, orthopédistes étrangers, anciens présidents, ou toute personne ayant rendu des services éminents.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Article 3 -->
+                    <div class="col-lg-6">
+                        <div class="card border-0 shadow-sm h-100" style="border-radius: 16px; border-left: 6px solid #f59e0b !important;">
+                            <div class="card-body p-4 p-md-5">
+                                <h4 class="fw-bold text-warning border-bottom pb-3 mb-4 font-serif">3- Obligations des Membres</h4>
+                                <ul class="statut-list list-unstyled">
+                                    <li class="d-flex mb-3"><i class="fas fa-exclamation-circle text-warning mt-1 me-3"></i><span><strong>Participation :</strong> Obligatoire aux réunions. Trois (3) absences, même justifiées, sont passibles d’une amende de 500 000 GNF dans un délai de 72h.</span></li>
+                                    <li class="d-flex"><i class="fas fa-exclamation-circle text-warning mt-1 me-3"></i><span><strong>Cotisations :</strong> Le paiement incomplet des cotisations au 31 décembre entraine l'obligation du paiement du reste dû, plus une amende de 500 000 GNF au plus tard le 28 février de l’année suivante.</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Article 4 & 5 -->
                     <div class="col-lg-6">
                         <div class="card border-0 shadow-sm h-100" style="border-radius: 16px; border-left: 6px solid #ef4444 !important;">
-                            <div class="card-header bg-transparent fw-bold py-4 fs-4 border-bottom text-dark font-serif">Règlement & Radiations</div>
-                            <div class="card-body p-4 p-md-5" style="font-size: 1.05rem; line-height: 1.8;">
-                                <h5 class="fw-bold text-danger mb-4">Motifs d'exclusion stricts :</h5>
-                                <ul class="list-unstyled mb-0">
-                                    <li class="mb-4 d-flex"><i class="fas fa-ban text-danger mt-1 me-3"></i><span>3 absences successives aux réunions statutaires (même justifiées).</span></li>
-                                    <li class="mb-4 d-flex"><i class="fas fa-ban text-danger mt-1 me-3"></i><span>Refus de s'acquitter des amendes d’absence.</span></li>
-                                    <li class="d-flex"><i class="fas fa-ban text-danger mt-1 me-3"></i><span>Défaut de paiement de la cotisation annuelle sur 12 mois consécutifs.</span></li>
+                            <div class="card-body p-4 p-md-5">
+                                <h4 class="fw-bold text-danger border-bottom pb-3 mb-4 font-serif">4- Critères d'Exclusion</h4>
+                                <ul class="statut-list ps-3 mb-4 text-danger fw-bold" style="font-size: 0.95rem;">
+                                    <li>3 absences successives aux réunions (même justifiées).</li>
+                                    <li>Refus du paiement des amendes d’absence.</li>
+                                    <li>Non-paiement de la cotisation sur 12 mois.</li>
+                                </ul>
+
+                                <h4 class="fw-bold text-primary border-bottom pb-3 mb-3 mt-4 font-serif" style="font-size: 1.2rem;">5- Avantages Liés</h4>
+                                <ul class="statut-list ps-3 text-muted" style="font-size: 0.9rem;">
+                                    <li>La SOGUICOT est le garant de l’exercice et le répondant devant l'État.</li>
+                                    <li>Bénéfice prioritaire des formations théoriques et pratiques liées aux coopérations.</li>
+                                    <li>Représentation officielle dans les réunions scientifiques.</li>
+                                    <li>Participation gratuite aux congrès organisés par la société.</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
+
                 </div>
+
                 <div class="text-center mt-5 pt-5 d-print-none">
                     <button class="btn btn-nora btn-lg px-5 py-4 shadow-lg fw-bold text-white" style="border-radius: 50px; font-size: 1.2rem; background: var(--primary-dark);" id="btn-inscription">
                         <i class="fas fa-user-plus me-2"></i>Inscrire un nouveau membre
@@ -529,7 +560,7 @@
         </div>
     </footer>
 
-    <!-- MODAL : BIOGRAPHIE (GLASSMORPHISM) -->
+    <!-- MODAL : BIOGRAPHIE -->
     <div class="modal fade" id="bioModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -562,13 +593,11 @@
                         <input type="password" id="admin-code" class="form-control form-control-lg mb-4 text-center" placeholder="Code secret SOGUICOT..." style="border-radius: 12px; background: #f8fafc;">
                         <button class="btn btn-lg w-100 fw-bold shadow text-white" id="btn-unlock" style="border-radius: 12px; background: var(--accent-color);"><i class="fas fa-unlock me-2"></i>Déverrouiller le Serveur</button>
                     </div>
-
                     <div id="step-dashboard" style="display: none;">
                         <ul class="nav nav-pills mb-4 justify-content-center" role="tablist">
                             <li class="nav-item"><button class="nav-link active fw-bold px-4" data-bs-toggle="pill" data-bs-target="#tab-photo" style="border-radius: 30px;">Gérer un Profil</button></li>
                             <li class="nav-item ms-2"><button class="nav-link fw-bold px-4 text-white" data-bs-toggle="pill" data-bs-target="#tab-pub" style="border-radius: 30px; background: var(--accent-color);">Publier (Cloud)</button></li>
                         </ul>
-                        
                         <div class="tab-content pt-4">
                             <!-- Profil -->
                             <div class="tab-pane fade show active" id="tab-photo">
@@ -583,7 +612,6 @@
                                 <textarea id="upload-bio" class="form-control form-control-lg mb-4" rows="4" placeholder="Saisissez la biographie..." style="border-radius: 12px;"></textarea>
                                 <button class="btn btn-lg w-100 fw-bold text-white" id="btn-save-profile" style="background: var(--primary-dark); border-radius: 12px;"><i class="fas fa-cloud-upload-alt me-2"></i> Sauvegarder sur le Serveur</button>
                             </div>
-                            
                             <!-- Publication -->
                             <div class="tab-pane fade" id="tab-pub">
                                 <select id="pub-type" class="form-select form-select-lg mb-4 shadow-sm" style="border-radius: 12px;">
@@ -607,86 +635,44 @@
     <script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore-compat.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- NORA ENGINE : SOGUICOT OS (POO / MODULE ISOLÉ) -->
+    <!-- NORA ENGINE : SOGUICOT OS -->
     <script>
-        /**
-         * SOGUICOT ENGINE (PRO MODE)
-         * Architecture Orientée Objet - Sécurisée et Autonome
-         */
         const SoguicotEngine = (function() {
-            // Configuration Cloud (À remplir par le Dr Samaké)
-            const FIREBASE_CONFIG = {
-                apiKey: "VOTRE_API_KEY_ICI",
-                authDomain: "VOTRE_PROJET.firebaseapp.com",
-                projectId: "VOTRE_PROJET"
-            };
+            const FIREBASE_CONFIG = { apiKey: "VOTRE_API_KEY_ICI", authDomain: "VOTRE_PROJET.firebaseapp.com", projectId: "VOTRE_PROJET" };
+            const MAX_FILE_SIZE = 2.5 * 1024 * 1024;
+            let db = null; let isCloudActive = false;
 
-            const MAX_FILE_SIZE = 2.5 * 1024 * 1024; // 2.5 Mo
-            let db = null;
-            let isCloudActive = false;
-
-            // DOM Elements
             const els = {
-                year: document.getElementById('current-year'),
-                adminCode: document.getElementById('admin-code'),
-                stepPwd: document.getElementById('step-password'),
-                stepDash: document.getElementById('step-dashboard'),
-                btnUnlock: document.getElementById('btn-unlock'),
-                btnSaveProf: document.getElementById('btn-save-profile'),
-                btnPublish: document.getElementById('btn-publish'),
-                btnInsc: document.getElementById('btn-inscription'),
-                cloudStatus: document.getElementById('cloud-status'),
-                fluxInfos: document.getElementById('flux-informations'),
-                fluxPubs: document.getElementById('flux-publications'),
-                bioModal: null // Initialized later
+                year: document.getElementById('current-year'), adminCode: document.getElementById('admin-code'), stepPwd: document.getElementById('step-password'),
+                stepDash: document.getElementById('step-dashboard'), btnUnlock: document.getElementById('btn-unlock'), btnSaveProf: document.getElementById('btn-save-profile'),
+                btnPublish: document.getElementById('btn-publish'), btnInsc: document.getElementById('btn-inscription'), cloudStatus: document.getElementById('cloud-status'),
+                fluxInfos: document.getElementById('flux-informations'), fluxPubs: document.getElementById('flux-publications'), bioModal: null
             };
 
-            // Méthode de Sécurité : Assainissement du texte (Anti-XSS basique)
-            const sanitize = (str) => {
-                const temp = document.createElement('div');
-                temp.textContent = str;
-                return temp.innerHTML.replace(/\n/g, '<br>');
-            };
+            const sanitize = (str) => { const temp = document.createElement('div'); temp.textContent = str; return temp.innerHTML.replace(/\n/g, '<br>'); };
 
-            // Initialisation du système
             const init = () => {
                 els.year.textContent = new Date().getFullYear();
                 els.bioModal = new bootstrap.Modal(document.getElementById('bioModal'));
-                
-                setupFirebase();
-                setupEventListeners();
-                initLocalData();
-                setupAnimations();
+                setupFirebase(); setupEventListeners(); initLocalData(); setupAnimations();
             };
 
             const setupFirebase = () => {
                 if (FIREBASE_CONFIG.apiKey !== "VOTRE_API_KEY_ICI") {
                     try {
-                        firebase.initializeApp(FIREBASE_CONFIG);
-                        db = firebase.firestore();
-                        isCloudActive = true;
-                        
-                        els.cloudStatus.style.display = 'block';
-                        setTimeout(() => els.cloudStatus.style.display = 'none', 4000);
-                        
-                        // Listeners Cloud
+                        firebase.initializeApp(FIREBASE_CONFIG); db = firebase.firestore(); isCloudActive = true;
+                        els.cloudStatus.style.display = 'block'; setTimeout(() => els.cloudStatus.style.display = 'none', 4000);
                         db.collection("profils").onSnapshot((snap) => {
-                            let photos = {}, bios = {};
-                            snap.forEach(doc => { photos[doc.id] = doc.data().photoBase64; bios[doc.id] = doc.data().bioText; });
-                            localStorage.setItem('sog_photos', JSON.stringify(photos)); localStorage.setItem('sog_bios', JSON.stringify(bios));
-                            renderProfiles();
+                            let photos = {}, bios = {}; snap.forEach(doc => { photos[doc.id] = doc.data().photoBase64; bios[doc.id] = doc.data().bioText; });
+                            localStorage.setItem('sog_photos', JSON.stringify(photos)); localStorage.setItem('sog_bios', JSON.stringify(bios)); renderProfiles();
                         });
                         db.collection("publications").orderBy("timestamp", "desc").onSnapshot((snap) => {
-                            let pubs = []; snap.forEach(doc => pubs.push(doc.data()));
-                            localStorage.setItem('sog_pubs', JSON.stringify(pubs));
-                            renderPublications(pubs);
+                            let pubs = []; snap.forEach(doc => pubs.push(doc.data())); localStorage.setItem('sog_pubs', JSON.stringify(pubs)); renderPublications(pubs);
                         });
                     } catch(e) { console.error("Cloud Error"); }
                 } else {
                     els.cloudStatus.innerHTML = '<i class="fas fa-exclamation-triangle me-2"></i>Mode Local Actif (Cloud désactivé)';
-                    els.cloudStatus.className = 'offline';
-                    els.cloudStatus.style.display = 'block';
-                    setTimeout(() => els.cloudStatus.style.display = 'none', 5000);
+                    els.cloudStatus.className = 'offline'; els.cloudStatus.style.display = 'block'; setTimeout(() => els.cloudStatus.style.display = 'none', 5000);
                     renderProfiles();
                 }
             };
@@ -700,54 +686,29 @@
 
             const setupAnimations = () => {
                 setTimeout(() => {
-                    const observer = new IntersectionObserver((entries) => {
-                        entries.forEach(e => { if(e.isIntersecting) e.target.classList.add("active"); });
-                    }, { threshold: 0.1 });
+                    const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if(e.isIntersecting) e.target.classList.add("active"); }); }, { threshold: 0.1 });
                     document.querySelectorAll(".nora-reveal").forEach(el => observer.observe(el));
                 }, 100);
             };
 
             const setupEventListeners = () => {
                 els.btnUnlock.addEventListener('click', () => {
-                    if(els.adminCode.value === "SOGUICOT2026") {
-                        els.stepPwd.style.display = 'none'; els.stepDash.style.display = 'block';
-                    } else alert("Accès refusé.");
+                    if(els.adminCode.value === "SOGUICOT2026") { els.stepPwd.style.display = 'none'; els.stepDash.style.display = 'block'; } else alert("Accès refusé.");
                 });
-                
-                document.getElementById('adminModal').addEventListener('hidden.bs.modal', () => {
-                    els.adminCode.value = ''; els.stepPwd.style.display = 'block'; els.stepDash.style.display = 'none';
-                });
-
-                els.btnInsc.addEventListener('click', () => {
-                    if(prompt("Code Secrétariat (SOGUICOT) :") === "SOGUICOT2026") window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLSdC8EZa8TJsakGVjckZkpYqZsQ2tf3pUW-OGuhj9Z8cva4_kw/viewform?usp=header";
-                    else alert("Accès refusé.");
-                });
-
-                els.btnSaveProf.addEventListener('click', saveProfile);
-                els.btnPublish.addEventListener('click', publishArticle);
-
-                // Délégation d'événements pour les boutons/images de biographie
+                document.getElementById('adminModal').addEventListener('hidden.bs.modal', () => { els.adminCode.value = ''; els.stepPwd.style.display = 'block'; els.stepDash.style.display = 'none'; });
+                els.btnInsc.addEventListener('click', () => { if(prompt("Code Secrétariat (SOGUICOT) :") === "SOGUICOT2026") window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLSdC8EZa8TJsakGVjckZkpYqZsQ2tf3pUW-OGuhj9Z8cva4_kw/viewform?usp=header"; else alert("Accès refusé."); });
+                els.btnSaveProf.addEventListener('click', saveProfile); els.btnPublish.addEventListener('click', publishArticle);
                 document.querySelectorAll('.btn-bio-trigger').forEach(btn => {
                     btn.addEventListener('click', (e) => {
-                        const target = e.currentTarget;
-                        const roleId = target.getAttribute('data-role');
-                        // Récupération des infos depuis la carte si ce n'est pas précisé sur le bouton
+                        const target = e.currentTarget; const roleId = target.getAttribute('data-role');
                         let name, title;
-                        if(target.hasAttribute('data-name')) {
-                            name = target.getAttribute('data-name');
-                            title = target.getAttribute('data-title');
-                        } else {
-                            // Trouver le container parent pour extraire le nom
-                            const container = document.getElementById(roleId);
-                            name = container.getAttribute('data-name');
-                            title = container.getAttribute('data-title');
-                        }
+                        if(target.hasAttribute('data-name')) { name = target.getAttribute('data-name'); title = target.getAttribute('data-title'); } 
+                        else { const container = document.getElementById(roleId); name = container.getAttribute('data-name'); title = container.getAttribute('data-title'); }
                         showBio(roleId, name, title);
                     });
                 });
             };
 
-            // LOGIQUE DE FORÇAGE EN DUR (RÈGLES D'OR NORA)
             const getHardcodedImage = (roleId) => {
                 if (roleId === 'photo-form1') return 'moustapha.jpg';
                 if (roleId === 'photo-rel3') return 'hawa.jpg';
@@ -756,43 +717,23 @@
             };
 
             const showBio = (roleId, nom, titre) => {
-                const photos = JSON.parse(localStorage.getItem('sog_photos') || '{}');
-                const bios = JSON.parse(localStorage.getItem('sog_bios') || '{}');
-                
-                document.getElementById('bio-name').textContent = nom;
-                document.getElementById('bio-role').textContent = titre;
+                const photos = JSON.parse(localStorage.getItem('sog_photos') || '{}'); const bios = JSON.parse(localStorage.getItem('sog_bios') || '{}');
+                document.getElementById('bio-name').textContent = nom; document.getElementById('bio-role').textContent = titre;
                 document.getElementById('bio-text').innerHTML = bios[roleId] ? sanitize(bios[roleId]) : "<em>Biographie en cours de rédaction.</em>";
-                
-                const imgContainer = document.getElementById('bio-img-container');
-                const hardcodedImg = getHardcodedImage(roleId);
-                
+                const imgContainer = document.getElementById('bio-img-container'); const hardcodedImg = getHardcodedImage(roleId);
                 imgContainer.innerHTML = '';
-                if (hardcodedImg) {
-                    imgContainer.style.backgroundImage = `url('${hardcodedImg}')`;
-                } else if(photos[roleId]) {
-                    imgContainer.style.backgroundImage = `url(${photos[roleId]})`;
-                } else {
-                    imgContainer.style.backgroundImage = 'none';
-                    imgContainer.innerHTML = '<i class="fas fa-user-md"></i>';
-                }
+                if (hardcodedImg) imgContainer.style.backgroundImage = `url('${hardcodedImg}')`;
+                else if(photos[roleId]) imgContainer.style.backgroundImage = `url(${photos[roleId]})`;
+                else { imgContainer.style.backgroundImage = 'none'; imgContainer.innerHTML = '<i class="fas fa-user-md"></i>'; }
                 els.bioModal.show();
             };
 
             const renderProfiles = () => {
                 const photos = JSON.parse(localStorage.getItem('sog_photos') || '{}');
-                
-                // Parcourir tous les containers
                 document.querySelectorAll('.dynamic-img-container, .president-img').forEach(el => {
-                    const role = el.id;
-                    const hardcodedImg = getHardcodedImage(role);
-                    
-                    if (hardcodedImg) {
-                        if (el.tagName === 'IMG') el.src = hardcodedImg;
-                        else el.style.backgroundImage = `url('${hardcodedImg}')`;
-                    } else if (photos[role]) {
-                        if (el.tagName === 'IMG') el.src = photos[role];
-                        else el.style.backgroundImage = `url(${photos[role]})`;
-                    }
+                    const role = el.id; const hardcodedImg = getHardcodedImage(role);
+                    if (hardcodedImg) { if (el.tagName === 'IMG') el.src = hardcodedImg; else el.style.backgroundImage = `url('${hardcodedImg}')`; } 
+                    else if (photos[role]) { if (el.tagName === 'IMG') el.src = photos[role]; else el.style.backgroundImage = `url(${photos[role]})`; }
                 });
             };
 
@@ -820,75 +761,39 @@
                 els.fluxPubs.innerHTML = htmlPubs || '<div class="text-muted text-center py-5 bg-white rounded-4 border">Aucun cas clinique.</div>';
             };
 
-            // Actions API
             const saveProfile = async () => {
-                const role = document.getElementById('upload-role').value;
-                const bioText = document.getElementById('upload-bio').value;
-                const file = document.getElementById('upload-file').files[0];
-                
+                const role = document.getElementById('upload-role').value; const bioText = document.getElementById('upload-bio').value; const file = document.getElementById('upload-file').files[0];
                 if (file && file.size > MAX_FILE_SIZE) return alert("Fichier trop lourd (Max 2.5Mo).");
                 let payload = {}; if(bioText.trim()) payload.bioText = bioText;
-
                 const pushData = async (data) => {
-                    if(isCloudActive) {
-                        try { await db.collection("profils").doc(role).set(data, { merge: true }); alert("Sauvegarde Cloud OK."); }
-                        catch(e) { alert("Erreur Serveur."); }
-                    } else {
-                        let bios = JSON.parse(localStorage.getItem('sog_bios') || '{}');
-                        if(data.bioText) bios[role] = data.bioText;
-                        localStorage.setItem('sog_bios', JSON.stringify(bios));
-                        if(data.photoBase64) {
-                            let photos = JSON.parse(localStorage.getItem('sog_photos') || '{}');
-                            photos[role] = data.photoBase64; localStorage.setItem('sog_photos', JSON.stringify(photos));
-                        }
+                    if(isCloudActive) { try { await db.collection("profils").doc(role).set(data, { merge: true }); alert("Sauvegarde Cloud OK."); } catch(e) { alert("Erreur Serveur."); } } 
+                    else {
+                        let bios = JSON.parse(localStorage.getItem('sog_bios') || '{}'); if(data.bioText) bios[role] = data.bioText; localStorage.setItem('sog_bios', JSON.stringify(bios));
+                        if(data.photoBase64) { let photos = JSON.parse(localStorage.getItem('sog_photos') || '{}'); photos[role] = data.photoBase64; localStorage.setItem('sog_photos', JSON.stringify(photos)); }
                         alert("Sauvegarde Locale OK."); renderProfiles();
                     }
                     bootstrap.Modal.getInstance(document.getElementById('adminModal')).hide();
                 };
-
-                if(file) {
-                    const reader = new FileReader();
-                    reader.onload = e => { payload.photoBase64 = e.target.result; pushData(payload); }
-                    reader.readAsDataURL(file);
-                } else pushData(payload);
+                if(file) { const reader = new FileReader(); reader.onload = e => { payload.photoBase64 = e.target.result; pushData(payload); }; reader.readAsDataURL(file); } else pushData(payload);
             };
 
             const publishArticle = async () => {
-                const type = document.getElementById('pub-type').value;
-                const auteur = document.getElementById('pub-auteur').value;
-                const texte = document.getElementById('pub-texte').value;
-                const file = document.getElementById('pub-file').files[0];
-                
-                if (file && file.size > MAX_FILE_SIZE) return alert("Fichier trop lourd.");
-                if(!auteur.trim() || !texte.trim()) return alert("Auteur et texte requis.");
-
+                const type = document.getElementById('pub-type').value; const auteur = document.getElementById('pub-auteur').value; const texte = document.getElementById('pub-texte').value; const file = document.getElementById('pub-file').files[0];
+                if (file && file.size > MAX_FILE_SIZE) return alert("Fichier trop lourd."); if(!auteur.trim() || !texte.trim()) return alert("Auteur et texte requis.");
                 let payload = { type, auteur, texte, date: new Date().toLocaleDateString('fr-FR', { day: '2-digit', month: 'long', year: 'numeric' }), timestamp: Date.now() };
-
                 const pushPub = async (data) => {
-                    if(isCloudActive) {
-                        try { await db.collection("publications").add(data); alert("Publication diffusée."); }
-                        catch(e) { alert("Erreur Serveur."); }
-                    } else {
-                        let pubs = JSON.parse(localStorage.getItem('sog_pubs') || '[]');
-                        pubs.unshift(data); localStorage.setItem('sog_pubs', JSON.stringify(pubs));
-                        alert("Publication Locale OK."); renderPublications(pubs);
-                    }
+                    if(isCloudActive) { try { await db.collection("publications").add(data); alert("Publication diffusée."); } catch(e) { alert("Erreur Serveur."); } } 
+                    else { let pubs = JSON.parse(localStorage.getItem('sog_pubs') || '[]'); pubs.unshift(data); localStorage.setItem('sog_pubs', JSON.stringify(pubs)); alert("Publication Locale OK."); renderPublications(pubs); }
                     bootstrap.Modal.getInstance(document.getElementById('adminModal')).hide();
                 };
-
                 if(file) {
                     payload.isPdf = file.type === "application/pdf"; payload.fileName = file.name;
-                    const reader = new FileReader();
-                    reader.onload = e => { payload.fileData = e.target.result; pushPub(payload); }
-                    reader.readAsDataURL(file);
+                    const reader = new FileReader(); reader.onload = e => { payload.fileData = e.target.result; pushPub(payload); }; reader.readAsDataURL(file);
                 } else pushPub(payload);
             };
 
-            // Public API
             return { init };
         })();
-
-        // Démarrage du moteur au chargement complet
         document.addEventListener("DOMContentLoaded", SoguicotEngine.init);
     </script>
 </body>
